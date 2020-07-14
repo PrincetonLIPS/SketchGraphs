@@ -18,6 +18,7 @@ the data, as well as a couple of starter models which implement GNN-type strateg
    :recursive:
 
    sketchgraphs
+   sketchgraphs_models
 
 
 
