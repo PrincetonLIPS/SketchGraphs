@@ -1,45 +1,24 @@
 #pylint: disable=missing-module-docstring,missing-function-docstring
 
-import json
-import os
-import tarfile
-
 import numpy as np
 
 from sketchgraphs.data.sequence import sketch_to_sequence, NodeOp, EdgeOp
 from sketchgraphs.data.sketch import Sketch, render_sketch, EntityType, ConstraintType, SubnodeType, get_sequence_dof
 
 
-def sketch_json_sample():
-    sample_file = 'tests/testdata/sample_json.tar.xz'
-
-    result = []
-
-    with tarfile.open(sample_file, 'r:xz') as tar_archive:
-        for f in tar_archive:
-            if not f.isfile():
-                continue
-            result.extend(json.load(tar_archive.extractfile(f)))
-
-    return result
-
-
-def test_sketch_from_json():
-    sketch_json_list = sketch_json_sample()
-
-    for sketch_json in sketch_json_list:
+def test_sketch_from_json(sketches_json):
+    for sketch_json in sketches_json:
         Sketch.from_fs_json(sketch_json)
 
 
-def test_sequence_from_sketch():
-    sketch_json_list = sketch_json_sample()
+def test_sequence_from_sketch(sketches_json):
 
-    for sketch_json in sketch_json_list:
+    for sketch_json in sketches_json:
         sketch = Sketch.from_fs_json(sketch_json)
         seq = sketch_to_sequence(sketch)
 
-def test_plot_sketch():
-    sketch_json_list = sketch_json_sample()[:10]
+def test_plot_sketch(sketches_json):
+    sketch_json_list = sketches_json[:10]
 
     for sketch_json in sketch_json_list:
         fig = render_sketch(Sketch.from_fs_json(sketch_json))
