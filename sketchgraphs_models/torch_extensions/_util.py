@@ -1,7 +1,7 @@
 import os
 
 try:
-    from gencad import _native_component as torch_extensions
+    from . import _native_component as torch_extensions
 except ImportError:
     torch_extensions = None
 

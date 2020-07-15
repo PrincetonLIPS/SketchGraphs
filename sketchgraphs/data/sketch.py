@@ -9,12 +9,10 @@ from collections import OrderedDict
 from . import _entity
 from . import _constraint
 from . import _plotting
-from . import _dof
 
 from ._entity import *
 from ._constraint import *
 from ._plotting import render_sketch
-from ._dof import *
 
 
 class Sketch:
@@ -66,4 +64,4 @@ class Sketch:
         return 'Sketch(n_entities={0}, n_constraints={1})'.format(len(self.entities), len(self.constraints))
 
 
-__all__ = ['Sketch'] + _entity.__all__ + _constraint.__all__ + _plotting.__all__ + _dof.__all__
+__all__ = ['Sketch'] + _entity.__all__ + _constraint.__all__ + _plotting.__all__
