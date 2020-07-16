@@ -113,7 +113,7 @@ def train(node_feature_mapping, edge_feature_mapping, dataloader_train, args, ou
 
     opt = _opt_factories[args['optimizer']](model.parameters(), lr=args['learning_rate'] * 16)
     scheduler = torch.optim.lr_scheduler.LambdaLR(
-        opt, functools.partial(_lr_schedule, warmup_epochs=5, decay_epochs=[50, 100]))
+        opt, functools.partial(_lr_schedule, warmup_epochs=5, decay_epochs=[20, 40]))
 
     if distributed_utils.is_leader(dist_config):
         tb_writer_main = torch.utils.tensorboard.SummaryWriter(output_dir)

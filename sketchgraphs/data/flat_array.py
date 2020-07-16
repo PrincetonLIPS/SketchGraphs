@@ -394,14 +394,18 @@ def load_dictionary_flat(data):
 
     Parameters
     ----------
-    data : np.ndarray
-        ndarray of bytes representing the underlying data for the flat dictionary.
+    data : Union[np.ndarray, str]
+        ndarray of bytes representing the underlying data for the flat dictionary, or a string
+        representing the filename from which to load the dictionary.
 
     Returns
     -------
     dict
         A dictionary containing elements serialized in the data buffer.
     """
+    if not isinstance(data, np.ndarray):
+        data = np.load(data, mmap_mode='r')
+
     offset = 0
     magic, offset = _next_slice(data, offset, 1)
 

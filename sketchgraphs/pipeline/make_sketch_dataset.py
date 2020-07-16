@@ -13,10 +13,12 @@ import gzip
 import itertools
 import json
 import multiprocessing as mp
+import tarfile
 import traceback
 
 import numpy as np
 import tqdm
+import zstandard as zstd
 
 from sketchgraphs.data.sketch import Sketch
 from sketchgraphs.data import flat_array
@@ -28,9 +30,40 @@ def _load_json(path):
         return json.load(fh)
 
 
-def _filter_sketch(sketch: Sketch):
+def filter_sketch(sketch: Sketch):
     """Basic filtering which excludes empty sketches, or sketches with no constraints."""
     return len(sketch.constraints) == 0 or len(sketch.entities) == 0
+
+
+def load_json_tarball(path):
+    """Loads a json tarball as an iterable of sketches.
+
+    Parameters
+    ----------
+    path : str
+        A path to the location of a single shard
+
+    Returns
+    -------
+    iterable of `Sketch`
+        An iterable of `Sketch` representing all the sketches present in the tarball.
+    """
+    with open(path, 'rb') as base_file:
+        dctx = zstd.ZstdDecompressor()
+        with dctx.stream_reader(base_file) as tarball:
+            with tarfile.open(fileobj=tarball, mode='r|') as directory:
+                while True:
+                    json_file = directory.next()
+                    if json_file is None:
+                        break
+
+                    if not json_file.isfile():
+                        continue
+
+                    sketches_json = json.load(directory.extractfile(json_file))
+                    for sketch_json in sketches_json:
+                        yield Sketch.from_fs_json(sketch_json)
+
 
 
 def _worker(paths_queue, processed_sketches, max_sketches, sketch_counter):
@@ -56,7 +89,7 @@ def _worker(paths_queue, processed_sketches, max_sketches, sketch_counter):
                     print('Error processing sketch in file {0}'.format(path))
                     traceback.print_exception(type(err), err, err.__traceback__)
 
-                if _filter_sketch(sketch):
+                if filter_sketch(sketch):
                     num_filtered += 1
                     continue
 

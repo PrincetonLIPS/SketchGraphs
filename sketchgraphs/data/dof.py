@@ -165,7 +165,7 @@ def get_sequence_dof(seq):
     for i, op in enumerate(seq):
         if isinstance(op, NodeOp):
             nodes.append(op)
-            out[i] = NODE_DOF.get(get_node_label_for_dof(op.label), 0)
+            out[i] = NODE_DOF.get(op.label, 0)
         elif isinstance(op, EdgeOp):
             out[i] = -1*_get_dof_removed_for_edge(op, nodes)
     return out
