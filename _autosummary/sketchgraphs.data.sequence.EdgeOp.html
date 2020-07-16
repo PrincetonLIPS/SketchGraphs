@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs.data.sequence.EdgeOp &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs.data.sequence.NodeOp" href="sketchgraphs.data.sequence.NodeOp.html" />
+    <link rel="prev" title="sketchgraphs.data.sequence" href="sketchgraphs.data.sequence.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.constraint_checks.html">sketchgraphs.data.constraint_checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.dof.html">sketchgraphs.data.dof</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.flat_array.html">sketchgraphs.data.flat_array</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs.data.sequence.html">sketchgraphs.data.sequence</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs.data.sequence.EdgeOp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs.data.sequence.NodeOp.html">sketchgraphs.data.sequence.NodeOp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sketch.html">sketchgraphs.data.sketch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.data.html">sketchgraphs.data</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.data.sequence.html">sketchgraphs.data.sequence</a> &raquo;</li>
+        
+      <li>sketchgraphs.data.sequence.EdgeOp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs.data.sequence.EdgeOp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sketchgraphs-data-sequence-edgeop">
+<h1>sketchgraphs.data.sequence.EdgeOp<a class="headerlink" href="#sketchgraphs-data-sequence-edgeop" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sketchgraphs.data.sequence.EdgeOp">
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs.data.sequence.</code><code class="sig-name descname">EdgeOp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n">sketchgraphs.data._constraint.ConstraintType</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n">Tuple[int, …]</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n">dict</span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents an edge (or constraint) operation in a construction sequence.</p>
+<p>An edge is specified by a label, a variable number of targets, and a dictionary of parameters.
+Targets for an edge are nodes, which are referred to using their index in the construction sequence.</p>
+<dl class="py method">
+<dt id="sketchgraphs.data.sequence.EdgeOp.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.data.sequence.EdgeOp.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n">sketchgraphs.data._constraint.ConstraintType</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n">Tuple[int, …]</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n">dict</span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of EdgeOp(label, references, parameters)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.data.sequence.EdgeOp.label">
+<em class="property">property </em><code class="sig-name descname">label</code><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.data.sequence.EdgeOp.parameters">
+<em class="property">property </em><code class="sig-name descname">parameters</code><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.data.sequence.EdgeOp.references">
+<em class="property">property </em><code class="sig-name descname">references</code><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.references" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs.data.sequence.NodeOp.html" class="btn btn-neutral float-right" title="sketchgraphs.data.sequence.NodeOp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.data.sequence.html" class="btn btn-neutral float-left" title="sketchgraphs.data.sequence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

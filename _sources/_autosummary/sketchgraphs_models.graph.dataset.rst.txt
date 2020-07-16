@@ -1,0 +1,46 @@
+sketchgraphs\_models.graph.dataset
+==================================
+
+.. automodule:: sketchgraphs_models.graph.dataset
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      GraphDataset
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: collate
+   .. autofunction:: graph_info_from_sequence
+   .. autofunction:: sketch_to_sequence
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs_models.graph.dataset.benchmark
+

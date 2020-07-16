@@ -1,0 +1,43 @@
+sketchgraphs.data.flat\_array
+=============================
+
+.. automodule:: sketchgraphs.data.flat_array
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      FlatSerializedArray
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: human_bytes
+   .. autofunction:: load_dictionary_flat
+   .. autofunction:: load_flat_array
+   .. autofunction:: merge_raw_list
+   .. autofunction:: pack_dictionary_flat
+   .. autofunction:: pack_list_flat
+   .. autofunction:: raw_list_flat
+   .. autofunction:: save_list_flat
+   
+   
+
+
+   
+   
+   
+
+
+

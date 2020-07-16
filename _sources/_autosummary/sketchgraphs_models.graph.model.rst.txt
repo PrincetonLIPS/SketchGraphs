@@ -1,0 +1,47 @@
+sketchgraphs\_models.graph.model
+================================
+
+.. automodule:: sketchgraphs_models.graph.model
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      EdgePartnerNetwork
+      GraphModel
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: make_graph_model
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs_models.graph.model.losses
+   sketchgraphs_models.graph.model.message_passing
+   sketchgraphs_models.graph.model.numerical_features
+

@@ -1,0 +1,9 @@
+sketchgraphs\_models.graph.train.harness.GraphModelHarness
+==========================================================
+
+.. currentmodule:: sketchgraphs_models.graph.train.harness
+
+.. autoclass:: GraphModelHarness
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

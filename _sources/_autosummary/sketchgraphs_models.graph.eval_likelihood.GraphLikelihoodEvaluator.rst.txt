@@ -1,0 +1,9 @@
+sketchgraphs\_models.graph.eval\_likelihood.GraphLikelihoodEvaluator
+====================================================================
+
+.. currentmodule:: sketchgraphs_models.graph.eval_likelihood
+
+.. autoclass:: GraphLikelihoodEvaluator
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

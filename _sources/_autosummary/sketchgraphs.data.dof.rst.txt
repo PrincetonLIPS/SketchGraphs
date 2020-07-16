@@ -1,0 +1,30 @@
+sketchgraphs.data.dof
+=====================
+
+.. automodule:: sketchgraphs.data.dof
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: get_node_label_for_dof
+   .. autofunction:: get_sequence_dof
+   
+   
+
+
+   
+   
+   
+
+
+

@@ -1,0 +1,9 @@
+sketchgraphs\_models.nn.summary.ClassificationSummary
+=====================================================
+
+.. currentmodule:: sketchgraphs_models.nn.summary
+
+.. autoclass:: ClassificationSummary
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

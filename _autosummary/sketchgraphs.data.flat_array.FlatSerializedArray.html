@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs.data.flat_array.FlatSerializedArray &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs.data.sequence" href="sketchgraphs.data.sequence.html" />
+    <link rel="prev" title="sketchgraphs.data.flat_array" href="sketchgraphs.data.flat_array.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.constraint_checks.html">sketchgraphs.data.constraint_checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.dof.html">sketchgraphs.data.dof</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs.data.flat_array.html">sketchgraphs.data.flat_array</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs.data.flat_array.FlatSerializedArray</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sequence.html">sketchgraphs.data.sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sketch.html">sketchgraphs.data.sketch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.data.html">sketchgraphs.data</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.data.flat_array.html">sketchgraphs.data.flat_array</a> &raquo;</li>
+        
+      <li>sketchgraphs.data.flat_array.FlatSerializedArray</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs.data.flat_array.FlatSerializedArray.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sketchgraphs-data-flat-array-flatserializedarray">
+<h1>sketchgraphs.data.flat_array.FlatSerializedArray<a class="headerlink" href="#sketchgraphs-data-flat-array-flatserializedarray" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sketchgraphs.data.flat_array.FlatSerializedArray">
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">FlatSerializedArray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offsets</span></em>, <em class="sig-param"><span class="n">pickle_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.FlatSerializedArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class implements a flat pickle-serialized array of python objects backed by a byte buffer.</p>
+<p>This class behaves as a standard immutable list of python objects, but materializes a new object on
+each access. This allows it to use memory-mapped byte arrays as its underlying storage, which enable
+random access and arrays larger than system memory.</p>
+<dl class="py method">
+<dt id="sketchgraphs.data.flat_array.FlatSerializedArray.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offsets</span></em>, <em class="sig-param"><span class="n">pickle_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.FlatSerializedArray.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes a new array from offsets and pickled data.</p>
+<p>Note: users will typically wish to create a new instance of this class using
+the static method <a class="reference internal" href="#sketchgraphs.data.flat_array.FlatSerializedArray.from_flat_array" title="sketchgraphs.data.flat_array.FlatSerializedArray.from_flat_array"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">from_flat_array</span></code></a>, which provides a view into the flat array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offsets</strong> (<em>array_like</em>) – an array of offsets into the data representing each object.</p></li>
+<li><p><strong>pickle_data</strong> (<em>array_like</em>) – an array of bytes representing the serialized data for all objects.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.data.flat_array.FlatSerializedArray.from_flat_array">
+<em class="property">static </em><code class="sig-name descname">from_flat_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">byte_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.FlatSerializedArray.from_flat_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new <a class="reference internal" href="#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a> from the provided bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>byte_data</strong> (<em>array_like</em>) – A bytes-like object which provides the underlying storage for flat array of objects.
+This is usually obtained through <a class="reference internal" href="sketchgraphs.data.flat_array.html#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An instance of <a class="reference internal" href="#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a> providing a view into the data given by the provided bytes.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray">FlatSerializedArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.data.flat_array.FlatSerializedArray.share_memory_">
+<code class="sig-name descname">share_memory_</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.FlatSerializedArray.share_memory_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the underlying to a <code class="xref any docutils literal notranslate"><span class="pre">torch</span></code> shared memory location.</p>
+<p>Calling this method will transition the storage to torch tensors, and move
+them to a shared memory location. This will enable sharing the tensors across
+different processes without copying when using <code class="xref any docutils literal notranslate"><span class="pre">torch.multiprocessing</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs.data.sequence.html" class="btn btn-neutral float-right" title="sketchgraphs.data.sequence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.data.flat_array.html" class="btn btn-neutral float-left" title="sketchgraphs.data.flat_array" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

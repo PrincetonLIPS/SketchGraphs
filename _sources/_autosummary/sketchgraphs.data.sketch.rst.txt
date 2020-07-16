@@ -1,0 +1,31 @@
+sketchgraphs.data.sketch
+========================
+
+.. automodule:: sketchgraphs.data.sketch
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Sketch
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+

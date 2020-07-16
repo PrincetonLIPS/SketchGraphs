@@ -1,0 +1,36 @@
+sketchgraphs.pipeline
+=====================
+
+.. automodule:: sketchgraphs.pipeline
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs.pipeline.graph_model
+   sketchgraphs.pipeline.make_quantization_statistics
+   sketchgraphs.pipeline.make_sequence_dataset
+   sketchgraphs.pipeline.make_sketch_dataset
+   sketchgraphs.pipeline.numerical_parameters
+

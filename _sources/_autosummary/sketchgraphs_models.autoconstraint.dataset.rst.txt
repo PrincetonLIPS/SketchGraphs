@@ -1,0 +1,37 @@
+sketchgraphs\_models.autoconstraint.dataset
+===========================================
+
+.. automodule:: sketchgraphs_models.autoconstraint.dataset
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      AutoconstraintDataset
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: collate
+   .. autofunction:: process_node_and_edge_ops
+   
+   
+
+
+   
+   
+   
+
+
+

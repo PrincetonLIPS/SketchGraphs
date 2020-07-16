@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs_models.graph.sample.GraphSamplingModel &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs_models.graph.train" href="sketchgraphs_models.graph.train.html" />
+    <link rel="prev" title="sketchgraphs_models.graph.sample" href="sketchgraphs_models.graph.sample.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.distributed_utils.html">sketchgraphs_models.distributed_utils</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.dataset.html">sketchgraphs_models.graph.dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.entropy_rate.html">sketchgraphs_models.graph.entropy_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.eval_likelihood.html">sketchgraphs_models.graph.eval_likelihood</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.model.html">sketchgraphs_models.graph.model</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs_models.graph.sample.html">sketchgraphs_models.graph.sample</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs_models.graph.sample.GraphSamplingModel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.train.html">sketchgraphs_models.graph.train</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.html">sketchgraphs_models</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.graph.sample.html">sketchgraphs_models.graph.sample</a> &raquo;</li>
+        
+      <li>sketchgraphs_models.graph.sample.GraphSamplingModel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs_models.graph.sample.GraphSamplingModel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sketchgraphs-models-graph-sample-graphsamplingmodel">
+<h1>sketchgraphs_models.graph.sample.GraphSamplingModel<a class="headerlink" href="#sketchgraphs-models-graph-sample-graphsamplingmodel" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel">
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs_models.graph.sample.</code><code class="sig-name descname">GraphSamplingModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_core</span></em>, <em class="sig-param"><span class="n">entity_label</span></em>, <em class="sig-param"><span class="n">entity_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_post_embedding</span></em>, <em class="sig-param"><span class="n">edge_label</span></em>, <em class="sig-param"><span class="n">edge_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_partner</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_core</span></em>, <em class="sig-param"><span class="n">entity_label</span></em>, <em class="sig-param"><span class="n">entity_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_post_embedding</span></em>, <em class="sig-param"><span class="n">edge_label</span></em>, <em class="sig-param"><span class="n">edge_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_partner</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.from_numerical_model">
+<em class="property">static </em><code class="sig-name descname">from_numerical_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html#sketchgraphs_models.graph.model.GraphModel" title="sketchgraphs_models.graph.model.GraphModel">sketchgraphs_models.graph.model.GraphModel</a></span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.from_numerical_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new sampling model from the given numerical model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_label">
+<code class="sig-name descname">sample_edge_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">targets</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples edge labels.</p>
+<p>This function samples edge label types for given edges between the last node in the graph
+and the specified target node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>GraphInfo</em>) – the graph (or batch of graphs) for which to obtain edge labels</p></li>
+<li><p><strong>targets</strong> (<em>torch.Tensor</em>) – A tensor indicating the indices of the edges</p></li>
+<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An integer tensor containing the sampled edge labels.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_target">
+<code class="sig-name descname">sample_edge_target</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples edge targets.</p>
+<p>This function samples potential edges between the last node and a given target.
+The sampled target may potentially be one past the end of the nodes, indicating
+that no new edges should be created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>GraphInfo</em>) – the graph (or batch of graphs) for which to obtain node labels.</p></li>
+<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An integer tensor containing the sampled edge target for each graph in the batch.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_entity_features">
+<code class="sig-name descname">sample_entity_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">target_type</span></em>, <em class="sig-param"><span class="n">features</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_entity_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples entity features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>GraphInfo</em>) – The graph (or batch of graphs) for which to obtain node features</p></li>
+<li><p><strong>target_type</strong> (<a class="reference internal" href="sketchgraphs.pipeline.graph_model.target.TargetType.html#sketchgraphs.pipeline.graph_model.target.TargetType" title="sketchgraphs.pipeline.graph_model.target.TargetType"><em>TargetType</em></a>) – The target type / label of the entity for which to sample features</p></li>
+<li><p><strong>features</strong> (<em>torch.Tensor</em>) – An integer tensor corresponding to the entity features</p></li>
+<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An integer tensor containing the sampled node features</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_node_label">
+<code class="sig-name descname">sample_node_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_node_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples node labels.</p>
+<p>This function samples a node label for the last node in each graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>GraphInfo</em>) – The graph (or batch of graph for which to obtain node labels).</p></li>
+<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An integer tensor containing a sampled node label for each graph in the batch.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs_models.graph.train.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.train" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs_models.graph.sample.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

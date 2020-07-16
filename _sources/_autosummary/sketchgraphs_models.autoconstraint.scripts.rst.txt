@@ -1,0 +1,33 @@
+sketchgraphs\_models.autoconstraint.scripts
+===========================================
+
+.. automodule:: sketchgraphs_models.autoconstraint.scripts
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs_models.autoconstraint.scripts.eval_statistics_mask
+   sketchgraphs_models.autoconstraint.scripts.eval_statistics_stratified
+

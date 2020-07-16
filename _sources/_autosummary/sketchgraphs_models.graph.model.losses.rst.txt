@@ -1,0 +1,37 @@
+sketchgraphs\_models.graph.model.losses
+=======================================
+
+.. automodule:: sketchgraphs_models.graph.model.losses
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: compute_average_losses
+   .. autofunction:: compute_edge_losses
+   .. autofunction:: compute_feature_loss
+   .. autofunction:: compute_losses
+   .. autofunction:: compute_node_losses
+   .. autofunction:: compute_subnode_losses
+   .. autofunction:: merge_losses_and_accuracy
+   .. autofunction:: segment_stop_accuracy
+   .. autofunction:: segment_stop_loss
+   
+   
+
+
+   
+   
+   
+
+
+

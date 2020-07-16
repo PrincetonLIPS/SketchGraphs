@@ -1,0 +1,9 @@
+sketchgraphs\_models.torch\_extensions.segment\_ops.SegmentLogsumexpNative
+==========================================================================
+
+.. currentmodule:: sketchgraphs_models.torch_extensions.segment_ops
+
+.. autoclass:: SegmentLogsumexpNative
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

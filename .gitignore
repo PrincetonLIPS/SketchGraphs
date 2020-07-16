@@ -1,5 +1,0 @@
-.pytest_cache/
-__pycache__/
-
-docs/_autosummary
-docs/_build

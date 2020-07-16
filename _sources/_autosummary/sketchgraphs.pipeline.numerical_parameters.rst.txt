@@ -1,0 +1,31 @@
+sketchgraphs.pipeline.numerical\_parameters
+===========================================
+
+.. automodule:: sketchgraphs.pipeline.numerical_parameters
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: make_quantization
+   .. autofunction:: make_unique_cdf
+   .. autofunction:: normalize_expression
+   
+   
+
+
+   
+   
+   
+
+
+

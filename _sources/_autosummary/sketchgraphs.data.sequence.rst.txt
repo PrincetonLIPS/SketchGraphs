@@ -1,0 +1,37 @@
+sketchgraphs.data.sequence
+==========================
+
+.. automodule:: sketchgraphs.data.sequence
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      EdgeOp
+      NodeOp
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: sketch_to_sequence
+   
+   
+
+
+   
+   
+   
+
+
+

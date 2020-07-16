@@ -1,0 +1,9 @@
+sketchgraphs\_models.training.TrainingHarness
+=============================================
+
+.. currentmodule:: sketchgraphs_models.training
+
+.. autoclass:: TrainingHarness
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

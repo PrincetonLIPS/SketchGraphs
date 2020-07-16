@@ -1,0 +1,41 @@
+sketchgraphs\_models.graph.model.numerical\_features
+====================================================
+
+.. automodule:: sketchgraphs_models.graph.model.numerical_features
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      NumericalFeatureDecoder
+      NumericalFeatureEncoding
+      NumericalFeatureReadout
+      NumericalFeaturesEmbedding
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: edge_decoder_initial_input
+   .. autofunction:: entity_decoder_initial_input
+   .. autofunction:: make_embedding_and_readout
+   
+   
+
+
+   
+   
+   
+
+
+

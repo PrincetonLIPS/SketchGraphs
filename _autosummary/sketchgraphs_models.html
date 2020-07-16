@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs_models &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs_models.autoconstraint" href="sketchgraphs_models.autoconstraint.html" />
+    <link rel="prev" title="sketchgraphs.pipeline.numerical_parameters" href="sketchgraphs.pipeline.numerical_parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sketchgraphs_models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.distributed_utils.html">sketchgraphs_models.distributed_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>sketchgraphs_models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs_models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-sketchgraphs_models">
+<span id="sketchgraphs-models"></span><h1>sketchgraphs_models<a class="headerlink" href="#module-sketchgraphs_models" title="Permalink to this headline">¶</a></h1>
+<p>This module contains supporting code to the main sketchgraphs dataset. In particular, it contains two models based
+on graph representations of the data, which are geared towards the task of generation (see <a class="reference internal" href="sketchgraphs_models.graph.html"><span class="doc">sketchgraphs_models.graph</span></a>)
+and autoconstrain (see <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs_models.autoconstrain</span></code>). In addition, this module contains a number of submodules
+to help the implementation of these models.</p>
+<p class="rubric">Modules</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.autoconstraint.html#module-sketchgraphs_models.autoconstraint" title="sketchgraphs_models.autoconstraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.autoconstraint</span></code></a></p></td>
+<td><p>This module implements the model, dataset and training procedure for the auto-constraint model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sketchgraphs_models.distributed_utils.html#module-sketchgraphs_models.distributed_utils" title="sketchgraphs_models.distributed_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.distributed_utils</span></code></a></p></td>
+<td><p>Utility functions for distributed (multi-gpu) training.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.graph.html#module-sketchgraphs_models.graph" title="sketchgraphs_models.graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.graph</span></code></a></p></td>
+<td><p>This module contains the main implementation for the graph models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sketchgraphs_models.nn.html#module-sketchgraphs_models.nn" title="sketchgraphs_models.nn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.nn</span></code></a></p></td>
+<td><p>Neural network layers and utilities.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.torch_extensions.html#module-sketchgraphs_models.torch_extensions" title="sketchgraphs_models.torch_extensions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.torch_extensions</span></code></a></p></td>
+<td><p>Pytorch extensions for our models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sketchgraphs_models.training.html#module-sketchgraphs_models.training" title="sketchgraphs_models.training"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.training</span></code></a></p></td>
+<td><p>Utilities for model training.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs_models.autoconstraint.html" class="btn btn-neutral float-right" title="sketchgraphs_models.autoconstraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.pipeline.numerical_parameters.html" class="btn btn-neutral float-left" title="sketchgraphs.pipeline.numerical_parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

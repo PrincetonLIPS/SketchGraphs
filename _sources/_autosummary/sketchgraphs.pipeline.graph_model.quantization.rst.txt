@@ -1,0 +1,33 @@
+sketchgraphs.pipeline.graph\_model.quantization
+===============================================
+
+.. automodule:: sketchgraphs.pipeline.graph_model.quantization
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      EdgeFeatureMapping
+      EntityFeatureMapping
+      QuantizationMap
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+

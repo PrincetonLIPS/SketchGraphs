@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs_models.training" href="sketchgraphs_models.training.html" />
+    <link rel="prev" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop" href="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.distributed_utils.html">sketchgraphs_models.distributed_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.index.html">sketchgraphs_models.torch_extensions.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.multi_logit.html">sketchgraphs_models.torch_extensions.multi_logit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_indirect.html">sketchgraphs_models.torch_extensions.segment_indirect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_ops.html">sketchgraphs_models.torch_extensions.segment_ops</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.html">sketchgraphs_models.torch_extensions.segment_pool</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.html">sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DNative.html">sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DNative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop.html">sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.html">sketchgraphs_models</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.torch_extensions.segment_pool.html">sketchgraphs_models.torch_extensions.segment_pool</a> &raquo;</li>
+        
+      <li>sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sketchgraphs-models-torch-extensions-segment-pool-segmentmaxpool1dnative">
+<h1>sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative<a class="headerlink" href="#sketchgraphs-models-torch-extensions-segment-pool-segmentmaxpool1dnative" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative">
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.segment_pool.</code><code class="sig-name descname">SegmentMaxPool1DNative</code><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.backward">
+<em class="property">static </em><code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">grad_output</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a formula for differentiating the operation.</p>
+<p>This function is to be overridden by all subclasses.</p>
+<p>It must accept a context <code class="xref py py-attr docutils literal notranslate"><span class="pre">ctx</span></code> as the first argument, followed by
+as many outputs did <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> return, and it should return as many
+tensors, as there were inputs to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a>. Each argument is the
+gradient w.r.t the given output, and each returned value should be the
+gradient w.r.t. the corresponding input.</p>
+<p>The context can be used to retrieve tensors saved during the forward
+pass. It also has an attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">ctx.needs_input_grad</span></code> as a tuple
+of booleans representing whether each input needs gradient. E.g.,
+<a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.backward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> will have <code class="docutils literal notranslate"><span class="pre">ctx.needs_input_grad[0]</span> <span class="pre">=</span> <span class="pre">True</span></code> if the
+first input to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> needs gradient computated w.r.t. the
+output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward">
+<em class="property">static </em><code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">return_indices</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DNative.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the operation.</p>
+<p>This function is to be overridden by all subclasses.</p>
+<p>It must accept a context ctx as the first argument, followed by any
+number of arguments (tensors or other types).</p>
+<p>The context can be used to store tensors that can be then retrieved
+during the backward pass.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs_models.training.html" class="btn btn-neutral float-right" title="sketchgraphs_models.training" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop.html" class="btn btn-neutral float-left" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

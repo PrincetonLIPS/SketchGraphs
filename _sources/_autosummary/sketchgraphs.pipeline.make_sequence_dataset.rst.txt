@@ -1,0 +1,39 @@
+sketchgraphs.pipeline.make\_sequence\_dataset
+=============================================
+
+.. automodule:: sketchgraphs.pipeline.make_sequence_dataset
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      FilterReason
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: filter_sketch
+   .. autofunction:: main
+   .. autofunction:: make_default_filter_config
+   .. autofunction:: process
+   
+   
+
+
+   
+   
+   
+
+
+

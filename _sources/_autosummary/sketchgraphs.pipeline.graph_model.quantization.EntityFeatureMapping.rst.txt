@@ -1,0 +1,9 @@
+sketchgraphs.pipeline.graph\_model.quantization.EntityFeatureMapping
+====================================================================
+
+.. currentmodule:: sketchgraphs.pipeline.graph_model.quantization
+
+.. autoclass:: EntityFeatureMapping
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

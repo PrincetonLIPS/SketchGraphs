@@ -1,0 +1,31 @@
+sketchgraphs\_models.autoconstraint.scripts.eval\_statistics\_stratified
+========================================================================
+
+.. automodule:: sketchgraphs_models.autoconstraint.scripts.eval_statistics_stratified
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: boxplot_stratified
+   .. autofunction:: compute_stratified_statistics
+   .. autofunction:: main
+   
+   
+
+
+   
+   
+   
+
+
+

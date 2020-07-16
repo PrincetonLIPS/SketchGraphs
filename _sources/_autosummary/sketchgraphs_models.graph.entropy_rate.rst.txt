@@ -1,0 +1,31 @@
+sketchgraphs\_models.graph.entropy\_rate
+========================================
+
+.. automodule:: sketchgraphs_models.graph.entropy_rate
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: compress_sequences
+   .. autofunction:: main
+   .. autofunction:: sequence_to_integers
+   
+   
+
+
+   
+   
+   
+
+
+

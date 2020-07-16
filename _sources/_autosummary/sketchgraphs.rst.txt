@@ -1,0 +1,33 @@
+sketchgraphs
+============
+
+.. automodule:: sketchgraphs
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs.data
+   sketchgraphs.pipeline
+

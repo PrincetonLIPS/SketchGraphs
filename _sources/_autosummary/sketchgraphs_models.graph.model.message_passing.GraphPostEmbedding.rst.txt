@@ -1,0 +1,9 @@
+sketchgraphs\_models.graph.model.message\_passing.GraphPostEmbedding
+====================================================================
+
+.. currentmodule:: sketchgraphs_models.graph.model.message_passing
+
+.. autoclass:: GraphPostEmbedding
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__
