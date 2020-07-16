@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs.pipeline.graph_model.quantization.EntityFeatureMapping" href="sketchgraphs.pipeline.graph_model.quantization.EntityFeatureMapping.html" />
+    <link rel="prev" title="sketchgraphs.pipeline.graph_model.quantization" href="sketchgraphs.pipeline.graph_model.quantization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs.pipeline.graph_model.html">sketchgraphs.pipeline.graph_model</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="sketchgraphs.pipeline.graph_model.quantization.html">sketchgraphs.pipeline.graph_model.quantization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs.pipeline.graph_model.target.html">sketchgraphs.pipeline.graph_model.target</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.make_quantization_statistics.html">sketchgraphs.pipeline.make_quantization_statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.make_sequence_dataset.html">sketchgraphs.pipeline.make_sequence_dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.make_sketch_dataset.html">sketchgraphs.pipeline.make_sketch_dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.numerical_parameters.html">sketchgraphs.pipeline.numerical_parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.pipeline.graph_model.html">sketchgraphs.pipeline.graph_model</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.pipeline.graph_model.quantization.html">sketchgraphs.pipeline.graph_model.quantization</a> &raquo;</li>
+        
+      <li>sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sketchgraphs-pipeline-graph-model-quantization-edgefeaturemapping">
+<h1>sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping<a class="headerlink" href="#sketchgraphs-pipeline-graph-model-quantization-edgefeaturemapping" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping">
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs.pipeline.graph_model.quantization.</code><code class="sig-name descname">EdgeFeatureMapping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">angle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class for extracting numerical features from edges.</p>
+<dl class="py method">
+<dt id="sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">angle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new mapping, which uses the specified angle and length quantizers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.all_sparse_features">
+<code class="sig-name descname">all_sparse_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_ops</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.all_sparse_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates sparse features from the given edge ops for all supported labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edge_ops</strong> (<em>List of EdgeOp</em>) – The list of edge operations for which to extract the sparse features.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary with keys given by <code class="xref any docutils literal notranslate"><span class="pre">supported_targets</span></code>, and values representing
+the corresponding sparse features in a <code class="xref any docutils literal notranslate"><span class="pre">SparseFeatureBatch</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.feature_schema">
+<em class="property">property </em><code class="sig-name descname">feature_schema</code><a class="headerlink" href="#sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.feature_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a dictionary representing the schema for numerical features.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.features_from_index">
+<code class="sig-name descname">features_from_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indices</span></em>, <em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.features_from_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtains categorical features from the given indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>indices</strong> (<em>sequence of integers</em>) – A sequence of integers representing the index of each sub-feature</p></li>
+<li><p><strong>target</strong> (<a class="reference internal" href="sketchgraphs.pipeline.graph_model.target.TargetType.html#sketchgraphs.pipeline.graph_model.target.TargetType" title="sketchgraphs.pipeline.graph_model.target.TargetType"><code class="xref any py py-class docutils literal notranslate"><span class="pre">TargetType</span></code></a>) – The type of target that should be decoded from the indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An ordered dictionary containing the decoded features.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>collections.OrderedDict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.sparse_numerical_features">
+<code class="sig-name descname">sparse_numerical_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_ops</span></em>, <em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.graph_model.quantization.EdgeFeatureMapping.sparse_numerical_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates sparse numeric features from the given edge ops for the given label.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs.pipeline.graph_model.quantization.EntityFeatureMapping.html" class="btn btn-neutral float-right" title="sketchgraphs.pipeline.graph_model.quantization.EntityFeatureMapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.pipeline.graph_model.quantization.html" class="btn btn-neutral float-left" title="sketchgraphs.pipeline.graph_model.quantization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

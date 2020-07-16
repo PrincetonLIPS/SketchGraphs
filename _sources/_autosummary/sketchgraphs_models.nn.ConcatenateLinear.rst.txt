@@ -1,0 +1,9 @@
+sketchgraphs\_models.nn.ConcatenateLinear
+=========================================
+
+.. currentmodule:: sketchgraphs_models.nn
+
+.. autoclass:: ConcatenateLinear
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

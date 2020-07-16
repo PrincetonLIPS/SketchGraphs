@@ -1,0 +1,33 @@
+sketchgraphs.pipeline.graph\_model
+==================================
+
+.. automodule:: sketchgraphs.pipeline.graph_model
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs.pipeline.graph_model.quantization
+   sketchgraphs.pipeline.graph_model.target
+

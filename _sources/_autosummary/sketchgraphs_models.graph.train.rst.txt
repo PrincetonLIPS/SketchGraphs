@@ -1,0 +1,42 @@
+sketchgraphs\_models.graph.train
+================================
+
+.. automodule:: sketchgraphs_models.graph.train
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: get_argsparser
+   .. autofunction:: main
+   .. autofunction:: make_model_with_arguments
+   .. autofunction:: run
+   .. autofunction:: train
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs_models.graph.train.data_loading
+   sketchgraphs_models.graph.train.harness
+

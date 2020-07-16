@@ -1,0 +1,9 @@
+sketchgraphs.pipeline.make\_sequence\_dataset.FilterReason
+==========================================================
+
+.. currentmodule:: sketchgraphs.pipeline.make_sequence_dataset
+
+.. autoclass:: FilterReason
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

@@ -1,0 +1,37 @@
+sketchgraphs\_models.torch\_extensions.multi\_logit
+===================================================
+
+.. automodule:: sketchgraphs_models.torch_extensions.multi_logit
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: normalize_values_scopes
+   .. autofunction:: segment_multi_argmax
+   .. autofunction:: segment_multi_argmax_loop
+   .. autofunction:: segment_multi_softmax_coarse_fine
+   .. autofunction:: segment_multi_softmax_cross_entropy
+   .. autofunction:: segment_multi_softmax_cross_entropy_loop
+   .. autofunction:: select_label_multi_segment
+   .. autofunction:: select_label_multi_segment_loop
+   .. autofunction:: select_label_multi_segment_python
+   
+   
+
+
+   
+   
+   
+
+
+

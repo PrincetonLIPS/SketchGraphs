@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs.data.constraint_checks &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs.data.dof" href="sketchgraphs.data.dof.html" />
+    <link rel="prev" title="sketchgraphs.data" href="sketchgraphs.data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sketchgraphs.data.constraint_checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.dof.html">sketchgraphs.data.dof</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.flat_array.html">sketchgraphs.data.flat_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sequence.html">sketchgraphs.data.sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sketch.html">sketchgraphs.data.sketch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.data.html">sketchgraphs.data</a> &raquo;</li>
+        
+      <li>sketchgraphs.data.constraint_checks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs.data.constraint_checks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-sketchgraphs.data.constraint_checks">
+<span id="sketchgraphs-data-constraint-checks"></span><h1>sketchgraphs.data.constraint_checks<a class="headerlink" href="#module-sketchgraphs.data.constraint_checks" title="Permalink to this headline">¶</a></h1>
+<p>This module implements a basic constraint checker for a solved graph.</p>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.check_edge_satisfied">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">check_edge_satisfied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seq</span></em>, <em class="sig-param"><span class="n">op</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp">sketchgraphs.data.sequence.EdgeOp</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.check_edge_satisfied" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether the given EdgeOp instance is geometrically satisfied in the graph represented by <code class="xref any docutils literal notranslate"><span class="pre">seq</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp"><em>EdgeOp</em></a><em>, </em><a class="reference internal" href="sketchgraphs.data.sequence.NodeOp.html#sketchgraphs.data.sequence.NodeOp" title="sketchgraphs.data.sequence.NodeOp"><em>NodeOp</em></a><em>]</em><em>]</em>) – A construction sequence representing the underlying graph.</p></li>
+<li><p><strong>op</strong> (<a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp"><em>EdgeOp</em></a>) – An edge op to check for validity in the current graph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref any docutils literal notranslate"><span class="pre">True</span></code> if the current edge constraint is satisified, otherwise <code class="xref any docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the current constraint is not supported (e.g. its type is not supported),
+    or it refers to an external entity, which is not supported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.coincident">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">coincident</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.coincident" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.concentric">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">concentric</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.concentric" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.equal">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.get_entity_by_idx">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">get_entity_by_idx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seq</span></em>, <em class="sig-param"><span class="n">idx</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; sketchgraphs.data._entity.Entity<a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_entity_by_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the entity or sub-entity corresponding to idx.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="sketchgraphs.data.sequence.NodeOp.html#sketchgraphs.data.sequence.NodeOp" title="sketchgraphs.data.sequence.NodeOp"><em>NodeOp</em></a><em>, </em><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp"><em>EdgeOp</em></a><em>]</em><em>]</em>) – A list of node and edge operations representing the construction sequence.</p></li>
+<li><p><strong>idx</strong> (<em>int</em>) – An integer representing the index of the desired entity.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An entity object representing the entity corresponding to the <a class="reference internal" href="sketchgraphs.data.sequence.NodeOp.html#sketchgraphs.data.sequence.NodeOp" title="sketchgraphs.data.sequence.NodeOp"><code class="xref any py py-class docutils literal notranslate"><span class="pre">NodeOp</span></code></a> at the given index.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Entity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.get_sorted_types">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">get_sorted_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_sorted_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.horizontal">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">horizontal</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.horizontal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.midpoint">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">midpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.midpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.parallel">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">parallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.parallel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.perpendicular">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">perpendicular</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.perpendicular" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.tangent">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">tangent</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.tangent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.constraint_checks.vertical">
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">vertical</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.vertical" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs.data.dof.html" class="btn btn-neutral float-right" title="sketchgraphs.data.dof" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.data.html" class="btn btn-neutral float-left" title="sketchgraphs.data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs_models.graph.model.numerical_features &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder" href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder.html" />
+    <link rel="prev" title="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding" href="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.distributed_utils.html">sketchgraphs_models.distributed_utils</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.dataset.html">sketchgraphs_models.graph.dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.entropy_rate.html">sketchgraphs_models.graph.entropy_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.eval_likelihood.html">sketchgraphs_models.graph.eval_likelihood</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs_models.graph.model.html">sketchgraphs_models.graph.model</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.EdgePartnerNetwork.html">sketchgraphs_models.graph.model.EdgePartnerNetwork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html">sketchgraphs_models.graph.model.GraphModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.losses.html">sketchgraphs_models.graph.model.losses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.message_passing.html">sketchgraphs_models.graph.model.message_passing</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs_models.graph.model.numerical_features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.sample.html">sketchgraphs_models.graph.sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.train.html">sketchgraphs_models.graph.train</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.html">sketchgraphs_models</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.graph.model.html">sketchgraphs_models.graph.model</a> &raquo;</li>
+        
+      <li>sketchgraphs_models.graph.model.numerical_features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs_models.graph.model.numerical_features.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-sketchgraphs_models.graph.model.numerical_features">
+<span id="sketchgraphs-models-graph-model-numerical-features"></span><h1>sketchgraphs_models.graph.model.numerical_features<a class="headerlink" href="#module-sketchgraphs_models.graph.model.numerical_features" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the components of the graph model that are concerned with handling
+numerical features associated with edges and nodes.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder.html#sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalFeatureDecoder</span></code></a>(feature_dims, …)</p></td>
+<td><p>Module for decoding numerical feature embeddings to logits.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureEncoding.html#sketchgraphs_models.graph.model.numerical_features.NumericalFeatureEncoding" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalFeatureEncoding</span></code></a>(feature_dims, …)</p></td>
+<td><p>Encode an array of numerical features.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureReadout.html#sketchgraphs_models.graph.model.numerical_features.NumericalFeatureReadout" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureReadout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalFeatureReadout</span></code></a>(initial_input, …)</p></td>
+<td><p>Module for numerical feature readout.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sketchgraphs_models.graph.model.numerical_features.NumericalFeaturesEmbedding.html#sketchgraphs_models.graph.model.numerical_features.NumericalFeaturesEmbedding" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeaturesEmbedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalFeaturesEmbedding</span></code></a>(embedding_dim)</p></td>
+<td><p>Transform a sequence of numerical feature vectors into a single vector.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.numerical_features.edge_decoder_initial_input">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.numerical_features.</code><code class="sig-name descname">edge_decoder_initial_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.edge_decoder_initial_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial input function for edge readouts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.numerical_features.entity_decoder_initial_input">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.numerical_features.</code><code class="sig-name descname">entity_decoder_initial_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.entity_decoder_initial_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial input function for entity readouts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.numerical_features.make_embedding_and_readout">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.numerical_features.</code><code class="sig-name descname">make_embedding_and_readout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_size</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em>, <em class="sig-param"><span class="n">initial_input_factory</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.make_embedding_and_readout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates feature embedding and readout networks for the given features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>embedding_size</strong> (<em>int</em>) – Dimension of the embeddings to use.</p></li>
+<li><p><strong>feature_dimensions</strong> (<em>dict</em>) – Dictionary whose values are lists of integers corresponding to the number of outcomes
+for each feature.</p></li>
+<li><p><strong>initial_input_factory</strong> (<em>int -&gt; torch.nn.Module</em>) – A function which returns a module responsible for transforming the inputs of the readout
+into initial embeddings for the internal sequence model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>feature_embeddings</strong> (<em>dict</em>) – A dictionary containing the feature embedding modules.</p></li>
+<li><p><strong>feature_readouts</strong> (<em>dict</em>) – A dictionary containing the feature readout modules.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+sketchgraphs\_models.torch\_extensions.segment\_ops
+===================================================
+
+.. automodule:: sketchgraphs_models.torch_extensions.segment_ops
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      SegmentArgmaxNative
+      SegmentArgmaxPython
+      SegmentLogsumexpNative
+      SegmentLogsumexpPython
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: segment_argmax
+   .. autofunction:: segment_argmax_backward
+   .. autofunction:: segment_argmax_loop
+   .. autofunction:: segment_argmax_native
+   .. autofunction:: segment_argmax_python
+   .. autofunction:: segment_logsumexp
+   .. autofunction:: segment_logsumexp_backward_python
+   .. autofunction:: segment_logsumexp_native
+   .. autofunction:: segment_logsumexp_python
+   .. autofunction:: segment_op_python
+   
+   
+
+
+   
+   
+   
+
+
+

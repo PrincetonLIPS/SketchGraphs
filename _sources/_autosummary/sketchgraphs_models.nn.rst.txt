@@ -1,0 +1,50 @@
+sketchgraphs\_models.nn
+=======================
+
+.. automodule:: sketchgraphs_models.nn
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      ConcatenateLinear
+      MessagePassingNetwork
+      Sequential
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: aggregate_by_incidence
+   .. autofunction:: autograd_range
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs_models.nn.data_util
+   sketchgraphs_models.nn.distributed
+   sketchgraphs_models.nn.functional
+   sketchgraphs_models.nn.summary
+

@@ -1,0 +1,9 @@
+sketchgraphs\_models.graph.model.numerical\_features.NumericalFeatureReadout
+============================================================================
+
+.. currentmodule:: sketchgraphs_models.graph.model.numerical_features
+
+.. autoclass:: NumericalFeatureReadout
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

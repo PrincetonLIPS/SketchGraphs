@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs.data.flat_array &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs.data.flat_array.FlatSerializedArray" href="sketchgraphs.data.flat_array.FlatSerializedArray.html" />
+    <link rel="prev" title="sketchgraphs.data.dof" href="sketchgraphs.data.dof.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.constraint_checks.html">sketchgraphs.data.constraint_checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.dof.html">sketchgraphs.data.dof</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sketchgraphs.data.flat_array</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html">sketchgraphs.data.flat_array.FlatSerializedArray</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sequence.html">sketchgraphs.data.sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.sketch.html">sketchgraphs.data.sketch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.data.html">sketchgraphs.data</a> &raquo;</li>
+        
+      <li>sketchgraphs.data.flat_array</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs.data.flat_array.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-sketchgraphs.data.flat_array">
+<span id="sketchgraphs-data-flat-array"></span><h1>sketchgraphs.data.flat_array<a class="headerlink" href="#module-sketchgraphs.data.flat_array" title="Permalink to this headline">¶</a></h1>
+<p>This module implements helpers to read the pre-processed data files. Due to the large size of the data,
+using plain pickle files is inefficient (and leads to extremely long loading times). We implement a
+memory-mappable compressed format that scales to large files while offering both compression and
+constant-time access to elements in the dataset.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a>(offsets, pickle_data)</p></td>
+<td><p>This class implements a flat pickle-serialized array of python objects backed by a byte buffer.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.human_bytes">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">human_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_bytes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.human_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formats a byte count as a human-readable byte (using KB, MB, GB units).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_bytes</strong> (<em>int</em>) – An integer representing the number of bytes</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>number</em> – The fractional number of bytes in the given unit</p></li>
+<li><p><em>str</em> – The unit of the returned value</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.load_dictionary_flat">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">load_dictionary_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.load_dictionary_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a flat dictionary from the given data buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>np.ndarray</em>) – ndarray of bytes representing the underlying data for the flat dictionary.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary containing elements serialized in the data buffer.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.load_flat_array">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">load_flat_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.load_flat_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a flat array from the given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>file-like object</em><em>, </em><em>string</em><em>, or </em><em>pathlib.Path</em>) – The file to read. Must be compatible with <code class="xref any docutils literal notranslate"><span class="pre">np.load</span></code>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A FlatSerializedArray containing the data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray">FlatSerializedArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.merge_raw_list">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">merge_raw_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offset_arrays</span></em>, <em class="sig-param"><span class="n">data_arrays</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.merge_raw_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges a list of raw flat lists (as produced by <a class="reference internal" href="#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a>) into one single raw flat list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offset_arrays</strong> (<em>list of np.ndarray</em>) – A list of arrays representing the offsets.</p></li>
+<li><p><strong>data_arrays</strong> (<em>list of np.ndarray</em>) – A list of the same length as <code class="xref any docutils literal notranslate"><span class="pre">offset_arrays</span></code> representing the data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>np.ndarray</em> – An array of offsets, of length one plus the number of elements in the data.</p></li>
+<li><p><em>np.ndarray</em> – An array of bytes, representing the concatenate serialized data.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.pack_dictionary_flat">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">pack_dictionary_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict_</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_dictionary_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a dictionary into a flat structure which is compatible
+with the structure used for <a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a>.</p>
+<p>This structure is a light extension of the <a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a>, and is able to encode
+the array inline so that the memory used by the array can be laid-out directly.
+This is mainly used to serialize a set of related arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dict</strong> (<em>dict</em>) – An arbitrary dictionary containing the elements to be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of bytes representing the the serialized data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.pack_list_flat">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">pack_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offsets</span></em>, <em class="sig-param"><span class="n">data_bytes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_list_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packs the given offsets and corresponding data array into a flat array format.</p>
+<p>This function simply adds some metadata headers in order to create a contiguous
+packed format. See also <a class="reference internal" href="#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a> to obtain the raw <code class="xref any docutils literal notranslate"><span class="pre">offsets</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">data_bytes</span></code>,
+or <a class="reference internal" href="#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> for serializing a flat array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offsets</strong> (<em>array_like</em>) – Array of offsets delineating each element in the <code class="xref any docutils literal notranslate"><span class="pre">data_bytes</span></code> array</p></li>
+<li><p><strong>data_bytes</strong> (<em>array_like</em>) – Array of bytes containing the raw serialized data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of bytes representing the raw value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.raw_list_flat">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">raw_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nthreads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.raw_list_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes the provided list into an array of bytes and offsets.</p>
+<p>Note that this function only provides the raw offsets and serialized bytes.
+It is advised to use <a class="reference internal" href="#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> or similar to encode other associated metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>iterable</em>) – An iterable containing the data to be serialized</p></li>
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – If not None, the number of threads to be used for performing the serialization in parallel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>np.ndarray</em> – An array of offsets, of length one plus the number of elements in the data</p></li>
+<li><p><em>np.ndarray</em> – An array of bytes, representing the concatenated serialized data</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.data.flat_array.save_list_flat">
+<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">save_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nthreads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.save_list_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a list of python objects into a flat bytes format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>list</em>) – a list of python objects to serialize</p></li>
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – If not <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>, the number of processes to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A numpy array of bytes representing the serialized data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs.data.flat_array.FlatSerializedArray.html" class="btn btn-neutral float-right" title="sketchgraphs.data.flat_array.FlatSerializedArray" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.data.dof.html" class="btn btn-neutral float-left" title="sketchgraphs.data.dof" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

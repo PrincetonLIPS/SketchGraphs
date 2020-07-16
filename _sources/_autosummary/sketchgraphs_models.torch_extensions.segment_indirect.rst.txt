@@ -1,0 +1,30 @@
+sketchgraphs\_models.torch\_extensions.segment\_indirect
+========================================================
+
+.. automodule:: sketchgraphs_models.torch_extensions.segment_indirect
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: segment_index_add
+   .. autofunction:: segment_index_add_python
+   
+   
+
+
+   
+   
+   
+
+
+

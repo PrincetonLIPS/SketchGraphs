@@ -1,0 +1,40 @@
+sketchgraphs.data.constraint\_checks
+====================================
+
+.. automodule:: sketchgraphs.data.constraint_checks
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: check_edge_satisfied
+   .. autofunction:: coincident
+   .. autofunction:: concentric
+   .. autofunction:: equal
+   .. autofunction:: get_entity_by_idx
+   .. autofunction:: get_sorted_types
+   .. autofunction:: horizontal
+   .. autofunction:: midpoint
+   .. autofunction:: parallel
+   .. autofunction:: perpendicular
+   .. autofunction:: tangent
+   .. autofunction:: vertical
+   
+   
+
+
+   
+   
+   
+
+
+

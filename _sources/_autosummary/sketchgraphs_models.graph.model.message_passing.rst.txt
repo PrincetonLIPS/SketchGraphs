@@ -1,0 +1,34 @@
+sketchgraphs\_models.graph.model.message\_passing
+=================================================
+
+.. automodule:: sketchgraphs_models.graph.model.message_passing
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      DenseOnlyEmbedding
+      DenseSparsePreEmbedding
+      GraphModelCore
+      GraphPostEmbedding
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+

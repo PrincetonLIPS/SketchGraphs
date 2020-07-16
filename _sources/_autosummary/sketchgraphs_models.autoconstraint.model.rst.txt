@@ -1,0 +1,42 @@
+sketchgraphs\_models.autoconstraint.model
+=========================================
+
+.. automodule:: sketchgraphs_models.autoconstraint.model
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      AutoconstraintModel
+      BidirectionalRecurrentModelCore
+      GlobalEmbeddingModelCore
+      RecurrentEmbeddingModelCore
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: compute_average_losses
+   .. autofunction:: compute_losses
+   .. autofunction:: segment_stop_accuracy
+   .. autofunction:: segment_stop_loss
+   
+   
+
+
+   
+   
+   
+
+
+

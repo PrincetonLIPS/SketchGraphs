@@ -1,0 +1,9 @@
+sketchgraphs\_models.torch\_extensions.segment\_pool.SegmentMaxPool1DLoop
+=========================================================================
+
+.. currentmodule:: sketchgraphs_models.torch_extensions.segment_pool
+
+.. autoclass:: SegmentMaxPool1DLoop
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

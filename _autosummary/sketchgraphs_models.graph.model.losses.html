@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs_models.graph.model.losses &mdash; Sketchgraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs_models.graph.model.message_passing" href="sketchgraphs_models.graph.model.message_passing.html" />
+    <link rel="prev" title="sketchgraphs_models.graph.model.GraphModel" href="sketchgraphs_models.graph.model.GraphModel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Sketchgraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.distributed_utils.html">sketchgraphs_models.distributed_utils</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.dataset.html">sketchgraphs_models.graph.dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.entropy_rate.html">sketchgraphs_models.graph.entropy_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.eval_likelihood.html">sketchgraphs_models.graph.eval_likelihood</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs_models.graph.model.html">sketchgraphs_models.graph.model</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.EdgePartnerNetwork.html">sketchgraphs_models.graph.model.EdgePartnerNetwork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html">sketchgraphs_models.graph.model.GraphModel</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs_models.graph.model.losses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.message_passing.html">sketchgraphs_models.graph.model.message_passing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.graph.model.numerical_features.html">sketchgraphs_models.graph.model.numerical_features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.sample.html">sketchgraphs_models.graph.sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.graph.train.html">sketchgraphs_models.graph.train</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sketchgraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.html">sketchgraphs_models</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs_models.graph.model.html">sketchgraphs_models.graph.model</a> &raquo;</li>
+        
+      <li>sketchgraphs_models.graph.model.losses</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs_models.graph.model.losses.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-sketchgraphs_models.graph.model.losses">
+<span id="sketchgraphs-models-graph-model-losses"></span><h1>sketchgraphs_models.graph.model.losses<a class="headerlink" href="#module-sketchgraphs_models.graph.model.losses" title="Permalink to this headline">¶</a></h1>
+<p>This module implements the necessary code to compute losses from the output of the graph model.</p>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.compute_average_losses">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_average_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">losses</span></em>, <em class="sig-param"><span class="n">graph_counts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_average_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes average losses from sum losses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>losses</strong> (<em>dict</em>) – Dictionary containing components for each loss</p></li>
+<li><p><strong>graph_counts</strong> (<em>Mapping</em>) – Mapping from target types to integers representing the number of aggregated examples
+for each target type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary containing the average loss values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.compute_edge_losses">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_edge_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_partner_offsets</span></em>, <em class="sig-param"><span class="n">edge_label_logits</span></em>, <em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">edge_label</span></em>, <em class="sig-param"><span class="n">edge_partner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_edge_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes losses associated with edge prediction problems.</p>
+<p>This function computes the two losses associated with the edge problem:
+- <a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html#sketchgraphs_models.graph.model.GraphModel.edge_label" title="sketchgraphs_models.graph.model.GraphModel.edge_label"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">edge_label</span></code></a>: this loss represents the loss for predicting the label of the edge
+- <a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html#sketchgraphs_models.graph.model.GraphModel.edge_partner" title="sketchgraphs_models.graph.model.GraphModel.edge_partner"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">edge_partner</span></code></a>: this loss represents the loss for predicting the other vertex of the edge</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.compute_feature_loss">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_feature_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature_logits</span><span class="p">:</span> <span class="n">torch.Tensor</span></em>, <em class="sig-param"><span class="n">feature_targets</span><span class="p">:</span> <span class="n">torch.Tensor</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>Any<span class="p">, </span>int<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_feature_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes losses on the given features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature_logits</strong> (<em>torch.Tensor</em>) – 2-d tensor of feature logits</p></li>
+<li><p><strong>feature_targets</strong> (<em>torch.Tensor</em>) – 1-d integer tensor of true feature labels</p></li>
+<li><p><strong>feature_dimensions</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – A list of integers representing the dimension of each feature.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>losses</strong> (<em>torch.Tensor</em>) – An array of losses on each feature</p></li>
+<li><p><strong>accuracies</strong> (<em>torch.Tensor</em>) – An array of accuracies on each feature</p></li>
+<li><p><strong>labels</strong> (<em>torch.Tensor</em>) – The provided array of targets</p></li>
+<li><p><strong>predictions</strong> (<em>torch.Tensor</em>) – An array of predicted labels according to arg-max predictions.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.compute_losses">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">readout</span></em>, <em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em>, <em class="sig-param"><span class="n">weights</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes losses for each component of the model, given the model output.</p>
+<p>Note that this function computes losses using a sum reduction.
+To obtain equivalent average losses, see <a class="reference internal" href="#sketchgraphs_models.graph.model.losses.compute_average_losses" title="sketchgraphs_models.graph.model.losses.compute_average_losses"><code class="xref any py py-func docutils literal notranslate"><span class="pre">compute_average_losses</span></code></a>.</p>
+<p>This function also returns labels and predictions for numerical edges’ numerical features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>readout</strong> (<em>dict</em>) – A dictionary containing the model output</p></li>
+<li><p><strong>batch</strong> (<em>dict</em>) – A dictionary containing the input data</p></li>
+<li><p><strong>feature_dimensions</strong> (<em>dict</em>) – A dictionary of list of ints describing the dimension of each feature for each target.</p></li>
+<li><p><strong>weights</strong> (<em>dict</em><em>, </em><em>optional</em>) – If not None, a mapping from TargetType to floats which describes the weighting of each prediction
+endpoint. TargetTypes which are not included are assumed to be weighted at 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>losses</strong> (<em>dict</em>) – Nested dictionary containing loss values for each component</p></li>
+<li><p><strong>accuracy</strong> (<em>dict</em>) – Nested dictionary containing accuracy for each component</p></li>
+<li><p><strong>efeat_labels</strong> (<em>dict</em>) – Dictionary containing labels for each numerical edge feature.</p></li>
+<li><p><strong>efeat_preds</strong> (<em>dict</em>) – Dictionary containing predictions for each numerical edge feature.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.compute_node_losses">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_node_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_offsets</span></em>, <em class="sig-param"><span class="n">entity_logits</span></em>, <em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">node_label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_node_losses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.compute_subnode_losses">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_subnode_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subnode_offsets</span></em>, <em class="sig-param"><span class="n">partner_logits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_subnode_losses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.merge_losses_and_accuracy">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">merge_losses_and_accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">losses</span></em>, <em class="sig-param"><span class="n">accuracy</span></em>, <em class="sig-param"><span class="n">updates</span></em>, <em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.merge_losses_and_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.segment_stop_accuracy">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">segment_stop_accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">segment_offsets</span></em>, <em class="sig-param"><span class="n">target_idx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.segment_stop_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the accuracy for stop prediction for partner logits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>partner_logits</strong> (<em>torch.Tensor</em>) – The un-normalized logits for the segments.</p></li>
+<li><p><strong>segment_offsets</strong> (<em>torch.Tensor</em>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
+<li><p><strong>target_idx</strong> (<em>torch.Tensor</em>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
+Otherwise, this is assumed to be the last (implicit) entry in each segment.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A boolean tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the accuracy at each segment.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.model.losses.segment_stop_loss">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">segment_stop_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">segment_offsets</span></em>, <em class="sig-param"><span class="n">target_idx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.segment_stop_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the loss for stop prediction for partner logits.</p>
+<p>This function effectively corresponds to a cross-entropy softmax
+operation on each segment, where the cross-entropy is augmented
+with one last constant logit. If the target predicted is omitted,
+we assume that it is the last (implicit) entry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>partner_logits</strong> (<em>torch.Tensor</em>) – The un-normalized logits for the segments.</p></li>
+<li><p><strong>segment_offsets</strong> (<em>torch.Tensor</em>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
+<li><p><strong>target_idx</strong> (<em>torch.Tensor</em><em>, </em><em>optional</em>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
+Otherwise, this is assumed to be the last (implicit) entry in each segment.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the cross-entropy loss at each segment.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs_models.graph.model.message_passing.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.model.message_passing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs_models.graph.model.GraphModel.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.model.GraphModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

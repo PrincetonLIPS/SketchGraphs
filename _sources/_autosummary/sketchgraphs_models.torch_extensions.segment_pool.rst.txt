@@ -1,0 +1,46 @@
+sketchgraphs\_models.torch\_extensions.segment\_pool
+====================================================
+
+.. automodule:: sketchgraphs_models.torch_extensions.segment_pool
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      SegmentAvgPool1DLoop
+      SegmentAvgPool1DNative
+      SegmentMaxPool1DLoop
+      SegmentMaxPool1DNative
+   
+   
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   
+   .. autofunction:: segment_avg_pool1d
+   .. autofunction:: segment_avg_pool1d_backward
+   .. autofunction:: segment_avg_pool1d_loop
+   .. autofunction:: segment_avg_pool1d_native
+   .. autofunction:: segment_max_pool1d
+   .. autofunction:: segment_max_pool1d_backward
+   .. autofunction:: segment_max_pool1d_loop
+   .. autofunction:: segment_max_pool1d_native
+   
+   
+
+
+   
+   
+   
+
+
+

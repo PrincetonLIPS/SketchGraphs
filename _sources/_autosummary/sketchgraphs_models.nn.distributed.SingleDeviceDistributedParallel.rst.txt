@@ -1,0 +1,9 @@
+sketchgraphs\_models.nn.distributed.SingleDeviceDistributedParallel
+===================================================================
+
+.. currentmodule:: sketchgraphs_models.nn.distributed
+
+.. autoclass:: SingleDeviceDistributedParallel
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

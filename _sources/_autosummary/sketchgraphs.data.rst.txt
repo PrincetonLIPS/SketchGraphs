@@ -1,0 +1,36 @@
+sketchgraphs.data
+=================
+
+.. automodule:: sketchgraphs.data
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs.data.constraint_checks
+   sketchgraphs.data.dof
+   sketchgraphs.data.flat_array
+   sketchgraphs.data.sequence
+   sketchgraphs.data.sketch
+
