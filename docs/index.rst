@@ -6,7 +6,7 @@
 Welcome to SketchGraphs' documentation!
 ========================================
 
-SketchGraph is a dataset of 15 million sketches extracted from real world CAD models intended to facilitate
+SketchGraphs is a dataset of 15 million sketches extracted from real world CAD models intended to facilitate
 research in ML-aided design and geometric program induction.
 In addition to the raw data, we provide several processed datasets, an accompanying python package to work with
 the data, as well as a couple of starter models which implement GNN-type strategies on a couple of example problems.
