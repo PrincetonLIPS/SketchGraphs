@@ -670,6 +670,9 @@ class Ellipse(Entity):
     minorRadius: float
     clockwise: bool
 
+    float_ids = ['xCenter', 'yCenter', 'xDir', 'yDir', 'radius', 'minorRadius']
+    bool_ids = Entity.bool_ids + ['clockwise']
+
     def __init__(self, entityId, isConstruction, xCenter, yCenter,
                  xDir, yDir, radius, minorRadius, clockwise):
         super(Ellipse, self).__init__(entityId, isConstruction)

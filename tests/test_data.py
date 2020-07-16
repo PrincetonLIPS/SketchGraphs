@@ -3,7 +3,8 @@
 import numpy as np
 
 from sketchgraphs.data.sequence import sketch_to_sequence, NodeOp, EdgeOp
-from sketchgraphs.data.sketch import Sketch, render_sketch, EntityType, ConstraintType, SubnodeType, get_sequence_dof
+from sketchgraphs.data.sketch import Sketch, render_sketch, EntityType, ConstraintType, SubnodeType
+from sketchgraphs.data.dof import get_sequence_dof
 
 
 def test_sketch_from_json(sketches_json):
