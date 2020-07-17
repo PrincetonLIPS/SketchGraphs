@@ -13,6 +13,7 @@ Video: [insert youtube link](https://www.youtube.com)
 Paper: [insert arxiv link](https://arxiv.org/)  
 
 ## Data
+The original creators of the CAD sketches hold the copyright. See ![Onshape Terms of Use 1.g.ii](https://www.onshape.com/legal/terms-of-use#your_content) for additional licensing details.
 
 ## Processing
 
