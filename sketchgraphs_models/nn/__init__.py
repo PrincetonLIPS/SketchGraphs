@@ -15,9 +15,10 @@ def aggregate_by_incidence(values: torch.Tensor, incidence: torch.Tensor,
     """Aggregates values according to an incidence matrix.
 
     Effectively computes the following operation:
-    ```
-    output[i] = values[incidence[1, incidence[0] == i]].sum(axis=0)
-    ```
+
+    .. code-block:: python
+
+        output[i] = values[incidence[1, incidence[0] == i]].sum(axis=0)
 
     This operation essentially implements a sparse-matrix multiplication in coo format in a naive way.
     Optimization opportunity: write using actual cuSparse.

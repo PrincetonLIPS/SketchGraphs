@@ -149,7 +149,7 @@ def train(node_feature_mapping, dataloader_train, args, output_dir=None, dataloa
 
     opt = _opt_factories[args['optimizer']](model.parameters(), lr=args['learning_rate'] * total_batch_size / 256)
     scheduler = torch.optim.lr_scheduler.LambdaLR(
-        opt, functools.partial(_lr_schedule, warmup_epochs=5, decay_epochs=[50, 100]))
+        opt, functools.partial(_lr_schedule, warmup_epochs=5, decay_epochs=[20, 40]))
 
     if distributed_utils.is_leader(dist_config):
         tb_writer_main = torch.utils.tensorboard.SummaryWriter(output_dir)
@@ -196,31 +196,30 @@ def get_argsparser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--description', default=None,
                         help='Message describing the current run.')
-    parser.add_argument('--output_dir', default='../output',
-                        help='Directory for output files.')
+    parser.add_argument('--output_dir', default='output', help='Directory for output files.')
 
     parser.add_argument('--dataset_train', required=True,
-                        help='Pickle dataset for train data.')
+                        help='Path to training dataset')
     parser.add_argument('--dataset_auxiliary', default=None, help='path to auxiliary dataset containing metadata')
     parser.add_argument('--dataset_test', required=False, default=None,
-                        help='Pickle dataset for test data.')
+                        help='Path to validation dataset.')
     parser.add_argument('--model_state', default=None, help='Path to saved model state_dict.')
     parser.add_argument('--num_quantize_length', type=int, default=383, help='number of quantization values for length')
     parser.add_argument('--num_quantize_angle', type=int, default=127, help='number of quantization values for angle')
-    parser.add_argument('--batch_size', type=int, default=32,
+    parser.add_argument('--batch_size', type=int, default=2048,
                         help='Training batch size.')
-    parser.add_argument('--learning_rate', type=float, default=1e-4)
+    parser.add_argument('--learning_rate', type=float, default=1e-5)
     parser.add_argument('--optimizer', default='adam', choices=list(_opt_factories.keys()))
-    parser.add_argument('--hidden_size', type=int, default=128)
-    parser.add_argument('--num_prop_rounds', type=int, default=7)
-    parser.add_argument('--num_epochs', type=int, default=1,
+    parser.add_argument('--hidden_size', type=int, default=384)
+    parser.add_argument('--num_prop_rounds', type=int, default=3)
+    parser.add_argument('--num_epochs', type=int, default=60,
                         help='Number of training epochs.')
     parser.add_argument('--num_workers', type=int, default=0,
                         help='Number of dataloader workers.')
     parser.add_argument('--seed', type=int, default=7)
     parser.add_argument('--world_size', type=int, default=1, help='Number of GPUs to use.')
     parser.add_argument('--profile', action='store_true', help='Whether to produce autograd profiles')
-    parser.add_argument('--model_core', type=str, default='global_embedding', choices=list(auto_model.MODEL_CORES.keys()))
+    parser.add_argument('--model_core', type=str, default='bidirectional_recurrent', choices=list(auto_model.MODEL_CORES.keys()))
 
     return parser
 

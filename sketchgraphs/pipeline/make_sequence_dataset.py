@@ -162,7 +162,7 @@ def _worker(config, processed_sequences, filter_config):
 
             processed_sequences.put(
                 ((worker_idx, chunk_index), offsets, sequence_data, sequence_lengths,
-                sketch_ids, num_filtered_in_chunk))
+                 sketch_ids, num_filtered_in_chunk))
 
             sequences = []
             sketch_ids = []
@@ -250,7 +250,7 @@ def process(dataset_path, threads, filter_config, total_sketches=None):
     })
 
     print('Done processing sequences')
-    print('Total accepted: {0}'.format(len(flat_data)))
+    print('Total accepted: {0}'.format(len(all_sequence_lengths)))
     print('Total filtered: {0}'.format(sum(filtered_statistics.values())))
     print('Total errors: {0}'.format(total_errors))
     print('Filtered by type: {0}'.format(filtered_statistics))

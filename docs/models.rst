@@ -12,14 +12,23 @@ For an initial quick-start, we recommend users to start with the provided sequen
 associated quantization maps, and following the default hyper-parameter values for training.
 Additionally, we strongly recommend using a powerful GPU, as training is compute intensive.
 
-For example, the generative model may be trained by running:
-.. code-block: bash
-    python -m sketchgraphs_models.graph.train
+For example, assuming that you have downloaded the training dataset, as well as the accompanying
+quantization statistics (available `here <https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_train.stats.pkl.gz>`_),
+the generative model may be trained by running:
+
+.. code-block:: bash
+
+    python -m sketchgraphs_models.graph.train --dataset_train sg_t16_train.npy
+
 You may monitor the training progress on the standard output, or through `tensorboard <https://www.tensorflow.org/tensorboard>`_.
 
 Similarly, the autoconstrain model may be trained by running:
-.. code-block: bash
-    python -m sketchgraphs_models.autoconstraint.train
+
+.. code-block:: bash
+
+    python -m sketchgraphs_models.autoconstraint.train --dataset_train sg_t16_train.npy
+
+We will also provide pre-trained models (coming soon!).
 
 
 Native extensions
@@ -30,6 +39,7 @@ and you will require access to a C++ compiler as well as the CUDA toolkit and co
 the models will automatically fall back to a plain python / pytorch implementation (however, there will be a
 performance penalty due to a substantial amount of looping). The extensions may be compiled by running the following
 command from the root directory:
-.. code-block: bash
+
+.. code-block:: bash
     python setup.py build_ext --inplace
 

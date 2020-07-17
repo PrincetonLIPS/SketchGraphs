@@ -166,25 +166,24 @@ def get_argsparser():
                         help='Directory for output files.')
 
     parser.add_argument('--dataset_train', required=True,
-                        help='Pickle dataset for train data.')
-    parser.add_argument('--dataset_auxiliary', default=None, help='path to auxiliary dataset containing metadata')
+                        help='Dataset for training data.')
+    parser.add_argument('--dataset_auxiliary', default=None, help='Path to auxiliary dataset containing metadata')
     parser.add_argument('--dataset_test', required=False, default=None,
-                        help='Pickle dataset for test data.')
+                        help='Dataset for validation data.')
     parser.add_argument('--model_state', default=None, help='Path to saved model state_dict.')
     parser.add_argument('--num_quantize_length', type=int, default=383, help='number of quantization values for length')
     parser.add_argument('--num_quantize_angle', type=int, default=127, help='number of quantization values for angle')
-    parser.add_argument('--batch_size', type=int, default=32,
+    parser.add_argument('--batch_size', type=int, default=2048,
                         help='Training batch size.')
-    parser.add_argument('--learning_rate', type=float, default=1e-4)
+    parser.add_argument('--learning_rate', type=float, default=2e-5)
     parser.add_argument('--optimizer', default='adam', choices=list(_opt_factories.keys()))
-    parser.add_argument('--hidden_size', type=int, default=128)
-    parser.add_argument('--num_prop_rounds', type=int, default=7)
-    parser.add_argument('--num_epochs', type=int, default=1,
+    parser.add_argument('--hidden_size', type=int, default=384)
+    parser.add_argument('--num_prop_rounds', type=int, default=3)
+    parser.add_argument('--num_epochs', type=int, default=60,
                         help='Number of training epochs.')
     parser.add_argument('--num_workers', type=int, default=0,
                         help='Number of dataloader workers.')
     parser.add_argument('--seed', type=int, default=7)
-    parser.add_argument('--enable_lr_schedule', type=bool, default=False)
     parser.add_argument('--world_size', type=int, default=1, help='Number of GPUs to use.')
     parser.add_argument('--profile', action='store_true', help='Whether to produce autograd profiles')
 

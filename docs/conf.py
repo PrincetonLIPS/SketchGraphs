@@ -30,7 +30,8 @@ author = 'Ari Seff, Yaniv Ovadia, Wenda Zhou'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinx.ext.intersphinx'
 ]
 
 autosummary_generate = True
@@ -44,6 +45,14 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 default_role = 'any'
+
+# -- Options for intersphinx extension ---------------------------------------
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'torch': ('https://pytorch.org/docs/stable/', None),
+    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+}
 
 
 # -- Options for HTML output -------------------------------------------------

@@ -33,7 +33,11 @@ The following data files are provided:
 - A filtered dataset of construction sequences. This is provided as a single file, similarly stored in a custom
   binary format. This dataset is similar to the sequence dataset, but simplified by filtering out sketches
   that are too large or too small, and only includes a simplified set of entities and constraints (while still
-  capturing a large portion of the data). We train our models on this subset of the data.
+  capturing a large portion of the data). Additionally, this dataset has been split into training, testing and
+  validation splits for convenience. We train our models on this subset of the data. You can find download the splits
+  here: `train <https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_train.npy>`_,
+  `test <https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_test.npy>`_,
+  `validation <https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_validation.npy>`_.
 
 
 .. _zstandard: https://facebook.github.io/zstd/

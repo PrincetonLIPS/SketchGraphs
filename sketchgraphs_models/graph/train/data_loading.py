@@ -56,6 +56,16 @@ def load_sequences_and_mappings(dataset_file, auxiliary_file, quantization, enti
     }
 
 
+def load_dataset_and_weights_with_mapping(dataset_file, node_feature_mapping, edge_feature_mapping, seed=None):
+    data = flat_array.load_dictionary_flat(np.load(dataset_file, mmap_mode='r'))
+    seqs = data['sequences']
+    seqs.share_memory_()
+
+    ds = dataset.GraphDataset(seqs, node_feature_mapping, edge_feature_mapping, seed)
+
+    return ds, data['sequence_lengths']
+
+
 def load_dataset_and_weights(dataset_file, auxiliary_file, quantization, seed=None,
                              entity_features=True, edge_features=True, force_entity_categorical_features=False):
     data = load_sequences_and_mappings(dataset_file, auxiliary_file, quantization, entity_features, edge_features)
@@ -113,7 +123,30 @@ def _make_dataloader_eval(ds_eval, weights, batch_size, num_workers, distributed
     return dataloader_eval
 
 
-def initialize_datasets(args, distributed_config=None):
+def initialize_datasets(args, distributed_config: distributed_utils.DistributedTrainingInfo = None):
+    """Initialize datasets and dataloaders.
+
+    Parameters
+    ----------
+    args : dict
+        Dictionary containing all the dataset configurations.
+
+    distributed_config : distributed_utils.DistributedTrainingInfo, optional
+        If not None, configuration options for distributed training.
+
+    Returns
+    -------
+    torch.data.utils.Dataloader
+        Training dataloader
+    torch.data.utils.Dataloader
+        If not None, testing dataloader
+    int
+        Number of batches per training epoch
+    dataset.EntityFeatureMapping
+        Feature mapping in use for entities
+    dataset.EdgeFeatureMapping
+        Feature mapping in use for constraints
+    """
     quantization = {'angle': args['num_quantize_angle'], 'length': args['num_quantize_length']}
 
     dataset_train_path = args['dataset_train']
@@ -140,7 +173,10 @@ def initialize_datasets(args, distributed_config=None):
         collate_fn, ds_train, weights_train, batch_size, args['num_epochs'], num_workers, distributed_config)
 
     if args['dataset_test'] is not None:
-        raise NotImplementedError('loading testing set not implemented')
+        ds_test, weights_test = load_dataset_and_weights_with_mapping(
+            args['dataset_test'], ds_train.node_feature_mapping, ds_train.edge_feature_mapping, args['seed'])
+        dl_test = _make_dataloader_eval(
+            ds_test, weights_test, batch_size, num_workers, distributed_config)
     else:
         dl_test = None
 
