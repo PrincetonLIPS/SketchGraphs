@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models.torch_extensions.multi_logit &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.torch_extensions.multi_logit &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -34,9 +34,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="sketchgraphs_models.torch_extensions.segment_indirect" href="sketchgraphs_models.torch_extensions.segment_indirect.html" />
-    <link rel="prev" title="sketchgraphs_models.torch_extensions.index" href="sketchgraphs_models.torch_extensions.index.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +48,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,24 +78,9 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.distributed_utils.html">sketchgraphs_models.distributed_utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.graph.html">sketchgraphs_models.graph</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.index.html">sketchgraphs_models.torch_extensions.index</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">sketchgraphs_models.torch_extensions.multi_logit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_indirect.html">sketchgraphs_models.torch_extensions.segment_indirect</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_ops.html">sketchgraphs_models.torch_extensions.segment_ops</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.html">sketchgraphs_models.torch_extensions.segment_pool</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
 </ul>
 
             
@@ -112,7 +95,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -143,10 +126,6 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="sketchgraphs_models.html">sketchgraphs_models</a> &raquo;</li>
-        
-          <li><a href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a> &raquo;</li>
-        
       <li>sketchgraphs_models.torch_extensions.multi_logit</li>
     
     
@@ -166,102 +145,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-sketchgraphs_models.torch_extensions.multi_logit">
-<span id="sketchgraphs-models-torch-extensions-multi-logit"></span><h1>sketchgraphs_models.torch_extensions.multi_logit<a class="headerlink" href="#module-sketchgraphs_models.torch_extensions.multi_logit" title="Permalink to this headline">¶</a></h1>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.normalize_values_scopes">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">normalize_values_scopes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">device</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.normalize_values_scopes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalizes segmented tensors along with their scopes.</p>
-<p>This function ensures that all the tensors in values and the corresponding
-scopes are normalized. In particular, it takes care of two things:
-- scopes which are None (which denote a segmented tensor of segment size 1</p>
-<blockquote>
-<div><p>for each segment) are replaced by their correct scope.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>values which are not one-dimensional are reshaped to be one-dimensional.</p></li>
-</ul>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.segment_multi_argmax">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">segment_multi_argmax</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.segment_multi_argmax" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.segment_multi_argmax_loop">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">segment_multi_argmax_loop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.segment_multi_argmax_loop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_coarse_fine">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">segment_multi_softmax_coarse_fine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logits</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">label_coarse</span></em>, <em class="sig-param"><span class="n">label_fine</span></em>, <em class="sig-param"><span class="n">return_coarse_prob</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_coarse_fine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Segmented multi-task softmax cross-entropy loss with coarse-to-fine loss.</p>
-<p>This function is similar to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_cross_entropy" title="sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_cross_entropy"><code class="xref any py py-func docutils literal notranslate"><span class="pre">segment_multi_softmax_cross_entropy</span></code></a>, but also
-computes a coarse loss which determines whether the predicted coarse action
-type is correct. Each coarse action is represented by a set of logits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>an iterable of tensors representing the logits for each task.</em>) – </p></li>
-<li><p><strong>scopes</strong> (<em>an iterable of tensor representing the scopes defining each segments.</em>) – </p></li>
-<li><p><strong>label_coarse</strong> (<em>a tensor representing the coarse label.</em>) – </p></li>
-<li><p><strong>label_fine</strong> (<em>a tensor representing the fine label.</em>) – </p></li>
-<li><p><strong>return_coarse_prob</strong> (<em>if True</em><em>, </em><em>also return the coarse action probabilities.</em>) – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_cross_entropy">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">segment_multi_softmax_cross_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logits</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_cross_entropy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Segmented multi-task softmax cross-entropy loss.</p>
-<p>This function computes a softmax cross-entropy loss on logits which
-are across different tensors. Each of these tensors also represent ragged
-tensors, as the number of actions can vary per batch instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>list of one-dimensional tensors</em><em>, </em><em>representing the logits of the actions.</em>) – </p></li>
-<li><p><strong>scopes</strong> (<em>a list of two-dimensional tensors</em><em>, </em><em>of size N x 2</em><em>, </em><em>where N is the batch size.</em>) – The first column represents the offset of the segment corresponding to the given
-batch, and the second column represents the length of the segment corresponding to
-the given batch.</p></li>
-<li><p><strong>label</strong> (<em>a integer tensor representing the label of the true action. This label is computed</em>) – in a linear fashion, ie taking into account each action from all logit tensors.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_cross_entropy_loop">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">segment_multi_softmax_cross_entropy_loop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logits</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.segment_multi_softmax_cross_entropy_loop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.select_label_multi_segment">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">select_label_multi_segment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.select_label_multi_segment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects a value from the given values for each label by index.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.select_label_multi_segment_loop">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">select_label_multi_segment_loop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.select_label_multi_segment_loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects a value from the given values for each label.</p>
-<p>This function considers a list of ragged tensors (represented by values and scopes),
-a selects the nth element of the concatenation of these tensors across batches
-where n is given by the label.</p>
-<p>This function performs this is a naive fashion using a loop
-across the batch size.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs_models.torch_extensions.multi_logit.select_label_multi_segment_python">
-<code class="sig-prename descclassname">sketchgraphs_models.torch_extensions.multi_logit.</code><code class="sig-name descname">select_label_multi_segment_python</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.multi_logit.select_label_multi_segment_python" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects a value from the given values for each label by index.</p>
-</dd></dl>
-
+  <div class="section" id="sketchgraphs-models-torch-extensions-multi-logit">
+<h1>sketchgraphs_models.torch_extensions.multi_logit<a class="headerlink" href="#sketchgraphs-models-torch-extensions-multi-logit" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -269,15 +154,6 @@ across the batch size.</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.torch_extensions.segment_indirect.html" class="btn btn-neutral float-right" title="sketchgraphs_models.torch_extensions.segment_indirect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.torch_extensions.index.html" class="btn btn-neutral float-left" title="sketchgraphs_models.torch_extensions.index" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

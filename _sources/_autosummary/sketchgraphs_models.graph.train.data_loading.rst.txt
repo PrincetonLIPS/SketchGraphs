@@ -18,6 +18,7 @@ sketchgraphs\_models.graph.train.data\_loading
    
    .. autofunction:: initialize_datasets
    .. autofunction:: load_dataset_and_weights
+   .. autofunction:: load_dataset_and_weights_with_mapping
    .. autofunction:: load_sequences_and_mappings
    .. autofunction:: make_dataloader_train
    

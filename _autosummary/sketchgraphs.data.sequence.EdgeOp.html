@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs.data.sequence.EdgeOp &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs.data.sequence.EdgeOp &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.constraint_checks.html">sketchgraphs.data.constraint_checks</a></li>
@@ -113,7 +118,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -173,7 +178,7 @@
 <h1>sketchgraphs.data.sequence.EdgeOp<a class="headerlink" href="#sketchgraphs-data-sequence-edgeop" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="sketchgraphs.data.sequence.EdgeOp">
-<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs.data.sequence.</code><code class="sig-name descname">EdgeOp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n">sketchgraphs.data._constraint.ConstraintType</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n">Tuple[int, …]</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n">dict</span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs.data.sequence.</code><code class="sig-name descname">EdgeOp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n">sketchgraphs.data._constraint.ConstraintType</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n">Tuple[int, …]</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class represents an edge (or constraint) operation in a construction sequence.</p>
 <p>An edge is specified by a label, a variable number of targets, and a dictionary of parameters.
 Targets for an edge are nodes, which are referred to using their index in the construction sequence.</p>
@@ -185,7 +190,7 @@ Targets for an edge are nodes, which are referred to using their index in the co
 
 <dl class="py method">
 <dt id="sketchgraphs.data.sequence.EdgeOp.__new__">
-<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n">sketchgraphs.data._constraint.ConstraintType</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n">Tuple[int, …]</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n">dict</span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.__new__" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">label</span><span class="p">:</span> <span class="n">sketchgraphs.data._constraint.ConstraintType</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n">Tuple[int, …]</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.EdgeOp.__new__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create new instance of EdgeOp(label, references, parameters)</p>
 </dd></dl>
 

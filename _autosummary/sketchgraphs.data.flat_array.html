@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs.data.flat_array &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs.data.flat_array &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.constraint_checks.html">sketchgraphs.data.constraint_checks</a></li>
@@ -112,7 +117,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -191,7 +196,7 @@ constant-time access to elements in the dataset.</p>
 <dd><p>Formats a byte count as a human-readable byte (using KB, MB, GB units).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>num_bytes</strong> (<em>int</em>) – An integer representing the number of bytes</p>
+<dd class="field-odd"><p><strong>num_bytes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – An integer representing the number of bytes</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
@@ -209,14 +214,14 @@ constant-time access to elements in the dataset.</p>
 <dd><p>Loads a flat dictionary from the given data buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>str</em><em>]</em>) – ndarray of bytes representing the underlying data for the flat dictionary, or a string
+<dd class="field-odd"><p><strong>data</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – ndarray of bytes representing the underlying data for the flat dictionary, or a string
 representing the filename from which to load the dictionary.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionary containing elements serialized in the data buffer.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,7 +232,7 @@ representing the filename from which to load the dictionary.</p>
 <dd><p>Loads a flat array from the given path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path</strong> (<em>file-like object</em><em>, </em><em>string</em><em>, or </em><em>pathlib.Path</em>) – The file to read. Must be compatible with <code class="xref any docutils literal notranslate"><span class="pre">np.load</span></code>.</p>
+<dd class="field-odd"><p><strong>path</strong> (<em>file-like object</em><em>, </em><em>string</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)"><em>pathlib.Path</em></a>) – The file to read. Must be compatible with <code class="xref any docutils literal notranslate"><span class="pre">np.load</span></code>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A FlatSerializedArray containing the data.</p>
@@ -241,7 +246,7 @@ representing the filename from which to load the dictionary.</p>
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.merge_raw_list">
 <code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">merge_raw_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offset_arrays</span></em>, <em class="sig-param"><span class="n">data_arrays</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.merge_raw_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merges a list of raw flat lists (as produced by <a class="reference internal" href="sketchgraphs.data.flat_array.raw_list_flat.html#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a>) into one single raw flat list.</p>
+<dd><p>Merges a list of raw flat lists (as produced by <a class="reference internal" href="#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a>) into one single raw flat list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -269,7 +274,7 @@ the array inline so that the memory used by the array can be laid-out directly.
 This is mainly used to serialize a set of related arrays.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dict</strong> (<em>dict</em>) – An arbitrary dictionary containing the elements to be serialized.</p>
+<dd class="field-odd"><p><strong>dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – An arbitrary dictionary containing the elements to be serialized.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An array of bytes representing the the serialized data.</p>
@@ -285,8 +290,8 @@ This is mainly used to serialize a set of related arrays.</p>
 <code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">pack_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offsets</span></em>, <em class="sig-param"><span class="n">data_bytes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_list_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Packs the given offsets and corresponding data array into a flat array format.</p>
 <p>This function simply adds some metadata headers in order to create a contiguous
-packed format. See also <a class="reference internal" href="sketchgraphs.data.flat_array.raw_list_flat.html#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a> to obtain the raw <code class="xref any docutils literal notranslate"><span class="pre">offsets</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">data_bytes</span></code>,
-or <a class="reference internal" href="sketchgraphs.data.flat_array.save_list_flat.html#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> for serializing a flat array.</p>
+packed format. See also <a class="reference internal" href="#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a> to obtain the raw <code class="xref any docutils literal notranslate"><span class="pre">offsets</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">data_bytes</span></code>,
+or <a class="reference internal" href="#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> for serializing a flat array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -308,12 +313,12 @@ or <a class="reference internal" href="sketchgraphs.data.flat_array.save_list_fl
 <code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">raw_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nthreads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.raw_list_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serializes the provided list into an array of bytes and offsets.</p>
 <p>Note that this function only provides the raw offsets and serialized bytes.
-It is advised to use <a class="reference internal" href="sketchgraphs.data.flat_array.save_list_flat.html#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> or similar to encode other associated metadata.</p>
+It is advised to use <a class="reference internal" href="#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> or similar to encode other associated metadata.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>iterable</em>) – An iterable containing the data to be serialized</p></li>
-<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – If not None, the number of threads to be used for performing the serialization in parallel</p></li>
+<li><p><strong>nthreads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><em>optional</em>) – If not None, the number of threads to be used for performing the serialization in parallel</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -333,8 +338,8 @@ It is advised to use <a class="reference internal" href="sketchgraphs.data.flat_
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>list</em>) – a list of python objects to serialize</p></li>
-<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – If not <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>, the number of processes to use.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – a list of python objects to serialize</p></li>
+<li><p><strong>nthreads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><em>optional</em>) – If not <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>, the number of processes to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

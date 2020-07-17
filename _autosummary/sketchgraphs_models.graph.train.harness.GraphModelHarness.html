@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models.graph.train.harness.GraphModelHarness &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.graph.train.harness.GraphModelHarness &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
@@ -117,7 +122,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -190,8 +195,8 @@ such as learning rate scheduling, data loading, and logging.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – The torch model to train.</p></li>
-<li><p><strong>opt</strong> (<em>torch.optim.Optimizer</em>) – The optimizer to use during training</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Module" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.nn.Module</em></a>) – The torch model to train.</p></li>
+<li><p><strong>opt</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.optim.Optimizer</em></a>) – The optimizer to use during training</p></li>
 <li><p><strong>config_train</strong> (<a class="reference internal" href="sketchgraphs_models.training.TrainingConfig.html#sketchgraphs_models.training.TrainingConfig" title="sketchgraphs_models.training.TrainingConfig"><em>TrainingConfig</em></a>) – The configuration to use for training</p></li>
 <li><p><strong>config_eval</strong> (<a class="reference internal" href="sketchgraphs_models.training.TrainingConfig.html#sketchgraphs_models.training.TrainingConfig" title="sketchgraphs_models.training.TrainingConfig"><em>TrainingConfig</em></a><em>, </em><em>optional</em>) – The configuration to use for evaluation</p></li>
 <li><p><strong>dist_config</strong> (<a class="reference internal" href="sketchgraphs_models.distributed_utils.DistributedTrainingInfo.html#sketchgraphs_models.distributed_utils.DistributedTrainingInfo" title="sketchgraphs_models.distributed_utils.DistributedTrainingInfo"><em>DistributedTrainingInfo</em></a><em>, </em><em>optional</em>) – The configuration used for distributed training</p></li>
@@ -207,8 +212,8 @@ such as learning rate scheduling, data loading, and logging.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>batch</strong> (<em>dict</em>) – Input batch from the dataloader</p></li>
-<li><p><strong>global_step</strong> (<em>int</em>) – Global step for this batch</p></li>
+<li><p><strong>batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Input batch from the dataloader</p></li>
+<li><p><strong>global_step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Global step for this batch</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

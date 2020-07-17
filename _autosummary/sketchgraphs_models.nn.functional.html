@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models.nn.functional &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.nn.functional &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
@@ -114,7 +119,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -180,8 +185,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>torch.Tensor</em>) – unscaled logits by segment</p></li>
-<li><p><strong>target</strong> (<em>torch.Tensor</em>) – tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code>, representing the index of the true label
+<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – unscaled logits by segment</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code>, representing the index of the true label
 for each segment.</p></li>
 <li><p><strong>scopes</strong> (<em>tonch.Tensor</em>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code>, representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
 </ul>
@@ -191,7 +196,7 @@ for each segment.</p></li>
 at each segment.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>torch.Tensor</p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -203,8 +208,8 @@ at each segment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>torch.Tensor</em>) – unscaled logits by segment</p></li>
-<li><p><strong>scopes</strong> (<em>torch.Tensor</em>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
+<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – unscaled logits by segment</p></li>
+<li><p><strong>scopes</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
 <li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – PRNG for sampling</p></li>
 </ul>
 </dd>
@@ -212,7 +217,7 @@ at each segment.</p>
 <dd class="field-even"><p>A tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code> representing the sampled values.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>torch.Tensor</p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -224,17 +229,17 @@ at each segment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>torch.Tensor</em>) – logits for explicit outcomes by segment</p></li>
-<li><p><strong>scopes</strong> (<em>torch.Tensor</em>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
+<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – logits for explicit outcomes by segment</p></li>
+<li><p><strong>scopes</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
 <li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – PRNG for sampling</p></li>
-<li><p><strong>also_return_probs</strong> (<em>bool</em><em>, </em><em>optional</em>) – If true, returns tuple including log-likelihood of the sample.</p></li>
+<li><p><strong>also_return_probs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, returns tuple including log-likelihood of the sample.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code> representing the sampled values.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>torch.Tensor</p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>

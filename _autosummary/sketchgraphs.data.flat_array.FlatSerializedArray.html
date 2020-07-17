@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs.data.flat_array.FlatSerializedArray &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs.data.flat_array.FlatSerializedArray &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sketchgraphs.data.constraint_checks.html">sketchgraphs.data.constraint_checks</a></li>
@@ -112,7 +117,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -200,7 +205,7 @@ the static method <a class="reference internal" href="#sketchgraphs.data.flat_ar
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>byte_data</strong> (<em>array_like</em>) – A bytes-like object which provides the underlying storage for flat array of objects.
-This is usually obtained through <a class="reference internal" href="sketchgraphs.data.flat_array.save_list_flat.html#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a>.</p>
+This is usually obtained through <a class="reference internal" href="sketchgraphs.data.flat_array.html#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An instance of <a class="reference internal" href="#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a> providing a view into the data given by the provided bytes.</p>
@@ -214,10 +219,10 @@ This is usually obtained through <a class="reference internal" href="sketchgraph
 <dl class="py method">
 <dt id="sketchgraphs.data.flat_array.FlatSerializedArray.share_memory_">
 <code class="sig-name descname">share_memory_</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.FlatSerializedArray.share_memory_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the underlying to a <code class="xref any docutils literal notranslate"><span class="pre">torch</span></code> shared memory location.</p>
+<dd><p>Moves the underlying to a <a class="reference external" href="https://pytorch.org/docs/stable/torch.html#module-torch" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch</span></code></a> shared memory location.</p>
 <p>Calling this method will transition the storage to torch tensors, and move
 them to a shared memory location. This will enable sharing the tensors across
-different processes without copying when using <code class="xref any docutils literal notranslate"><span class="pre">torch.multiprocessing</span></code>.</p>
+different processes without copying when using <a class="reference external" href="https://pytorch.org/docs/stable/multiprocessing.html#module-torch.multiprocessing" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch.multiprocessing</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>

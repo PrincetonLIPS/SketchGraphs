@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to SketchGraphs’ documentation! &mdash; SketchGraphs  documentation</title>
+  <title>Welcome to Sketchgraphs’ documentation! &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="sketchgraphs" href="_autosummary/sketchgraphs.html" /> 
+    <link rel="next" title="Sketchgraph models" href="models.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -49,7 +49,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> SketchGraphs
+            <a href="#" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,6 +80,11 @@
             
             
               <ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/sketchgraphs_models.html">sketchgraphs_models</a></li>
 </ul>
@@ -96,7 +101,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">SketchGraphs</a>
+          <a href="#">Sketchgraphs</a>
         
       </nav>
 
@@ -127,7 +132,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Welcome to SketchGraphs’ documentation!</li>
+      <li>Welcome to Sketchgraphs’ documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -147,12 +152,49 @@
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-sketchgraphs-documentation">
-<h1>Welcome to SketchGraphs’ documentation!<a class="headerlink" href="#welcome-to-sketchgraphs-documentation" title="Permalink to this headline">¶</a></h1>
-<p>SketchGraphs is a dataset of 15 million sketches extracted from real world CAD models intended to facilitate
+<h1>Welcome to Sketchgraphs’ documentation!<a class="headerlink" href="#welcome-to-sketchgraphs-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Sketchgraph is a dataset of 15 million sketches extracted from real world CAD models intended to facilitate
 research in ML-aided design and geometric program induction.
 In addition to the raw data, we provide several processed datasets, an accompanying python package to work with
 the data, as well as a couple of starter models which implement GNN-type strategies on a couple of example problems.</p>
+</div>
+<div class="section" id="data">
+<h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<p>We provide our dataset in a number of forms, some of which may be more appropriate for your desired usage.
+The following data files are provided:</p>
+<ul class="simple">
+<li><p>The raw json data as obtained from Onshape. This is provided as a set of 128 tar archives which are compressed
+using <a class="reference external" href="https://facebook.github.io/zstd/">zstandard</a>. They total about 43GB of data. In general, we only recommend these for advanced usage, as
+they are heavy and require extensive processing to manipulate. Users interested in working with the raw data
+may wish to inspect <a class="reference internal" href="_autosummary/sketchgraphs.pipeline.make_sketch_dataset.html#module-sketchgraphs.pipeline.make_sketch_dataset" title="sketchgraphs.pipeline.make_sketch_dataset"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sketch_dataset</span></code></a> and <a class="reference internal" href="_autosummary/sketchgraphs.pipeline.make_sequence_dataset.html#module-sketchgraphs.pipeline.make_sequence_dataset" title="sketchgraphs.pipeline.make_sequence_dataset"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sequence_dataset</span></code></a>
+to view our data processing scripts. The data is available for download <a class="reference external" href="https://sketchgraphs.cs.princeton.edu/shards/">here</a>.</p></li>
+<li><p>A dataset of construction sequences. This is provided as a single file, stored in a custom binary format.
+This format is much more concise (as it eliminates many of the unique identifiers used in the raw JSON format),
+and is better suited for ML applications. It is supported by our python libraries, and forms the baseline
+on which our models are trained. The data is available for download <a class="reference external" href="https://sketchgraphs.cs.princeton.edu/sequence/sg_all.npy">here</a>
+(warning: 15GB file!).</p></li>
+<li><p>A filtered dataset of construction sequences. This is provided as a single file, similarly stored in a custom
+binary format. This dataset is similar to the sequence dataset, but simplified by filtering out sketches
+that are too large or too small, and only includes a simplified set of entities and constraints (while still
+capturing a large portion of the data). Additionally, this dataset has been split into training, testing and
+validation splits for convenience. We train our models on this subset of the data. You can find download the splits
+here: <a class="reference external" href="https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_train.npy">train</a>,
+<a class="reference external" href="https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_test.npy">test</a>,
+<a class="reference external" href="https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_validation.npy">validation</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the dataset, we also provide some baseline model implementations to tackle the tasks of generative
+modelling and autoconstrain. These models are based on Graph Neural Network approaches, and model the sketch as
+a graph where vertices are given by the entities in the sketch, and edges by the constraints between those entities.
+For more details, please refer to the dedicated <a class="reference internal" href="models.html"><span class="doc">Sketchgraph models</span></a> page.</p>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html#native-extensions">Native extensions</a></li>
+</ul>
 </div>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -186,7 +228,7 @@ the data, as well as a couple of starter models which implement GNN-type strateg
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="_autosummary/sketchgraphs.html" class="btn btn-neutral float-right" title="sketchgraphs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="models.html" class="btn btn-neutral float-right" title="Sketchgraph models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models.graph &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.graph &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
@@ -113,7 +118,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -169,7 +174,13 @@
 <span id="sketchgraphs-models-graph"></span><h1>sketchgraphs_models.graph<a class="headerlink" href="#module-sketchgraphs_models.graph" title="Permalink to this headline">¶</a></h1>
 <p>This module contains the main implementation for the graph models.</p>
 <p>The graph models represent a family of models which recursively build
-the sketch by viewing the sketch as a graph of entities and constraints.</p>
+the sketch by viewing the sketch as a graph of entities and constraints.
+This model is configurable in the amount of continuous parameters it models.
+In particular, by using the <code class="xref any docutils literal notranslate"><span class="pre">--disable_entity_features</span></code> or <code class="xref any docutils literal notranslate"><span class="pre">--disable_edge_features</span></code>
+switches, one can disable the modelling of parameters attached to either edges
+or entities (or both). Modelling sketches without entity features can lead to
+meaningless sketches before solving, but the presence of constraints can often
+lead to reasonable solved states.</p>
 <p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>

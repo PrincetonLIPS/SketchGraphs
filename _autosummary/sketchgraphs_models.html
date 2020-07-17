@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">sketchgraphs_models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
@@ -105,7 +110,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -159,8 +164,13 @@
 <span id="sketchgraphs-models"></span><h1>sketchgraphs_models<a class="headerlink" href="#module-sketchgraphs_models" title="Permalink to this headline">¶</a></h1>
 <p>This module contains supporting code to the main sketchgraphs dataset. In particular, it contains two models based
 on graph representations of the data, which are geared towards the task of generation (see <a class="reference internal" href="sketchgraphs_models.graph.html"><span class="doc">sketchgraphs_models.graph</span></a>)
-and autoconstrain (see <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs_models.autoconstrain</span></code>). In addition, this module contains a number of submodules
+and autoconstrain (see <a class="reference internal" href="sketchgraphs_models.autoconstraint.html"><span class="doc">sketchgraphs_models.autoconstraint</span></a>). In addition, this module contains a number of submodules
 to help the implementation of these models.</p>
+<p>These models are tuned and operate on a subset of the full sketchgraphs dataset. In particular, they only handle
+constraints which relate at most two entities (e.g. the mirror constraint is not handled), and are trained on a subset
+of sketches which excludes sketches that are too large or too small. In addition, these model use a quantization
+strategy to model continuous parameters in the dataset, which must be pre-computed before training. To create
+quantization maps, see <a class="reference internal" href="sketchgraphs.pipeline.make_quantization_statistics.html"><span class="doc">sketchgraphs.pipeline.make_quantization_statistics</span></a>.</p>
 <p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>

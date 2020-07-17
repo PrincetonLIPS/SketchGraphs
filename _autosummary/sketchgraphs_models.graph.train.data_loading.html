@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models.graph.train.data_loading &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.graph.train.data_loading &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
@@ -117,7 +122,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -179,12 +184,36 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.train.data_loading.initialize_datasets">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.train.data_loading.</code><code class="sig-name descname">initialize_datasets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">distributed_config</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.train.data_loading.initialize_datasets" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">sketchgraphs_models.graph.train.data_loading.</code><code class="sig-name descname">initialize_datasets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">distributed_config</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs_models.distributed_utils.DistributedTrainingInfo.html#sketchgraphs_models.distributed_utils.DistributedTrainingInfo" title="sketchgraphs_models.distributed_utils.DistributedTrainingInfo">sketchgraphs_models.distributed_utils.DistributedTrainingInfo</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.train.data_loading.initialize_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize datasets and dataloaders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Dictionary containing all the dataset configurations.</p></li>
+<li><p><strong>distributed_config</strong> (<a class="reference internal" href="sketchgraphs_models.distributed_utils.DistributedTrainingInfo.html#sketchgraphs_models.distributed_utils.DistributedTrainingInfo" title="sketchgraphs_models.distributed_utils.DistributedTrainingInfo"><em>distributed_utils.DistributedTrainingInfo</em></a><em>, </em><em>optional</em>) – If not None, configuration options for distributed training.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>torch.data.utils.Dataloader</em> – Training dataloader</p></li>
+<li><p><em>torch.data.utils.Dataloader</em> – If not None, testing dataloader</p></li>
+<li><p><em>int</em> – Number of batches per training epoch</p></li>
+<li><p><em>dataset.EntityFeatureMapping</em> – Feature mapping in use for entities</p></li>
+<li><p><em>dataset.EdgeFeatureMapping</em> – Feature mapping in use for constraints</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.train.data_loading.load_dataset_and_weights">
 <code class="sig-prename descclassname">sketchgraphs_models.graph.train.data_loading.</code><code class="sig-name descname">load_dataset_and_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_file</span></em>, <em class="sig-param"><span class="n">auxiliary_file</span></em>, <em class="sig-param"><span class="n">quantization</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">entity_features</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">edge_features</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_entity_categorical_features</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.train.data_loading.load_dataset_and_weights" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs_models.graph.train.data_loading.load_dataset_and_weights_with_mapping">
+<code class="sig-prename descclassname">sketchgraphs_models.graph.train.data_loading.</code><code class="sig-name descname">load_dataset_and_weights_with_mapping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_file</span></em>, <em class="sig-param"><span class="n">node_feature_mapping</span></em>, <em class="sig-param"><span class="n">edge_feature_mapping</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.train.data_loading.load_dataset_and_weights_with_mapping" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">

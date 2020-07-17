@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs_models.nn.MessagePassingNetwork &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.nn.MessagePassingNetwork &mdash; Sketchgraphs  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> Sketchgraphs
           
 
           
@@ -80,7 +80,12 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.autoconstraint.html">sketchgraphs_models.autoconstraint</a></li>
@@ -114,7 +119,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">SketchGraphs</a>
+          <a href="../index.html">Sketchgraphs</a>
         
       </nav>
 
@@ -190,7 +195,7 @@ of previous node embeddings.</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>transform_edge_messages</strong> (<em>torch.nn.Module</em>) – A module representing the model used to transform
+<dd class="field-odd"><p><strong>transform_edge_messages</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Module" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.nn.Module</em></a>) – A module representing the model used to transform
 edge messages at each step. See <a class="reference internal" href="sketchgraphs_models.nn.html#sketchgraphs_models.nn.aggregate_by_incidence" title="sketchgraphs_models.nn.aggregate_by_incidence"><code class="xref any py py-func docutils literal notranslate"><span class="pre">aggregate_by_incidence</span></code></a>.</p>
 </dd>
 </dl>
@@ -203,8 +208,8 @@ edge messages at each step. See <a class="reference internal" href="sketchgraphs
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node_embedding</strong> (<em>torch.Tensor</em>) – Tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_nodes,</span> <span class="pre">...]</span></code> representing the data at each node in the graph.</p></li>
-<li><p><strong>incidence</strong> (<em>torch.Tensor</em>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">num_edges]</span></code> representing edge incidence in the graph</p></li>
+<li><p><strong>node_embedding</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – Tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_nodes,</span> <span class="pre">...]</span></code> representing the data at each node in the graph.</p></li>
+<li><p><strong>incidence</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">num_edges]</span></code> representing edge incidence in the graph</p></li>
 <li><p><strong>edge_transform_args</strong> (<em>any</em>) – A tuple of further arguments to be passed to the edge transformation network.</p></li>
 </ul>
 </dd>
@@ -212,7 +217,7 @@ edge messages at each step. See <a class="reference internal" href="sketchgraphs
 <dd class="field-even"><p>The final node embedding values after the message passing has been carried out.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>torch.Tensor</p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>

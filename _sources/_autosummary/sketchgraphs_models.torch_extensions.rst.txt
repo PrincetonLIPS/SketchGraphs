@@ -29,7 +29,6 @@ sketchgraphs\_models.torch\_extensions
    :recursive:
 
    sketchgraphs_models.torch_extensions.index
-   sketchgraphs_models.torch_extensions.multi_logit
    sketchgraphs_models.torch_extensions.segment_indirect
    sketchgraphs_models.torch_extensions.segment_ops
    sketchgraphs_models.torch_extensions.segment_pool
