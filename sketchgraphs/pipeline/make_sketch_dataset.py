@@ -71,7 +71,15 @@ def load_json_tarball(path):
                         continue
 
                     document_id, part_id = parse_sketch_id(json_file.name)
-                    sketches_json = json.load(directory.extractfile(json_file))
+                    data = directory.extractfile(json_file).read()
+                    if len(data) == 0:
+                        # skip empty files
+                        continue
+
+                    try:
+                        sketches_json = json.loads(data)
+                    except json.JSONDecodeError as exc:
+                        raise ValueError('Error decoding JSON for document {0} part {1}.'.format(document_id, part_id))
                     for i, sketch_json in enumerate(sketches_json):
                         yield (document_id, part_id, i), Sketch.from_fs_json(sketch_json)
 

@@ -282,7 +282,7 @@ def main():
         '--base_filter', choices=list(BASE_FILTER_FACTORIES.keys()), default='default')
 
     parser.add_argument(
-        '--total_sketches', type=int, default=12507587)
+        '--total_sketches', type=int, default=16079456)
 
     args = parser.parse_args()
 
