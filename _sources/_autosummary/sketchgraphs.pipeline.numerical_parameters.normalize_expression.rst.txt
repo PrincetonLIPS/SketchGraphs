@@ -1,6 +1,0 @@
-sketchgraphs.pipeline.numerical\_parameters.normalize\_expression
-=================================================================
-
-.. currentmodule:: sketchgraphs.pipeline.numerical_parameters
-
-.. autofunction:: normalize_expression

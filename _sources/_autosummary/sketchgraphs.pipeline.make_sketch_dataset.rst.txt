@@ -16,11 +16,8 @@ sketchgraphs.pipeline.make\_sketch\_dataset
    .. rubric:: Functions
 
    
-   .. autofunction:: filter_sketch
    .. autofunction:: gather_sorted_paths
-   .. autofunction:: load_json_tarball
    .. autofunction:: main
-   .. autofunction:: parse_sketch_id
    .. autofunction:: process
    
    

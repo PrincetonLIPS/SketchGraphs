@@ -1,6 +1,0 @@
-sketchgraphs.data.flat\_array.save\_list\_flat
-==============================================
-
-.. currentmodule:: sketchgraphs.data.flat_array
-
-.. autofunction:: save_list_flat

@@ -1,15 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sketchgraphs.pipeline.make_sketch_dataset &mdash; Sketchgraphs  documentation</title>
+  <title>sketchgraphs.pipeline.make_sketch_dataset &mdash; SketchGraphs  documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
 
   
   
@@ -17,7 +20,9 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -29,14 +34,8 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="sketchgraphs.pipeline.numerical_parameters" href="sketchgraphs.pipeline.numerical_parameters.html" />
-    <link rel="prev" title="sketchgraphs.pipeline.make_sequence_dataset.FilterReason" href="sketchgraphs.pipeline.make_sequence_dataset.FilterReason.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Sketchgraphs
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
           
 
           
@@ -73,6 +72,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -85,26 +85,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../models.html#quickstart">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models.html#native-extensions">Native extensions</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.onshape.html">sketchgraphs.onshape</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.graph_model.html">sketchgraphs.pipeline.graph_model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.make_quantization_statistics.html">sketchgraphs.pipeline.make_quantization_statistics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.make_sequence_dataset.html">sketchgraphs.pipeline.make_sequence_dataset</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">sketchgraphs.pipeline.make_sketch_dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.numerical_parameters.html">sketchgraphs.pipeline.numerical_parameters</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -114,7 +103,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Sketchgraphs</a>
+          <a href="../index.html">SketchGraphs</a>
         
       </nav>
 
@@ -143,11 +132,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
-        
-          <li><a href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>sketchgraphs.pipeline.make_sketch_dataset</li>
     
@@ -168,56 +153,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-sketchgraphs.pipeline.make_sketch_dataset">
-<span id="sketchgraphs-pipeline-make-sketch-dataset"></span><h1>sketchgraphs.pipeline.make_sketch_dataset<a class="headerlink" href="#module-sketchgraphs.pipeline.make_sketch_dataset" title="Permalink to this headline">¶</a></h1>
-<p>This script is responsible for creating the main sketch dataset from the JSON files.</p>
-<p>Some basic filtering is applied in order to exclude empty sketches. However, as this dataset
-is intended to capture the original data, further filtering is left to scripts such as
-<a class="reference internal" href="sketchgraphs.pipeline.make_sequence_dataset.html"><span class="doc">sketchgraphs.pipeline.make_sequence_dataset</span></a> which process dataset for learning.</p>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="sketchgraphs.pipeline.make_sketch_dataset.filter_sketch">
-<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">filter_sketch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sketch</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch">sketchgraphs.data.sketch.Sketch</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.filter_sketch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Basic filtering which excludes empty sketches, or sketches with no constraints.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs.pipeline.make_sketch_dataset.gather_sorted_paths">
-<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">gather_sorted_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">patterns</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.gather_sorted_paths" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs.pipeline.make_sketch_dataset.load_json_tarball">
-<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">load_json_tarball</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.load_json_tarball" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads a json tarball as an iterable of sketches.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A path to the location of a single shard</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An iterable of <a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Sketch</span></code></a> representing all the sketches present in the tarball.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>iterable of <a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Sketch</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs.pipeline.make_sketch_dataset.main">
-<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.main" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs.pipeline.make_sketch_dataset.parse_sketch_id">
-<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">parse_sketch_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.parse_sketch_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="sketchgraphs.pipeline.make_sketch_dataset.process">
-<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">paths</span></em>, <em class="sig-param"><span class="n">threads</span></em>, <em class="sig-param"><span class="n">max_sketches</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.process" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="sketchgraphs-pipeline-make-sketch-dataset">
+<h1>sketchgraphs.pipeline.make_sketch_dataset<a class="headerlink" href="#sketchgraphs-pipeline-make-sketch-dataset" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -226,25 +163,24 @@ is intended to capture the original data, further filtering is left to scripts s
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs.pipeline.numerical_parameters.html" class="btn btn-neutral float-right" title="sketchgraphs.pipeline.numerical_parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs.pipeline.make_sequence_dataset.FilterReason.html" class="btn btn-neutral float-left" title="sketchgraphs.pipeline.make_sequence_dataset.FilterReason" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -255,7 +191,6 @@ is intended to capture the original data, further filtering is left to scripts s
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

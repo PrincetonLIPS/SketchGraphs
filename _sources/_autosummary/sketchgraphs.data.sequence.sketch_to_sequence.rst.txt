@@ -1,6 +1,0 @@
-sketchgraphs.data.sequence.sketch\_to\_sequence
-===============================================
-
-.. currentmodule:: sketchgraphs.data.sequence
-
-.. autofunction:: sketch_to_sequence

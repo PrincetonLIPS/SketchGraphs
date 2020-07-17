@@ -1,6 +1,0 @@
-sketchgraphs.pipeline.make\_quantization\_statistics.process\_nodes
-===================================================================
-
-.. currentmodule:: sketchgraphs.pipeline.make_quantization_statistics
-
-.. autofunction:: process_nodes

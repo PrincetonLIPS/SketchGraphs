@@ -1,6 +1,0 @@
-sketchgraphs.data.flat\_array.human\_bytes
-==========================================
-
-.. currentmodule:: sketchgraphs.data.flat_array
-
-.. autofunction:: human_bytes

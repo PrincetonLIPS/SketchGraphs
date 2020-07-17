@@ -1,6 +1,0 @@
-sketchgraphs.pipeline.make\_quantization\_statistics.main
-=========================================================
-
-.. currentmodule:: sketchgraphs.pipeline.make_quantization_statistics
-
-.. autofunction:: main

@@ -1,6 +1,0 @@
-sketchgraphs.data.flat\_array.load\_flat\_array
-===============================================
-
-.. currentmodule:: sketchgraphs.data.flat_array
-
-.. autofunction:: load_flat_array

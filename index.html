@@ -1,15 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Sketchgraphs’ documentation! &mdash; Sketchgraphs  documentation</title>
+  <title>Welcome to SketchGraphs’ documentation! &mdash; SketchGraphs  documentation</title>
   
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
 
   
   
@@ -17,7 +20,9 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,10 +34,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Sketchgraph models" href="models.html" /> 
@@ -49,7 +50,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Sketchgraphs
+            <a href="#" class="icon icon-home" alt="Documentation Home"> SketchGraphs
           
 
           
@@ -72,6 +73,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -92,6 +94,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -101,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Sketchgraphs</a>
+          <a href="#">SketchGraphs</a>
         
       </nav>
 
@@ -130,9 +133,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to Sketchgraphs’ documentation!</li>
+      <li>Welcome to SketchGraphs’ documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,8 +155,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-sketchgraphs-documentation">
-<h1>Welcome to Sketchgraphs’ documentation!<a class="headerlink" href="#welcome-to-sketchgraphs-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Sketchgraph is a dataset of 15 million sketches extracted from real world CAD models intended to facilitate
+<h1>Welcome to SketchGraphs’ documentation!<a class="headerlink" href="#welcome-to-sketchgraphs-documentation" title="Permalink to this headline">¶</a></h1>
+<p>SketchGraphs is a dataset of 15 million sketches extracted from real world CAD models intended to facilitate
 research in ML-aided design and geometric program induction.
 In addition to the raw data, we provide several processed datasets, an accompanying python package to work with
 the data, as well as a couple of starter models which implement GNN-type strategies on a couple of example problems.</p>
@@ -166,7 +169,7 @@ The following data files are provided:</p>
 <li><p>The raw json data as obtained from Onshape. This is provided as a set of 128 tar archives which are compressed
 using <a class="reference external" href="https://facebook.github.io/zstd/">zstandard</a>. They total about 43GB of data. In general, we only recommend these for advanced usage, as
 they are heavy and require extensive processing to manipulate. Users interested in working with the raw data
-may wish to inspect <a class="reference internal" href="_autosummary/sketchgraphs.pipeline.make_sketch_dataset.html#module-sketchgraphs.pipeline.make_sketch_dataset" title="sketchgraphs.pipeline.make_sketch_dataset"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sketch_dataset</span></code></a> and <a class="reference internal" href="_autosummary/sketchgraphs.pipeline.make_sequence_dataset.html#module-sketchgraphs.pipeline.make_sequence_dataset" title="sketchgraphs.pipeline.make_sequence_dataset"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sequence_dataset</span></code></a>
+may wish to inspect <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sketch_dataset</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sequence_dataset</span></code>
 to view our data processing scripts. The data is available for download <a class="reference external" href="https://sketchgraphs.cs.princeton.edu/shards/">here</a>.</p></li>
 <li><p>A dataset of construction sequences. This is provided as a single file, stored in a custom binary format.
 This format is much more concise (as it eliminates many of the unique identifiers used in the raw JSON format),
@@ -238,11 +241,19 @@ For more details, please refer to the dedicated <a class="reference internal" hr
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -253,7 +264,6 @@ For more details, please refer to the dedicated <a class="reference internal" hr
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
