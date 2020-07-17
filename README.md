@@ -17,6 +17,8 @@ The original creators of the CAD sketches hold the copyright. See [Onshape Terms
 
 ## Processing
 
+For full documentation, see https://princetonlips.github.io/SketchGraphs.
+
 ## Citation
 If you use this dataset in your research, please cite:
 ```
