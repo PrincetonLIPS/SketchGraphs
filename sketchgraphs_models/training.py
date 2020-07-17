@@ -177,6 +177,7 @@ class TrainingHarness(abc.ABC):
         return distributed_utils.is_leader(self.dist_config)
 
     def on_epoch_end(self, epoch, global_step):
+        """This function is called at the end of each epoch."""
         pass
 
     def write_summaries(self, global_step, losses, accuracies, tb_writer):
@@ -300,17 +301,17 @@ class TrainingHarness(abc.ABC):
             The current global step of training
         """
         if self.config_eval is None:
-            if self.is_leader():
-                self.log('Skipping holdout evaluation as no evaluation dataset specified.')
+            self.log('Skipping holdout evaluation as no evaluation dataset specified.')
             return
 
-        if self.is_leader():
-            self.log('Running holdout eval...')
-        loss_acc = {}
-        accuracy_acc = {}
+        self.log('Running holdout eval...')
+        loss_acc = collections.OrderedDict()
+        accuracy_acc = collections.OrderedDict()
         self.reset_statistics()
 
         self.model.eval()
+
+        idx = 0
         for idx, batch in enumerate(self.config_eval.dataloader):
             batch = load_cuda_async(batch, device=self.config_eval.device)
             with torch.no_grad():
@@ -320,12 +321,11 @@ class TrainingHarness(abc.ABC):
 
         num_batches = idx + 1
 
-        for k in loss_acc:
-            loss_acc[k] /= num_batches
-        for k in accuracy_acc:
-            accuracy_acc[k] /= num_batches
+        loss_acc = map_structure_flat(loss_acc, lambda x: x / num_batches)
+        accuracy_acc = map_structure_flat(accuracy_acc, lambda x: x / num_batches)
 
-        print(f'Eval for epoch={epoch}, global_step={global_step}:')
-        self.print_statistics(loss_acc, accuracy_acc)
-        print()
-        self.write_summaries(global_step, loss_acc, accuracy_acc, self.config_eval.tb_writer)
+        if self.is_leader():
+            self.log(f'Eval for epoch={epoch}, global_step={global_step}:')
+            self.print_statistics(loss_acc, accuracy_acc)
+            self.log()
+            self.write_summaries(global_step, loss_acc, accuracy_acc, self.config_eval.tb_writer)
