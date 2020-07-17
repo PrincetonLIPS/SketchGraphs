@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'SketchGraphs'
-copyright = '2020, Ari Seff, Yaniv Ovadia, Wenda Zhou'
-author = 'Ari Seff, Yaniv Ovadia, Wenda Zhou'
+copyright = '2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams'
+author = 'Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams'
 
 
 # -- General configuration ---------------------------------------------------
