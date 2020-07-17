@@ -5,3 +5,9 @@ docs/_autosummary
 docs/_build
 
 creds.json
+build/
+*.cpython-37m-x86_64-linux-gnu.so
+
+
+
+
