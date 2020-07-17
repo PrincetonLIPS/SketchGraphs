@@ -6,7 +6,7 @@ The models are based on a Graph Neural Network architecture, modelling the sketc
 with vertices given by entities and edges given by their constraints.
 
 Quickstart
-===========
+----------
 
 For an initial quick-start, we recommend users to start with the provided sequence files and
 associated quantization maps, and following the default hyper-parameter values for training.
@@ -32,7 +32,8 @@ We will also provide pre-trained models (coming soon!).
 
 
 Native extensions
-=================
+-----------------
+
 In order to enjoy the best training performance, we strongly recommend you compile the native extensions for
 the models. They are provided as a `pytorch extension <https://pytorch.org/tutorials/advanced/cpp_extension.html>`_,
 and you will require access to a C++ compiler as well as the CUDA toolkit and compiler. If you do not have access,

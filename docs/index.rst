@@ -13,7 +13,7 @@ the data, as well as a couple of starter models which implement GNN-type strateg
 
 
 Data
-====
+----
 
 We provide our dataset in a number of forms, some of which may be more appropriate for your desired usage.
 The following data files are provided:
@@ -40,11 +40,15 @@ The following data files are provided:
   `validation <https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_validation.npy>`_.
 
 
+More details concerning the data can be found in the :doc:`data` page.
+
+
 .. _zstandard: https://facebook.github.io/zstd/
 
 
 Models
-======
+------
+
 In addition to the dataset, we also provide some baseline model implementations to tackle the tasks of generative
 modelling and autoconstrain. These models are based on Graph Neural Network approaches, and model the sketch as
 a graph where vertices are given by the entities in the sketch, and edges by the constraints between those entities.
@@ -53,6 +57,7 @@ For more details, please refer to the dedicated :doc:`models` page.
 
 .. toctree::
    models
+   data
 .. autosummary::
    :toctree: _autosummary
    :recursive:

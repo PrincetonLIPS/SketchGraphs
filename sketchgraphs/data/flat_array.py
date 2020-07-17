@@ -100,13 +100,13 @@ def pack_list_flat(offsets, data_bytes):
     """Packs the given offsets and corresponding data array into a flat array format.
 
     This function simply adds some metadata headers in order to create a contiguous
-    packed format. See also `raw_list_flat` to obtain the raw `offsets` and `data_bytes`,
+    packed format. See also `raw_list_flat` to obtain the raw ``offsets`` and ``data_bytes``,
     or `save_list_flat` for serializing a flat array.
 
     Parameters
     ----------
     offsets : array_like
-        Array of offsets delineating each element in the `data_bytes` array
+        Array of offsets delineating each element in the ``data_bytes`` array
     data_bytes : array_like
         Array of bytes containing the raw serialized data
 
@@ -161,7 +161,7 @@ def merge_raw_list(offset_arrays, data_arrays):
     offset_arrays: list of np.ndarray
         A list of arrays representing the offsets.
     data_arrays: list of np.ndarray
-        A list of the same length as `offset_arrays` representing the data.
+        A list of the same length as ``offset_arrays`` representing the data.
 
     Returns
     -------

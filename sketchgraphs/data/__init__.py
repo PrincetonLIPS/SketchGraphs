@@ -11,3 +11,6 @@ specialized towards applications in machine learning. It is more streamlined, an
 to interact with Onshape's API. However, it interacts more naturally with machine learning applications.
 
 """
+
+from .sketch import *
+from .sequence import *

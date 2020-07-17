@@ -49,8 +49,8 @@ values : torch.Tensor
     A 1-dimensional tensor.
 scopes : torch.Tensor
     a 2-dimensional integer tensor representing segments.
-    Each row of scopes represents a segment, which starts at `scopes[i, 0]`,
-    and has length `scopes[i, 1]`.
+    Each row of scopes represents a segment, which starts at ``scopes[i, 0]``,
+    and has length ``scopes[i, 1]``.
 
 Returns
 -------
@@ -157,8 +157,8 @@ values : torch.Tensor
     A 1-dimensional tensor.
 scopes : torch.Tensor
     a 2-dimensional integer tensor representing segments.
-    Each row of scopes represents a segment, which starts at `scopes[i, 0]`,
-    and has length `scopes[i, 1]`.
+    Each row of scopes represents a segment, which starts at ``scopes[i, 0]``,
+    and has length ``scopes[i, 1]``.
 
 Returns
 -------

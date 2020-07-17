@@ -121,7 +121,7 @@ class EdgeFeatureMapping:
         Returns
         -------
         dict
-            A dictionary with keys given by `supported_targets`, and values representing
+            A dictionary with keys given by `self.supported_targets`, and values representing
             the corresponding sparse features in a `SparseFeatureBatch`.
         """
         return {

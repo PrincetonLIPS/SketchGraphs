@@ -164,7 +164,7 @@ values : torch.Tensor
     a 1-dimensional `torch.Tensor` representing the values.
 scopes : torch.Tensor
     a 2-dimensional integer `torch.Tensor` representing the segments. The ith segment
-    has offset `scopes[i, 0]` and length `scopes[i, 1]`.
+    has offset ``scopes[i, 0]`` and length ``scopes[i, 1]``.
 
 Returns
 -------
@@ -190,7 +190,7 @@ values : torch.Tensor
     A 1-dimensional tensor representing the values.
 scopes : torch.Tensor
     A 2-dimensional integer tensor representing the segments. The ith segment
-    has offset `scopes[i, 0]` and length `scopes[i, 1]`.
+    has offset ``scopes[i, 0]`` and length ``scopes[i, 1]``.
 
 Returns
 -------

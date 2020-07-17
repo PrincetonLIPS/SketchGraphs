@@ -85,7 +85,7 @@ def sketch_to_sequence(sketch, ignore_invalid_constraints=True) -> typing.List[t
     Raises
     ------
     ValueError
-        If `ignore_invalid_constraints` is set to False, a ValueError will be raised
+        If ``ignore_invalid_constraints`` is set to False, a ValueError will be raised
         upon encountering invalid constraints (e.g. constraints which refer to non-existing nodes,
         or whose parameters cannot be processed according to the specified schema).
     """
