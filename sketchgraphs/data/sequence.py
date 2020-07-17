@@ -5,10 +5,13 @@ is a streamlined representation of sketches, adapted for machine learning applic
 
 """
 
+import collections
 import typing
 
-from ._entity import Entity, EntityType
-from ._constraint import Constraint, ConstraintType, ConstraintParameterType
+from ._entity import Entity, EntityType, SubnodeType, ENTITY_TYPE_TO_CLASS
+from ._constraint import Constraint, ConstraintType, ConstraintParameterType, LocalReferenceParameter
+from ._constraint import NUMERIC_IDS, ENUM_IDS, BOOL_IDS, QuantityParameter, EnumParameter, BooleanParameter, BooleanValue
+from .sketch import Sketch
 
 
 class NodeOp(typing.NamedTuple):
@@ -161,3 +164,104 @@ def sketch_to_sequence(sketch, ignore_invalid_constraints=True) -> typing.List[t
     assert j == len(edge_sequence)
 
     return sequence
+
+
+def sketch_from_sequence(seq) -> Sketch:
+    """Builds a Sketch object from the given sequence.
+
+    Parameters
+    ----------
+    seq : List[Union[NodeOp, EdgeOp]]
+        A construction sequence representing a sketch.
+
+    Returns
+    -------
+    Sketch
+        A sketch object representing the given construction sequence.
+    """
+    subnode_label_to_string = {
+        SubnodeType.SN_Start: 'start', 
+        SubnodeType.SN_End: 'end',
+        SubnodeType.SN_Center: 'center'
+    }
+
+    entities = collections.OrderedDict()
+    constraints = collections.OrderedDict()
+
+    main_node_map = {}
+    node_idx = -1
+    last_main_idx = node_idx
+    constraint_idx = 1
+
+    def create_entity_id(node_idx):
+        """Helper function for creating entity id - manages sub-entities"""
+        if node_idx not in main_node_map:
+            return str(node_idx)
+        else:
+            main_idx, subnode_label = main_node_map[node_idx]
+            return '%i.%s' % (main_idx, subnode_label_to_string[subnode_label])
+
+    for op in seq:
+        if isinstance(op, NodeOp):
+            node_idx += 1
+            # Check if this is a main (non-sub) node
+            if isinstance(op.label, EntityType):
+                last_main_idx = node_idx
+                entityId = str(node_idx)
+                # Don't create External or Stop entity
+                if op.label not in (EntityType.External, EntityType.Stop):
+                    entities[entityId] = ENTITY_TYPE_TO_CLASS[op.label](entityId)
+                    # Extract parameters for numerical entities
+                    for param_id, val in op.parameters.items():
+                        setattr(entities[entityId], param_id, val)
+            else:
+                # Mark main reference of this subnode
+                main_node_map[node_idx] = (last_main_idx, op.label)
+
+        else:
+            if 0 in op.references:
+                # Skipping external constraints for now
+                continue
+            if op.label == ConstraintType.Subnode:
+                # Don't include subnode edges in constraints
+                continue
+
+            constraint_ent_id = 'c_%i' % constraint_idx
+            constraint_idx += 1
+            constraint_type = op.label
+
+            # Adjust reference parameter ids if necessary
+            if constraint_type == ConstraintType.Midpoint:
+                param_ids = ['local0', 'local1']
+            else:
+                param_ids = ['localFirst', 'localSecond']
+
+            param1 = LocalReferenceParameter(param_ids[0], create_entity_id(op.references[-1]))
+            params = [param1]
+
+            if len(op.references) > 1:
+                # Non self-constraint
+                param2 = LocalReferenceParameter(param_ids[1], create_entity_id(op.references[0]))
+                params.append(param2)
+
+            # Extract parameters for numerical constraints
+            params_are_ok = True
+            for param_id, val in op.parameters.items():
+                if param_id in NUMERIC_IDS:
+                    if val == 'OTHER':  # skip unsupported values
+                        params_are_ok = False
+                    val = val.replace('METER', 'm')
+                    val = val.replace('DEGREE', 'deg')
+                    params.append(QuantityParameter(param_id, '0.0', val))  # val is really expression here
+                elif param_id in ENUM_IDS:
+                    params.append(EnumParameter(param_id, val))
+                elif param_id in BOOL_IDS:
+                    val = bool(BooleanValue[val])
+                    params.append(BooleanParameter(param_id, val))
+                else:
+                    raise ValueError("Unknown parameter id.")
+
+            if params_are_ok:
+                constraints[constraint_ent_id] = Constraint(constraint_ent_id, constraint_type, params)
+
+    return Sketch(entities=entities, constraints=constraints)

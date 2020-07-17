@@ -15,6 +15,7 @@ import json
 import multiprocessing as mp
 import tarfile
 import traceback
+import os
 
 import numpy as np
 import tqdm
@@ -33,6 +34,15 @@ def _load_json(path):
 def filter_sketch(sketch: Sketch):
     """Basic filtering which excludes empty sketches, or sketches with no constraints."""
     return len(sketch.constraints) == 0 or len(sketch.entities) == 0
+
+
+def parse_sketch_id(filename):
+    basename = os.path.basename(filename)
+    while '.' in basename:
+        basename, _ = os.path.splitext(basename)
+
+    document_id, part_id = basename.split('_')
+    return document_id, int(part_id)
 
 
 def load_json_tarball(path):
@@ -60,9 +70,10 @@ def load_json_tarball(path):
                     if not json_file.isfile():
                         continue
 
+                    document_id, part_id = parse_sketch_id(json_file.name)
                     sketches_json = json.load(directory.extractfile(json_file))
-                    for sketch_json in sketches_json:
-                        yield Sketch.from_fs_json(sketch_json)
+                    for i, sketch_json in enumerate(sketches_json):
+                        yield (document_id, part_id, i), Sketch.from_fs_json(sketch_json)
 
 
 

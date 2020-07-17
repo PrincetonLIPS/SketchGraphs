@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from sketchgraphs.data.sequence import sketch_to_sequence, NodeOp, EdgeOp
+from sketchgraphs.data.sequence import sketch_to_sequence, NodeOp, EdgeOp, sketch_from_sequence
 from sketchgraphs.data.sketch import Sketch, render_sketch, EntityType, ConstraintType, SubnodeType
 from sketchgraphs.data.dof import get_sequence_dof
 
@@ -46,3 +46,15 @@ def test_get_sequence_dof():
 
     dof_remaining = np.sum(get_sequence_dof(seq))
     assert dof_remaining == 5
+
+
+def test_sketch_from_sequence(sketches_json):
+    for sketch_json in sketches_json:
+        sketch = Sketch.from_fs_json(sketch_json)
+        seq = sketch_to_sequence(sketch)
+        sketch2 = sketch_from_sequence(seq)
+        seq2 = sketch_to_sequence(sketch)
+
+        assert len(seq) == len(seq2)
+        for op1, op2 in zip(seq, seq2):
+            assert op1 == op2

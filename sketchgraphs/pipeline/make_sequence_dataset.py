@@ -100,19 +100,7 @@ def _get_sketch_iterable(config):
     if isinstance(config['dataset_path'], list) or config['dataset_path'].endswith('.tar.zst'):
         return _sketch_iterable_from_json_dataset(config)
     else:
-        return _sketch_iterable_from_sketch_dataset(config)
-
-
-def _sketch_iterable_from_sketch_dataset(config):
-    num_workers = config['num_workers']
-    dataset_path = config['dataset_path']
-    worker_idx = config['worker_idx']
-
-    sketch_array = flat_array.load_flat_array(dataset_path)
-
-    stride = (len(sketch_array) + num_workers - 1) // num_workers
-
-    return sketch_array[worker_idx * stride:(worker_idx + 1) * stride]
+        raise NotImplementedError('Can only load from json tarballs currently')
 
 
 def _sketch_iterable_from_json_dataset(config):
@@ -141,40 +129,54 @@ def _worker(config, processed_sequences, filter_config):
     num_invalid = 0
 
     sequences = []
-    chunk_count = 0
+    sketch_ids = []
+    count_in_chunk = 0
     chunk_index = 0
+    num_filtered_in_chunk = 0
 
-    for sketch in sketches:
+    for sketch_id, sketch in sketches:
         filter_reason = filter_sketch(sketch, filter_config)
 
         if filter_reason != FilterReason.Accepted:
             filtered_reasons[filter_reason] += 1
+            num_filtered_in_chunk += 1
             continue
 
         try:
             seq = sequence.sketch_to_sequence(sketch)
             _normalize_constraint_parameters(seq)
             sequences.append(seq)
-            chunk_count += 1
+            sketch_ids.append(sketch_id)
+            count_in_chunk += 1
         except Exception as err:
             num_invalid += 1
-            print('Error processing sketch.')
+            print('Error processing sketch {2} in document {0} part {1}.'.format(*sketch_id))
             traceback.print_exception(type(err), err, err.__traceback__)
 
-        if chunk_count >= chunk_size:
+        if count_in_chunk >= chunk_size:
             sequence_lengths = np.array([len(seq) for seq in sequences], dtype=np.int64)
+            sketch_ids = np.array(
+                sketch_ids, dtype=[('document_id', 'S24'), ('part_idx', '<i4'), ('sketch_idx', '<i4')])
+
             offsets, sequence_data = flat_array.raw_list_flat(sequences)
 
-            processed_sequences.put(((worker_idx, chunk_index), offsets, sequence_data, sequence_lengths))
+            processed_sequences.put(
+                ((worker_idx, chunk_index), offsets, sequence_data, sequence_lengths,
+                sketch_ids, num_filtered_in_chunk))
 
             sequences = []
-            chunk_count = 0
+            sketch_ids = []
+            count_in_chunk = 0
             chunk_index += 1
+            num_filtered_in_chunk = 0
 
     # Send final batch of data
     sequence_lengths = np.array([len(seq) for seq in sequences], dtype=np.int64)
+    sketch_ids = np.array(sketch_ids, dtype=[('document_id', 'S24'), ('part_idx', '<i4'), ('sketch_idx', '<i4')])
+
     offsets, sequence_data = flat_array.raw_list_flat(sequences)
-    processed_sequences.put(((worker_idx, chunk_index), offsets, sequence_data, sequence_lengths))
+    processed_sequences.put(
+        ((worker_idx, chunk_index), offsets, sequence_data, sequence_lengths, sketch_ids, num_filtered_in_chunk))
 
     processed_sequences.put({
         'filtered': filtered_reasons,
@@ -225,7 +227,7 @@ def process(dataset_path, threads, filter_config, total_sketches=None):
                 continue
 
             sequence_results.append(result)
-            pbar.update(chunk_size)
+            pbar.update(chunk_size + result[-1])
 
     for worker in workers:
         worker.join()
@@ -239,10 +241,12 @@ def process(dataset_path, threads, filter_config, total_sketches=None):
         [x[2] for x in sequence_results]))
 
     all_sequence_lengths = np.concatenate([x[3] for x in sequence_results])
+    all_sketch_ids = np.concatenate([x[4] for x in sequence_results])
 
     flat_dict = flat_array.pack_dictionary_flat({
         'sequences': flat_data,
-        'sequence_lengths': all_sequence_lengths
+        'sequence_lengths': all_sequence_lengths,
+        'sketch_ids': all_sketch_ids,
     })
 
     print('Done processing sequences')
@@ -278,7 +282,7 @@ def main():
         '--base_filter', choices=list(BASE_FILTER_FACTORIES.keys()), default='default')
 
     parser.add_argument(
-        '--total_sketches', type=int, default=11730944)
+        '--total_sketches', type=int, default=12507587)
 
     args = parser.parse_args()
 
