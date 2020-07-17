@@ -1,0 +1,9 @@
+sketchgraphs.onshape.onshape.Onshape
+====================================
+
+.. currentmodule:: sketchgraphs.onshape.onshape
+
+.. autoclass:: Onshape
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

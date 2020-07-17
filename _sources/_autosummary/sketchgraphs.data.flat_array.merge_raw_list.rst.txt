@@ -1,0 +1,6 @@
+sketchgraphs.data.flat\_array.merge\_raw\_list
+==============================================
+
+.. currentmodule:: sketchgraphs.data.flat_array
+
+.. autofunction:: merge_raw_list

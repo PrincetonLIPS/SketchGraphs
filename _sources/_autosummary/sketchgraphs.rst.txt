@@ -29,5 +29,6 @@ sketchgraphs
    :recursive:
 
    sketchgraphs.data
+   sketchgraphs.onshape
    sketchgraphs.pipeline
 

@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -34,6 +29,10 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="sketchgraphs_models.nn.ConcatenateLinear" href="sketchgraphs_models.nn.ConcatenateLinear.html" />
@@ -51,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -74,7 +73,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -107,7 +105,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -146,7 +143,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="sketchgraphs_models.html">sketchgraphs_models</a> &raquo;</li>
         
@@ -171,7 +168,7 @@
             
   <div class="section" id="module-sketchgraphs_models.nn">
 <span id="sketchgraphs-models-nn"></span><h1>sketchgraphs_models.nn<a class="headerlink" href="#module-sketchgraphs_models.nn" title="Permalink to this headline">¶</a></h1>
-<p>Neural network layers and utilities.</p>
+<p>This module provides utilities and generic build blocks for graph neural networks.</p>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -204,10 +201,12 @@ Optimization opportunity: write using actual cuSparse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>values</strong> (<em>a tensor of rank at least 2</em>) – </p></li>
-<li><p><strong>incidence</strong> (a <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">k]</span></code> tensor) – </p></li>
-<li><p><strong>transform_edge_messages</strong> (<em>an arbitrary function which transforms edge messages.</em>) – </p></li>
-<li><p><strong>output_size</strong> (if not <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>, the size of the output tensor. Otherwise, we assume the output tensor) – is the same size as <code class="xref any docutils literal notranslate"><span class="pre">values</span></code>.</p></li>
+<li><p><strong>values</strong> (<em>torch.Tensor</em>) – A tensor of rank at least 2</p></li>
+<li><p><strong>incidence</strong> (<em>torch.Tensor</em>) – a <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">k]</span></code> tensor</p></li>
+<li><p><strong>transform_edge_messages</strong> (<em>function</em><em>, </em><em>optional</em>) – an arbitrary function which transforms edge messages.</p></li>
+<li><p><strong>transform_edge_messages_args</strong> (<em>any</em>) – Arbitrary set of arguments that are passed to the <code class="xref any docutils literal notranslate"><span class="pre">transform_edge_messages</span></code> function.</p></li>
+<li><p><strong>output_size</strong> (<em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – if not <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>, the size of the output tensor. Otherwise, we assume the output tensor
+is the same size as <code class="xref any docutils literal notranslate"><span class="pre">values</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -239,7 +238,7 @@ Optimization opportunity: write using actual cuSparse.</p>
 <td><p>Utility modules for distributed and parallel training.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.nn.functional.html#module-sketchgraphs_models.nn.functional" title="sketchgraphs_models.nn.functional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.nn.functional</span></code></a></p></td>
-<td><p>Functional interface</p></td>
+<td><p>Utility functions for computing specific nn functions.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="sketchgraphs_models.nn.summary.html#module-sketchgraphs_models.nn.summary" title="sketchgraphs_models.nn.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sketchgraphs_models.nn.summary</span></code></a></p></td>
 <td><p>This module implements utilities to compute summary statistics.</p></td>
@@ -268,19 +267,11 @@ Optimization opportunity: write using actual cuSparse.</p>
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -291,6 +282,7 @@ Optimization opportunity: write using actual cuSparse.</p>
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sketchgraphs.onshape.client.Client &mdash; SketchGraphs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sketchgraphs.onshape.onshape" href="sketchgraphs.onshape.onshape.html" />
+    <link rel="prev" title="sketchgraphs.onshape.client" href="sketchgraphs.onshape.client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.onshape.html">sketchgraphs.onshape</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.onshape.call.html">sketchgraphs.onshape.call</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs.onshape.client.html">sketchgraphs.onshape.client</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="sketchgraphs.onshape.client.html#client">client</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.onshape.onshape.html">sketchgraphs.onshape.onshape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs.onshape.utils.html">sketchgraphs.onshape.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SketchGraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.onshape.html">sketchgraphs.onshape</a> &raquo;</li>
+        
+          <li><a href="sketchgraphs.onshape.client.html">sketchgraphs.onshape.client</a> &raquo;</li>
+        
+      <li>sketchgraphs.onshape.client.Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/sketchgraphs.onshape.client.Client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sketchgraphs-onshape-client-client">
+<h1>sketchgraphs.onshape.client.Client<a class="headerlink" href="#sketchgraphs-onshape-client-client" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sketchgraphs.onshape.client.Client">
+<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs.onshape.client.</code><code class="sig-name descname">Client</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack</span><span class="o">=</span><span class="default_value">'https://cad.onshape.com'</span></em>, <em class="sig-param"><span class="n">logging</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines methods for testing the Onshape API. Comes with several methods:</p>
+<ul class="simple">
+<li><p>Create a document</p></li>
+<li><p>Delete a document</p></li>
+<li><p>Get a list of documents</p></li>
+</ul>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">- stack (str, default='https</code></dt>
+<dd><p>//cad.onshape.com’): Base URL</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">- logging</code></dt>
+<dd><p>Turn logging on or off</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool, default=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack</span><span class="o">=</span><span class="default_value">'https://cad.onshape.com'</span></em>, <em class="sig-param"><span class="n">logging</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates a new Onshape client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stack</strong><strong> (</strong><strong>str</strong><strong>, </strong><strong>default='https</strong> (<em>-</em>) – //cad.onshape.com’): Base URL</p></li>
+<li><p><strong>logging</strong> (<em>-</em>) – Turn logging on or off</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.add_feature">
+<code class="sig-name descname">add_feature</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em>, <em class="sig-param"><span class="n">payload</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.add_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add feature for specified document / workspace / part studio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.create_assembly">
+<code class="sig-name descname">create_assembly</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'My Assembly'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.create_assembly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new assembly element in the specified document / workspace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>name</strong> (<em>-</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.delete_document">
+<code class="sig-name descname">delete_document</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.delete_document" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the specified document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>did</strong> (<em>-</em>) – Document ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.delete_feature">
+<code class="sig-name descname">delete_feature</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em>, <em class="sig-param"><span class="n">fid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.delete_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete feature for specified document / workspace / part studio / feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+<li><p><strong>fid</strong> (<em>-</em>) – Feature ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.get_document">
+<code class="sig-name descname">get_document</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.get_document" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get details for a specified document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>did</strong> (<em>-</em>) – Document ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.get_features">
+<code class="sig-name descname">get_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.get_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the feature list for specified document / workspace / part studio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+<li><p><strong>timeout</strong> (<em>-</em>) – Timeout passed to requests.request().</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.get_partstudio_tessellatededges">
+<code class="sig-name descname">get_partstudio_tessellatededges</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.get_partstudio_tessellatededges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the tessellation of the edges of all parts in a part studio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.get_tess_sketch_entities">
+<code class="sig-name descname">get_tess_sketch_entities</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em>, <em class="sig-param"><span class="n">sid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.get_tess_sketch_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the tessellations of the sketch entities in a sketch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+<li><p><strong>sid</strong> (<em>-</em>) – Sketch feature ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.get_thumbnail_with_size">
+<code class="sig-name descname">get_thumbnail_with_size</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">sz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.get_thumbnail_with_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the thumbnail image for specified document / workspace with size sz.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>sz</strong> (<em>-</em>) – Dimension of square image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.list_documents">
+<code class="sig-name descname">list_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.list_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of documents for current user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Onshape response data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.new_document">
+<code class="sig-name descname">new_document</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'Test Document'</span></em>, <em class="sig-param"><span class="n">owner_type</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">public</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.new_document" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>-</em>) – The doc name</p></li>
+<li><p><strong>owner_type</strong> (<em>-</em>) – 0 for user, 1 for company, 2 for team</p></li>
+<li><p><strong>public</strong> (<em>-</em>) – Whether or not to make doc public</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.part_studio_stl">
+<code class="sig-name descname">part_studio_stl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.part_studio_stl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports STL export from a part studio</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.rename_document">
+<code class="sig-name descname">rename_document</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.rename_document" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames the specified document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>name</strong> (<em>-</em>) – New document name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.sketch_information">
+<code class="sig-name descname">sketch_information</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">eid</span></em>, <em class="sig-param"><span class="n">payload</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.sketch_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information for sketches in a part studio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>eid</strong> (<em>-</em>) – Element ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sketchgraphs.onshape.client.Client.upload_blob">
+<code class="sig-name descname">upload_blob</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">did</span></em>, <em class="sig-param"><span class="n">wid</span></em>, <em class="sig-param"><span class="n">filepath</span><span class="o">=</span><span class="default_value">'./blob.json'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.client.Client.upload_blob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads a file to a new blob element in the specified doc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>did</strong> (<em>-</em>) – Document ID</p></li>
+<li><p><strong>wid</strong> (<em>-</em>) – Workspace ID</p></li>
+<li><p><strong>filepath</strong> (<em>-</em>) – Blob element location</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Onshape response data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>requests.Response</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sketchgraphs.onshape.onshape.html" class="btn btn-neutral float-right" title="sketchgraphs.onshape.onshape" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketchgraphs.onshape.client.html" class="btn btn-neutral float-left" title="sketchgraphs.onshape.client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

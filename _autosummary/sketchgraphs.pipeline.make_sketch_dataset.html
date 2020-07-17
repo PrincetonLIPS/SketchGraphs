@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -34,6 +29,10 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="sketchgraphs.pipeline.numerical_parameters" href="sketchgraphs.pipeline.numerical_parameters.html" />
@@ -51,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -74,7 +73,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -85,6 +83,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="sketchgraphs.html">sketchgraphs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs.data.html">sketchgraphs.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchgraphs.onshape.html">sketchgraphs.onshape</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs.pipeline.html">sketchgraphs.pipeline</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.graph_model.html">sketchgraphs.pipeline.graph_model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sketchgraphs.pipeline.make_quantization_statistics.html">sketchgraphs.pipeline.make_quantization_statistics</a></li>
@@ -101,7 +100,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -140,7 +138,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="sketchgraphs.html">sketchgraphs</a> &raquo;</li>
         
@@ -173,13 +171,41 @@ is intended to capture the original data, further filtering is left to scripts s
 <a class="reference internal" href="sketchgraphs.pipeline.make_sequence_dataset.html"><span class="doc">sketchgraphs.pipeline.make_sequence_dataset</span></a> which process dataset for learning.</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
+<dt id="sketchgraphs.pipeline.make_sketch_dataset.filter_sketch">
+<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">filter_sketch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sketch</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch">sketchgraphs.data.sketch.Sketch</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.filter_sketch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic filtering which excludes empty sketches, or sketches with no constraints.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="sketchgraphs.pipeline.make_sketch_dataset.gather_sorted_paths">
 <code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">gather_sorted_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">patterns</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.gather_sorted_paths" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="sketchgraphs.pipeline.make_sketch_dataset.load_json_tarball">
+<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">load_json_tarball</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.load_json_tarball" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a json tarball as an iterable of sketches.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – A path to the location of a single shard</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An iterable of <a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Sketch</span></code></a> representing all the sketches present in the tarball.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>iterable of <a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Sketch</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="sketchgraphs.pipeline.make_sketch_dataset.main">
 <code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.pipeline.make_sketch_dataset.parse_sketch_id">
+<code class="sig-prename descclassname">sketchgraphs.pipeline.make_sketch_dataset.</code><code class="sig-name descname">parse_sketch_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.pipeline.make_sketch_dataset.parse_sketch_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -209,19 +235,11 @@ is intended to capture the original data, further filtering is left to scripts s
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -232,6 +250,7 @@ is intended to capture the original data, further filtering is left to scripts s
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

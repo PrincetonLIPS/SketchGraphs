@@ -26,6 +26,7 @@ sketchgraphs.pipeline.make\_sequence\_dataset
    .. autofunction:: filter_sketch
    .. autofunction:: main
    .. autofunction:: make_default_filter_config
+   .. autofunction:: make_empty_filter_config
    .. autofunction:: process
    
    

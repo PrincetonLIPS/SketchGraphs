@@ -1,0 +1,35 @@
+sketchgraphs.onshape
+====================
+
+.. automodule:: sketchgraphs.onshape
+
+   
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   sketchgraphs.onshape.call
+   sketchgraphs.onshape.client
+   sketchgraphs.onshape.onshape
+   sketchgraphs.onshape.utils
+

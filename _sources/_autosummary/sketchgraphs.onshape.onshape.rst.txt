@@ -1,0 +1,31 @@
+sketchgraphs.onshape.onshape
+============================
+
+.. automodule:: sketchgraphs.onshape.onshape
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Onshape
+   
+   
+  
+   
+   
+   
+
+   
+   
+   
+
+
+   
+   
+   
+
+
+

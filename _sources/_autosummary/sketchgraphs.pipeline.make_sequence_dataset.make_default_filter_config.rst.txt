@@ -1,0 +1,6 @@
+sketchgraphs.pipeline.make\_sequence\_dataset.make\_default\_filter\_config
+===========================================================================
+
+.. currentmodule:: sketchgraphs.pipeline.make_sequence_dataset
+
+.. autofunction:: make_default_filter_config

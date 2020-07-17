@@ -1,0 +1,6 @@
+sketchgraphs.pipeline.numerical\_parameters.make\_quantization
+==============================================================
+
+.. currentmodule:: sketchgraphs.pipeline.numerical_parameters
+
+.. autofunction:: make_quantization

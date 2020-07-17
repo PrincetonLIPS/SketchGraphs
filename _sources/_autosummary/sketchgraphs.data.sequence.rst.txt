@@ -24,6 +24,7 @@ sketchgraphs.data.sequence
    .. rubric:: Functions
 
    
+   .. autofunction:: sketch_from_sequence
    .. autofunction:: sketch_to_sequence
    
    
