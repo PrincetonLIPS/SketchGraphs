@@ -1,0 +1,6 @@
+sketchgraphs.pipeline.make\_sequence\_dataset.process
+=====================================================
+
+.. currentmodule:: sketchgraphs.pipeline.make_sequence_dataset
+
+.. autofunction:: process

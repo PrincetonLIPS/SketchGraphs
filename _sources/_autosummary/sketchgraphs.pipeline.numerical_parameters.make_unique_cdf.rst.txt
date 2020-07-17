@@ -1,0 +1,6 @@
+sketchgraphs.pipeline.numerical\_parameters.make\_unique\_cdf
+=============================================================
+
+.. currentmodule:: sketchgraphs.pipeline.numerical_parameters
+
+.. autofunction:: make_unique_cdf
