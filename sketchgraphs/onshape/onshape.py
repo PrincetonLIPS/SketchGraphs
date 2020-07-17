@@ -33,11 +33,11 @@ class Onshape():
 
     Attributes:
         - stack (str): Base URL
-        - creds (str, default='./sketchgraphs/onshape/creds/creds.json'): Credentials location
+        - creds (str, default='./onshape/creds/creds.json'): Credentials location
         - logging (bool, default=True): Turn logging on or off
     '''
 
-    def __init__(self, stack, creds='./sketchgraphs/onshape/creds/creds.json', logging=True):
+    def __init__(self, stack, creds='./onshape/creds/creds.json', logging=True):
         '''
         Instantiates an instance of the Onshape class. Reads credentials from a JSON file
         of this format:
@@ -55,7 +55,7 @@ class Onshape():
 
         Args:
             - stack (str): Base URL
-            - creds (str, default='./sketchgraphs/onshape/creds/creds.json'): Credentials location
+            - creds (str, default='./onshape/creds/creds.json'): Credentials location
         '''
 
         if not os.path.isfile(creds):

@@ -1,4 +1,4 @@
-""" Functional interface """
+""" Utility functions for computing specific nn functions. """
 
 import torch
 from sketchgraphs_models.torch_extensions import segment_logsumexp, segment_avg_pool1d, segment_max_pool1d
@@ -12,14 +12,17 @@ def segmented_cross_entropy(logits, target, scopes):
 
     Parameters
     ----------
-    logits: unscaled logits by segment
-    target: tensor of length `n_segments`, representing the index of the true label
+    logits : torch.Tensor
+        unscaled logits by segment
+    target : torch.Tensor
+        tensor of length `n_segments`, representing the index of the true label
         for each segment.
-    scopes: tensor of shape `[n_segments, 2]`, representing the segments as `(start, length)`.
+    scopes : tonch.Tensor
+        tensor of shape `[n_segments, 2]`, representing the segments as `(start, length)`.
 
     Returns
     -------
-    torch.Tensor: cross_entropy
+    torch.Tensor
         A tensor of length `n_segments` representing the cross-entropy loss
         at each segment.
     """

@@ -160,19 +160,46 @@ index is not defined.
 
 Parameters
 ----------
-values: a 1-dimensional `torch.Tensor` representing the values.
-scopes: a 2-dimensional integer `torch.Tensor` representing the segments. The ith segment
+values : torch.Tensor
+    a 1-dimensional `torch.Tensor` representing the values.
+scopes : torch.Tensor
+    a 2-dimensional integer `torch.Tensor` representing the segments. The ith segment
     has offset `scopes[i, 0]` and length `scopes[i, 1]`.
 
 Returns
 -------
-A pair of arrays representing the value and location of the maximum.
-maximum: A tensor of the same type as `values` representing the value of the maximum.
-argmax: A tensor of the same type as `scopes` representing the location of the maximum.
+torch.Tensor
+    A tensor of the same type as `values` representing the maximum in each segment.
+torch.Tensor
+    An integer tensor representing the location of the maximum in ecah segment.
 """
 
 segment_argmax_native.__docstring__ = _segment_argmax_docstring
 segment_argmax_python.__docstring__ = _segment_argmax_docstring
+
+_segment_logsumexp_docstring = \
+"""
+Compute the log-sum-exp in each segment.
+
+This function computes, for each segment, the log-sum-exp value in
+a numerically stable fashion.
+
+Parameters
+----------
+values : torch.Tensor
+    A 1-dimensional tensor representing the values.
+scopes : torch.Tensor
+    A 2-dimensional integer tensor representing the segments. The ith segment
+    has offset `scopes[i, 0]` and length `scopes[i, 1]`.
+
+Returns
+-------
+torch.Tensor
+    A tensor representing the log-sum-exp value for each segment.
+"""
+
+segment_logsumexp_native.__docstring__ = _segment_logsumexp_docstring
+segment_logsumexp_python.__docstring__ = _segment_logsumexp_docstring
 
 
 if _util.use_native_extension():
@@ -181,3 +208,5 @@ if _util.use_native_extension():
 else:
     segment_logsumexp = segment_logsumexp_python
     segment_argmax = segment_argmax_python
+
+__all__ = ['segment_logsumexp', 'segment_argmax']

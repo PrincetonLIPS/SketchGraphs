@@ -1,4 +1,4 @@
-"""Neural network layers and utilities."""
+"""This module provides utilities and generic build blocks for graph neural networks."""
 
 import contextlib
 import torch
@@ -24,10 +24,16 @@ def aggregate_by_incidence(values: torch.Tensor, incidence: torch.Tensor,
 
     Parameters
     ----------
-    values: a tensor of rank at least 2
-    incidence: a `[2, k]` tensor
-    transform_edge_messages: an arbitrary function which transforms edge messages.
-    output_size: if not `None`, the size of the output tensor. Otherwise, we assume the output tensor
+    values : torch.Tensor
+        A tensor of rank at least 2
+    incidence : torch.Tensor
+        a `[2, k]` tensor
+    transform_edge_messages : function, optional
+        an arbitrary function which transforms edge messages.
+    transform_edge_messages_args : any
+        Arbitrary set of arguments that are passed to the `transform_edge_messages` function.
+    output_size : List[int], optional
+        if not `None`, the size of the output tensor. Otherwise, we assume the output tensor
         is the same size as `values`.
 
     Returns
@@ -68,12 +74,15 @@ class MessagePassingNetwork(torch.nn.Module):
         """ Creates a new module representing the message passing network.
         Parameters
         ----------
-        depth: number of message passing iterations to execute.
-        message_aggregation_network: a `torch.nn.Module` representing the model used to
-            compute the embeddings to be used at the next step. This model receives the array
+        depth : int
+            number of message passing iterations to execute.
+        message_aggregation_network : torch.nn.Module
+            A module representing the model used to compute the embeddings
+            to be used at the next step. This model receives the array
             of messages corresponding to the sum of the propagated messages, and the array
             of previous node embeddings.
-        transform_edge_messages: a `torch.nn.Module` representing the model used to transform
+        transform_edge_messages : torch.nn.Module
+            A module representing the model used to transform
             edge messages at each step. See `aggregate_by_incidence`.
         """
         super(MessagePassingNetwork, self).__init__()
@@ -90,9 +99,12 @@ class MessagePassingNetwork(torch.nn.Module):
 
         Parameters
         ----------
-        node_embedding: tensor of shape `[num_nodes, ...]` representing the data at each node in the graph.
-        incidence: tensor of shape `[2, num_edges]` representing edge incidence in the graph
-        edge_transform_args: a tuple of further arguments to be passed to the edge transformation network.
+        node_embedding : torch.Tensor
+            Tensor of shape `[num_nodes, ...]` representing the data at each node in the graph.
+        incidence : torch.Tensor
+            tensor of shape `[2, num_edges]` representing edge incidence in the graph
+        edge_transform_args : any
+            A tuple of further arguments to be passed to the edge transformation network.
 
         Returns
         -------
@@ -116,8 +128,12 @@ class ConcatenateLinear(torch.nn.Module):
 
         Parameters
         ----------
-        *sizes: the first sizes represent the sizes of the inputs, and the last element represents
-            the size of the output
+        left_size : int
+            Size of the left input
+        right_size : int
+            Size of the right input
+        output_size : int
+            Size of the output.
         """
         super(ConcatenateLinear, self).__init__()
 

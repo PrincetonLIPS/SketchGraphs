@@ -22,6 +22,7 @@ class ClassificationSummary:
 
     @property
     def prediction_matrix(self):
+        """Returns a `torch.Tensor` representing the prediction matrix."""
         return self.recorded.view((self.num_outcomes, self.num_outcomes))
 
     def record_statistics(self, labels, predictions):
@@ -29,9 +30,11 @@ class ClassificationSummary:
 
         Parameters
         ----------
-        labels: an array of true labels in integer format. Each label must correspond to an
+        labels : torch.Tensor
+            an array of true labels in integer format. Each label must correspond to an
             integer in 0 to num_outcomes - 1 inclusive.
-        predictions: an array of predicted labels. Must follow the same format as `labels`.
+        predictions : torch.Tensor
+            an array of predicted labels. Must follow the same format as `labels`.
         """
         indices = torch.add(labels.int(), self.num_outcomes, predictions.int()).long().to(device=self.recorded.device)
         self.recorded = self.recorded.scatter_add_(
@@ -49,9 +52,12 @@ class ClassificationSummary:
         return num_correct.float() / num_total.float()
 
     def confusion_matrix(self):
+        """Returns a `torch.Tensor` representing the confusion matrix."""
         return self.prediction_matrix.float() / self.prediction_matrix.sum().float()
 
     def cohen_kappa(self):
+        """Computes the Cohen kappa measure of agreement.
+        """
         pm = self.prediction_matrix.float()
         N = self.recorded.sum().float()
 
@@ -64,11 +70,26 @@ class ClassificationSummary:
             return 1 - (1 - p_observed) / (1 - p_expected)
 
     def marginal_labels(self):
+        """Computes the empirical marginal distribution of the true labels."""
         return self.prediction_matrix.sum(dim=0).float() / self.recorded.sum().float()
 
     def marginal_predicted(self):
+        """Computes the empirical marginal distribution of the predicted labels."""
         return self.prediction_matrix.sum(dim=1).float() / self.recorded.sum().float()
 
     def write_tensorboard(self, writer, prefix="", global_step=None, **kwargs):
+        """Write the accuracy and kappa metrics to a tensorboard writer.
+
+        Parameters
+        ----------
+        writer: torch.utils.tensorboard.SummaryWriter
+            The writer to which the metrics will be written
+        prefix: str, optional
+            Optional prefix for the name under which the metrics will be written
+        global_step: int, optional
+            Global step at which the metric is recorded
+        **kwargs
+            Further arguments to `torch.utils.tensorboard.SummaryWriter.add_scalar`.
+        """
         writer.add_scalar(posixpath.join(prefix, "kappa"), self.cohen_kappa(), global_step, **kwargs)
         writer.add_scalar(posixpath.join(prefix, "accuracy"), self.accuracy(), global_step, **kwargs)

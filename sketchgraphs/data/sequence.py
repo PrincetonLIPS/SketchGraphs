@@ -180,7 +180,7 @@ def sketch_from_sequence(seq) -> Sketch:
         A sketch object representing the given construction sequence.
     """
     subnode_label_to_string = {
-        SubnodeType.SN_Start: 'start', 
+        SubnodeType.SN_Start: 'start',
         SubnodeType.SN_End: 'end',
         SubnodeType.SN_Center: 'center'
     }

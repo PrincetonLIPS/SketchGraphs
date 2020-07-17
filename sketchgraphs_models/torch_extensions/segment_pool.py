@@ -45,14 +45,17 @@ pool is taken over segments defined by scope.
 
 Parameters
 ----------
-values: a 2-dimensional tensor.
-scopes: a 2-dimensional long tensor representing segments.
+values : torch.Tensor
+    A 1-dimensional tensor.
+scopes : torch.Tensor
+    a 2-dimensional integer tensor representing segments.
     Each row of scopes represents a segment, which starts at `scopes[i, 0]`,
     and has length `scopes[i, 1]`.
 
 Returns
 -------
-A 2-dimensional tensor representing the average-pooled values.
+torch.Tensor
+    A tensor representing the average value for each segment.
 """
 
 
@@ -144,9 +147,35 @@ def segment_max_pool1d_native(values, scopes, return_indices=False):
     return SegmentMaxPool1DNative.apply(values, scopes, return_indices)
 
 
+_segment_max_pool_docstring = \
+"""
+Computes the maximum value in each segment.
+
+Parameters
+----------
+values : torch.Tensor
+    A 1-dimensional tensor.
+scopes : torch.Tensor
+    a 2-dimensional integer tensor representing segments.
+    Each row of scopes represents a segment, which starts at `scopes[i, 0]`,
+    and has length `scopes[i, 1]`.
+
+Returns
+-------
+torch.Tensor
+    A tensor representing the maximum value for each segment.
+"""
+
+segment_max_pool1d_native.__docstring__ = _segment_max_pool_docstring
+segment_max_pool1d_loop.__docstring__ = _segment_max_pool_docstring
+
+
 if _util.use_native_extension():
     segment_max_pool1d = segment_max_pool1d_native
     segment_avg_pool1d = segment_avg_pool1d_native
 else:
     segment_max_pool1d = segment_max_pool1d_loop
     segment_avg_pool1d = segment_avg_pool1d_loop
+
+
+__all__ = ['segment_max_pool1d', 'segment_avg_pool1d']
