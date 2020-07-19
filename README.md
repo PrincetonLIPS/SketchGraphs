@@ -53,7 +53,7 @@ For more details, please refer to https://princetonlips.github.io/SketchGraphs/m
 If you use this dataset in your research, please cite:
 ```
 @incollection{SketchGraphs,
-  title={A Large-Scale Dataset for Modeling Relational Geometry in Computer-Aided Design},
+  title={SketchGraphs: A Large-Scale Dataset for Modeling Relational Geometry in Computer-Aided Design},
   author={Seff, Ari and Ovadia, Yaniv and Zhou, Wenda and Adams, Ryan P.},
   booktitle={ICML 2020 Workshop on Object-Oriented Learning},
   year={2020}
