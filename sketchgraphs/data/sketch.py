@@ -12,7 +12,7 @@ from . import _plotting
 
 from ._entity import *
 from ._constraint import *
-from ._plotting import render_sketch
+from ._plotting import render_sketch, render_graph
 
 
 class Sketch:

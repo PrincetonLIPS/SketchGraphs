@@ -226,6 +226,17 @@ class Point(Entity):
             }
         }
 
+    def __iter__(self):
+        return iter((self.x, self.y))
+
+    def __getitem__(self, idx):
+        if idx == 0:
+            return self.x
+        elif idx == 1:
+            return self.y
+        else:
+            raise IndexError()
+
     @staticmethod
     def from_dict(ent_dict):
         if ent_dict['typeName'] != 'BTMSketchPoint':
@@ -351,14 +362,14 @@ class Line(Entity):
         """Returns a tuple representing the start location of the line."""
         startX = self.pntX + self.startParam * self.dirX
         startY = self.pntY + self.startParam * self.dirY
-        return startX, startY
+        return np.array([startX, startY])
 
     @property
     def end_point(self):
         """Returns a tuple representing the end location of the line."""
         endX = self.pntX + self.endParam * self.dirX
         endY = self.pntY + self.endParam * self.dirY
-        return endX, endY
+        return np.array([endX, endY])
 
     def __repr__(self):
         return f"Line [{self.entityId}] p({self.pntX}, {self.pntY}) d({self.dirX}, {self.dirY}) param({self.startParam}, {self.endParam})"  # pylint: disable=line-too-long
@@ -419,6 +430,10 @@ class Circle(Entity):
             'type': 4,
             'typeName': 'BTMSketchCurve',
         }
+
+    @property
+    def center_point(self):
+        return np.array([self.xCenter, self.yCenter])
 
     @staticmethod
     def from_dict(ent_dict):
@@ -560,7 +575,7 @@ class Arc(Entity):
         angle_start = angle + angle_offset
         xStart = self.xCenter + (math.cos(angle_start) * self.radius)
         yStart = self.yCenter + (math.sin(angle_start) * self.radius)
-        return xStart, yStart
+        return np.array([xStart, yStart])
 
     @property
     def start_point(self):
@@ -571,6 +586,10 @@ class Arc(Entity):
     def end_point(self):
         """Returns tuple representing coordinates of arc end point."""
         return self._point_at_angle_offset(self.endParam)
+
+    @property
+    def center_point(self):
+        return np.array([self.xCenter, self.yCenter])
 
     def __repr__(self):
         return (f"Arc [{self.entityId}] c({self.xCenter}, {self.yCenter}) " +

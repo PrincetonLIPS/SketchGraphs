@@ -7,6 +7,8 @@ is a streamlined representation of sketches, adapted for machine learning applic
 
 import collections
 import typing
+import json
+import pygraphviz as pgv
 
 from ._entity import Entity, EntityType, SubnodeType, ENTITY_TYPE_TO_CLASS
 from ._constraint import Constraint, ConstraintType, ConstraintParameterType, LocalReferenceParameter
@@ -265,3 +267,42 @@ def sketch_from_sequence(seq) -> Sketch:
                 constraints[constraint_ent_id] = Constraint(constraint_ent_id, constraint_type, params)
 
     return Sketch(entities=entities, constraints=constraints)
+
+
+def pgvgraph_from_sequence(seq):
+    """Builds a pgv.AGraph from the sequence.
+
+    Hyperedges are not supported in the resulting graph.
+
+    Parameters
+    ----------
+    seq : List[Union[NodeOp, EdgeOp]]
+        A construction sequence representing a sketch.
+
+    Returns
+    -------
+    pgv.AGraph
+        A pygraphviz AGraph corresponding to the given sequence.
+    """
+    graph = pgv.AGraph(strict=False)
+    idx = 0
+    for op in seq:
+        if isinstance(op, NodeOp):
+            if op.label != EntityType.Stop:
+                graph.add_node(idx, label=op.label.name, parameters=json.dumps(op.parameters), index=idx)
+                idx += 1
+    idx = 0
+    for op in seq:
+        if isinstance(op, EdgeOp):
+            if len(op.references) > 2:
+                continue  # hyperedges not supported
+            node_a = op.references[0]
+            if len(op.references) == 1:
+                node_b = node_a
+            elif len(op.references) == 2:
+                node_b = op.references[1]
+            else:
+                raise ValueError("Invalid number of references in EdgeOp.")
+            graph.add_edge(node_a, node_b, label=op.label.name, parameters=json.dumps(op.parameters), index=idx)
+            idx += 1
+    return graph

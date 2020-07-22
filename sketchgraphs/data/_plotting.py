@@ -20,7 +20,9 @@ def sketch_point(ax, point: Point, color='black'):
     ax.scatter(point.x, point.y, c=color, marker='.')
 
 def sketch_line(ax, line: Line, color='black'):
-    ax.plot(line.start_point, line.end_point, color, linestyle=_get_linestyle(line), linewidth=1)
+    start_x, start_y = line.start_point
+    end_x, end_y = line.end_point
+    ax.plot((start_x, end_x), (start_y, end_y), color, linestyle=_get_linestyle(line), linewidth=1)
 
 def sketch_circle(ax, circle: Circle, color='black'):
     patch = matplotlib.patches.Circle(
@@ -56,7 +58,7 @@ _PLOT_BY_TYPE = {
 }
 
 
-def render_sketch(sketch, ax=None, show_axes=False, show_origin=False):
+def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_drawn=False):
     """Renders the given sketch using matplotlib.
 
     Parameters
@@ -69,12 +71,18 @@ def render_sketch(sketch, ax=None, show_axes=False, show_origin=False):
         Indicates whether axis lines should be drawn
     show_origin : bool
         Indicates whether origin point should be drawn
+    hand_drawn : bool
+        Indicates whether to emulate a hand-drawn appearance
 
     Returns
     -------
     matplotlib.Figure
         If `ax` is not provided, the newly created figure. Otherwise, `None`.
     """
+    if hand_drawn:
+        saved_rc = mpl.rcParams.copy()
+        plt.xkcd(scale=1, length=100, randomness=3)
+
     if ax is None:
         fig = plt.figure()
         ax = fig.add_subplot(111, aspect='equal')
@@ -109,7 +117,28 @@ def render_sketch(sketch, ax=None, show_axes=False, show_origin=False):
     ax.relim()
     ax.autoscale_view()
 
+    if hand_drawn:
+        mpl.rcParams.update(saved_rc)
+
     return fig
 
 
-__all__ = ['render_sketch']
+def render_graph(graph, filename):
+    """Renders the given pgv.AGraph to an image file.
+
+    Parameters
+    ----------
+    graph : pgv.AGraph
+        The graph to render
+    filename : string
+        Where to save the image file
+
+    Returns
+    -------
+    None
+    """
+    graph.layout('dot')
+    graph.draw(filename)
+
+
+__all__ = ['render_sketch', 'render_graph']

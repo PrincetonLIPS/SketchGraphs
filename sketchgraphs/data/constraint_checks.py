@@ -1,9 +1,15 @@
-"""This module implements a basic constraint checker for a solved graph."""
+"""This module implements a basic constraint checker for a solved graph.
+
+This module implements a number of functions to help check basic relational constraints
+between entities. Note that only checking is implemented: this is not an implementation
+of a solver, and cannot solve for the desired constraints.
+
+"""
 
 import numpy as  np
 from numpy.linalg import norm
 
-from ._entity import Point, Line, Circle, Arc, EntityType, SubnodeType, ENTITY_TYPE_TO_CLASS, Entity
+from ._entity import Point, Line, Circle, Arc, SubnodeType, ENTITY_TYPE_TO_CLASS, Entity
 from ._constraint import ConstraintType
 from .sequence import NodeOp, EdgeOp
 
@@ -42,11 +48,11 @@ def get_entity_by_idx(seq, idx: int) -> Entity:
             break
 
     if label == SubnodeType.SN_Start:
-        return parent.startP
+        return parent.start_point
     elif label == SubnodeType.SN_End:
-        return parent.endP
+        return parent.end_point
     elif label == SubnodeType.SN_Center:
-        return parent.centerP
+        return parent.center_point
 
     raise ValueError('Could not find entity corresponding to idx.')
 
@@ -85,35 +91,57 @@ def check_edge_satisfied(seq, op: EdgeOp):
     return constraint_f(*entities)
 
 
-def get_sorted_types(ents):
-    types = [type(ent) for ent in ents]
+def get_sorted_types(entities):
+    """Obtains the types and sorts the entities based on their type order.
+
+    Parameters
+    ----------
+    entities : iterable of `Entity`
+        An list of entities to be sorted.
+
+    Returns
+    -------
+    types : List
+        A list of types representing the type of each entity
+    entities : List
+        A list of entities, containing the same elements as the input iterable,
+        but sorted in the order given by types.
+    """
+    types = [Point if isinstance(ent, np.ndarray) else type(ent) for ent in entities]
     type_names = [t.__name__ for t in types]
     idxs = np.argsort(type_names)
-    return [types[idx] for idx in idxs], [ents[idx] for idx in idxs]
+    return [types[idx] for idx in idxs], [entities[idx] for idx in idxs]
 
 
-def coincident(*ents):
-    types, ents = get_sorted_types(ents)
+def _ensure_array(point):
+    if isinstance(point, np.ndarray):
+        return point
+    else:
+        return np.array([point.x, point.y])
+
+
+def coincident(*entities):
+    types, entities = get_sorted_types(entities)
 
     if types == [Point, Point]:
-        return np.allclose(ents[0].coords, ents[1].coords)
+        return np.allclose(_ensure_array(entities[0]), _ensure_array(entities[1]))
 
     elif types == [Line, Point]:
-        vec1 = ents[0].endP.coords - ents[0].startP.coords
-        vec2 = ents[1].coords - ents[0].startP.coords
+        vec1 = entities[0].end_point - entities[0].start_point
+        vec2 = _ensure_array(entities[1]) - entities[0].start_point
         return np.isclose(np.cross(vec1, vec2), 0)
 
     elif types == [Line, Line]:
-        return coincident(ents[0], ents[1].startP) and coincident(ents[0], ents[1].endP)
+        return coincident(entities[0], entities[1].start_point) and coincident(entities[0], entities[1].end_point)
 
     elif types in [[Arc, Point], [Circle, Point]]:
-        circle_or_arc, point = ents
-        dist = norm(point.coords - circle_or_arc.centerP.coords)
+        circle_or_arc, point = entities
+        dist = norm(_ensure_array(point) - circle_or_arc.center_point)
         return np.isclose(circle_or_arc.radius, dist)
 
     elif types in [[Circle, Circle], [Arc, Arc], [Arc, Circle]]:
-        return np.allclose([ents[0].xCenter, ents[0].yCenter, ents[0].radius],
-                           [ents[1].xCenter, ents[1].yCenter, ents[1].radius])
+        return np.allclose([entities[0].xCenter, entities[0].yCenter, entities[0].radius],
+                           [entities[1].xCenter, entities[1].yCenter, entities[1].radius])
 
     else:
         return None
@@ -123,8 +151,8 @@ def parallel(*ents):
     types, ents = get_sorted_types(ents)
 
     if types == [Line, Line]:
-        vec1 = ents[0].endP.coords - ents[0].startP.coords
-        vec2 = ents[1].endP.coords - ents[1].startP.coords
+        vec1 = ents[0].end_point - ents[0].start_point
+        vec2 = ents[1].end_point - ents[1].start_point
         return np.isclose(np.cross(vec1, vec2), 0)
 
     else:
@@ -135,11 +163,9 @@ def horizontal(*ents):
     types, ents = get_sorted_types(ents)
 
     if types == [Line]:
-        return horizontal(ents[0].startP, ents[0].endP)
-
+        return horizontal(ents[0].start_point, ents[0].end_point)
     elif types == [Point, Point]:
-        return np.isclose(ents[0].y, ents[1].y)
-
+        return np.isclose(ents[0][1], ents[1][1], atol=1e-6)
     else:
         return None
 
@@ -148,11 +174,9 @@ def vertical(*ents):
     types, ents = get_sorted_types(ents)
 
     if types == [Line]:
-        return vertical(ents[0].startP, ents[0].endP)
-
+        return vertical(ents[0].start_point, ents[0].end_point)
     elif types == [Point, Point]:
-        return np.isclose(ents[0].x, ents[1].x)
-
+        return np.isclose(ents[0][0], ents[1][0], atol=1e-6)
     else:
         return None
 
@@ -161,10 +185,9 @@ def perpendicular(*ents):
     types, ents = get_sorted_types(ents)
 
     if types == [Line, Line]:
-        vec1 = ents[0].endP.coords - ents[0].startP.coords
-        vec2 = ents[1].endP.coords - ents[1].startP.coords
+        vec1 = ents[0].start_point - ents[0].end_point
+        vec2 = ents[1].start_point - ents[1].end_point
         return np.isclose(np.dot(vec1, vec2), 0)
-
     else:
         return None
 
@@ -174,14 +197,14 @@ def tangent(*ents):
 
     if types == [Circle, Line]:
         circle, line = ents
-        p1, p2 = (line.startP.coords, line.endP.coords)
-        p3 = circle.centerP.coords
+        p1, p2 = (line.start_point, line.end_point)
+        p3 = circle.center_point
 
         line_dir = p2 - p1
         line_dir_norm = norm(line_dir)
 
         if np.abs(line_dir_norm) < 1e-6:
-            dist = 0
+            dist = norm(p1 - p3)
         else:
             dist = norm(np.cross(line_dir, p1-p3)) / line_dir_norm
 
@@ -191,11 +214,10 @@ def tangent(*ents):
         arc, line = ents
         circle = Circle('', xCenter=arc.xCenter, yCenter=arc.yCenter, radius=arc.radius)
         return tangent(circle, line)
-
     elif types in [[Arc, Arc], [Arc, Circle], [Circle, Circle]]:
-        dist = norm(ents[1].centerP.coords - ents[0].centerP.coords)
-        return np.isclose(dist, ents[0].radius + ents[1].radius)
-
+        dist = norm(ents[1].center_point - ents[0].center_point)
+        return (np.isclose(dist, ents[0].radius + ents[1].radius)
+                or np.isclose(dist, np.abs(ents[0].radius - ents[1].radius)))
     else:
         return None
 
@@ -205,8 +227,8 @@ def equal(*ents):
 
     if types == [Line, Line]:
         line0, line1 = ents
-        vec0 = line0.endP.coords - line0.startP.coords
-        vec1 = line1.endP.coords - line1.startP.coords
+        vec0 = line0.end_point - line0.start_point
+        vec1 = line1.end_point - line1.start_point
         return np.isclose(norm(vec0), norm(vec1))
 
     elif types in [[Circle, Circle], [Arc, Arc], [Arc, Circle]]:
@@ -221,8 +243,8 @@ def midpoint(*ents):
 
     if types == [Line, Point]:
         line, point = ents
-        mid_coords = (line.startP.coords + line.endP.coords) / 2
-        return np.allclose(mid_coords, point.coords)
+        mid_coords = (line.start_point + line.end_point) / 2
+        return np.allclose(mid_coords, _ensure_array(point))
 
     else:
         return None
@@ -232,7 +254,7 @@ def concentric(*ents):
     types, ents = get_sorted_types(ents)
 
     if types in [[Circle, Circle], [Arc, Arc], [Arc, Circle]]:
-        return coincident(ents[0].centerP, ents[1].centerP)
+        return coincident(ents[0].center_point, ents[1].start_point)
 
     else:
         return None
