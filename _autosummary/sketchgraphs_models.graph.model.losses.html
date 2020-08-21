@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -216,13 +216,13 @@ for each target type.</p></li>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_feature_loss">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_feature_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature_logits</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">feature_targets</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">feature_dimensions</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>Any<span class="p">, </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_feature_loss" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_feature_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature_logits</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">feature_targets</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">feature_dimensions</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>Any<span class="p">, </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_feature_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes losses on the given features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>feature_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – 2-d tensor of feature logits</p></li>
-<li><p><strong>feature_targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – 1-d integer tensor of true feature labels</p></li>
+<li><p><strong>feature_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – 2-d tensor of feature logits</p></li>
+<li><p><strong>feature_targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – 1-d integer tensor of true feature labels</p></li>
 <li><p><strong>feature_dimensions</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>]</em>) – A list of integers representing the dimension of each feature.</p></li>
 </ul>
 </dd>
@@ -289,9 +289,9 @@ endpoint. TargetTypes which are not included are assumed to be weighted at 1.</p
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
-<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
-<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
+<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
+<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
+<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
 Otherwise, this is assumed to be the last (implicit) entry in each segment.</p></li>
 </ul>
 </dd>
@@ -299,7 +299,7 @@ Otherwise, this is assumed to be the last (implicit) entry in each segment.</p><
 <dd class="field-even"><p>A boolean tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the accuracy at each segment.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,9 +315,9 @@ we assume that it is the last (implicit) entry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
-<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
-<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a><em>, </em><em>optional</em>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
+<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
+<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
+<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a><em>, </em><em>optional</em>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
 Otherwise, this is assumed to be the last (implicit) entry in each segment.</p></li>
 </ul>
 </dd>
@@ -325,7 +325,7 @@ Otherwise, this is assumed to be the last (implicit) entry in each segment.</p><
 <dd class="field-even"><p>A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the cross-entropy loss at each segment.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>

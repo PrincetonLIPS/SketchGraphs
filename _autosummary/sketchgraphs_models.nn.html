@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -187,14 +187,14 @@
 <td><p>Custom configurable message-passing network.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.nn.Sequential.html#sketchgraphs_models.nn.Sequential" title="sketchgraphs_models.nn.Sequential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sequential</span></code></a>(*args)</p></td>
-<td><p>Similar to <a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Sequential" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch.nn.Sequential</span></code></a>, except can pass through modules which take multiple input arguments, and return tuples.</p></td>
+<td><p>Similar to <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html#torch.nn.Sequential" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch.nn.Sequential</span></code></a>, except can pass through modules which take multiple input arguments, and return tuples.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs_models.nn.aggregate_by_incidence">
-<code class="sig-prename descclassname">sketchgraphs_models.nn.</code><code class="sig-name descname">aggregate_by_incidence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">incidence</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">transform_edge_messages</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">transform_edge_messages_args</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.aggregate_by_incidence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">sketchgraphs_models.nn.</code><code class="sig-name descname">aggregate_by_incidence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">incidence</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">transform_edge_messages</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">transform_edge_messages_args</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.aggregate_by_incidence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Aggregates values according to an incidence matrix.</p>
 <p>Effectively computes the following operation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">incidence</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">incidence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -205,8 +205,8 @@ Optimization opportunity: write using actual cuSparse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>values</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – A tensor of rank at least 2</p></li>
-<li><p><strong>incidence</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – a <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">k]</span></code> tensor</p></li>
+<li><p><strong>values</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor of rank at least 2</p></li>
+<li><p><strong>incidence</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – a <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">k]</span></code> tensor</p></li>
 <li><p><strong>transform_edge_messages</strong> (<em>function</em><em>, </em><em>optional</em>) – an arbitrary function which transforms edge messages.</p></li>
 <li><p><strong>transform_edge_messages_args</strong> (<em>any</em>) – Arbitrary set of arguments that are passed to the <code class="xref any docutils literal notranslate"><span class="pre">transform_edge_messages</span></code> function.</p></li>
 <li><p><strong>output_size</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – if not <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>, the size of the output tensor. Otherwise, we assume the output tensor
@@ -217,7 +217,7 @@ is the same size as <code class="xref any docutils literal notranslate"><span cl
 <dd class="field-even"><p>The output tensor, of the same rank as values.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>

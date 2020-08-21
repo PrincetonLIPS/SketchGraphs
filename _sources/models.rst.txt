@@ -1,4 +1,4 @@
-Sketchgraph models
+SketchGraphs models
 ==================
 
 This page describes the models implemented in sketchgraphs, as well as details their usage.
@@ -42,5 +42,6 @@ performance penalty due to a substantial amount of looping). The extensions may 
 command from the root directory:
 
 .. code-block:: bash
+
     python setup.py build_ext --inplace
 

@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -169,7 +169,71 @@
   <div class="section" id="module-sketchgraphs.onshape.call">
 <span id="sketchgraphs-onshape-call"></span><h1>sketchgraphs.onshape.call<a class="headerlink" href="#module-sketchgraphs.onshape.call" title="Permalink to this headline">¶</a></h1>
 <p>Simple command line utilties for interacting with Onshape API.</p>
+<p>A sketch is considered a feature of an Onshape PartStudio. This script enables adding a sketch to a part (add_feature), retrieving all features from a part including sketches (get_features), and retrieving the possibly updated state of each sketch’s entities/primitives post constraint solving (get_info).</p>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="sketchgraphs.onshape.call.add_feature">
+<code class="sig-prename descclassname">sketchgraphs.onshape.call.</code><code class="sig-name descname">add_feature</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">sketch_dict</span></em>, <em class="sig-param"><span class="n">sketch_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logging</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.call.add_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a sketch to a part.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – URL of Onshape PartStudio</p></li>
+<li><p><strong>sketch_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary representing a <a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Sketch</span></code></a> instance with keys <code class="xref any docutils literal notranslate"><span class="pre">entities</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">constraints</span></code></p></li>
+<li><p><strong>sketch_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Optional name for the sketch. If none provided, defaults to ‘My Sketch’.</p></li>
+<li><p><strong>logging</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to log API messages (default False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.onshape.call.get_features">
+<code class="sig-prename descclassname">sketchgraphs.onshape.call.</code><code class="sig-name descname">get_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">logging</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.call.get_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves features from a part</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – URL of Onshape PartStudio</p></li>
+<li><p><strong>logging</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to log API messages (default False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>features</strong> – A dictionary containing the part’s features</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sketchgraphs.onshape.call.get_info">
+<code class="sig-prename descclassname">sketchgraphs.onshape.call.</code><code class="sig-name descname">get_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">sketch_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logging</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.call.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves possibly updated states of entities in a part’s sketches</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – URL of Onshape PartStudio</p></li>
+<li><p><strong>sketch_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – If provided, only the entity info for the specified sketch will be returned. Otherwise, the full response is returned.</p></li>
+<li><p><strong>logging</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to log API messages (default False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>sketch_info</strong> – A dictionary containing entity info for sketches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt id="sketchgraphs.onshape.call.main">
 <code class="sig-prename descclassname">sketchgraphs.onshape.call.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.onshape.call.main" title="Permalink to this definition">¶</a></dt>

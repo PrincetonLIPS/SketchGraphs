@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -203,15 +203,15 @@ and the specified target node.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – the graph (or batch of graphs) for which to obtain edge labels</p></li>
-<li><p><strong>targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – A tensor indicating the indices of the edges</p></li>
-<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+<li><p><strong>targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor indicating the indices of the edges</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing the sampled edge labels.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,14 +227,14 @@ that no new edges should be created.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – the graph (or batch of graphs) for which to obtain node labels.</p></li>
-<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing the sampled edge target for each graph in the batch.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,15 +248,15 @@ that no new edges should be created.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – The graph (or batch of graphs) for which to obtain node features</p></li>
 <li><p><strong>target_type</strong> (<a class="reference internal" href="sketchgraphs.pipeline.graph_model.target.TargetType.html#sketchgraphs.pipeline.graph_model.target.TargetType" title="sketchgraphs.pipeline.graph_model.target.TargetType"><em>TargetType</em></a>) – The target type / label of the entity for which to sample features</p></li>
-<li><p><strong>features</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.Tensor</em></a>) – An integer tensor corresponding to the entity features</p></li>
-<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+<li><p><strong>features</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – An integer tensor corresponding to the entity features</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing the sampled node features</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -270,14 +270,14 @@ that no new edges should be created.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – The graph (or batch of graph for which to obtain node labels).</p></li>
-<li><p><strong>generator</strong> (<em>torch.Generator</em><em>, </em><em>optional</em>) – Optional PRNG to use for sampling.</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing a sampled node label for each graph in the batch.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>

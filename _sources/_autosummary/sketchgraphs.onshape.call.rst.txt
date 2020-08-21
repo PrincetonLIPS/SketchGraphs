@@ -16,6 +16,9 @@ sketchgraphs.onshape.call
    .. rubric:: Functions
 
    
+   .. autofunction:: add_feature
+   .. autofunction:: get_features
+   .. autofunction:: get_info
    .. autofunction:: main
    
    

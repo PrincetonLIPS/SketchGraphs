@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -170,6 +170,9 @@
   <div class="section" id="module-sketchgraphs.data.constraint_checks">
 <span id="sketchgraphs-data-constraint-checks"></span><h1>sketchgraphs.data.constraint_checks<a class="headerlink" href="#module-sketchgraphs.data.constraint_checks" title="Permalink to this headline">¶</a></h1>
 <p>This module implements a basic constraint checker for a solved graph.</p>
+<p>This module implements a number of functions to help check basic relational constraints
+between entities. Note that only checking is implemented: this is not an implementation
+of a solver, and cannot solve for the desired constraints.</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.check_edge_satisfied">
@@ -197,7 +200,7 @@
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.coincident">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">coincident</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.coincident" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">coincident</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">entities</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.coincident" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -232,8 +235,22 @@
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.get_sorted_types">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">get_sorted_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_sorted_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">get_sorted_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entities</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_sorted_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtains the types and sorts the entities based on their type order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entities</strong> (iterable of <code class="xref any docutils literal notranslate"><span class="pre">Entity</span></code>) – An list of entities to be sorted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>types</strong> (<em>List</em>) – A list of types representing the type of each entity</p></li>
+<li><p><strong>entities</strong> (<em>List</em>) – A list of entities, containing the same elements as the input iterable,
+but sorted in the order given by types.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.horizontal">

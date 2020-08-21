@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -192,6 +192,24 @@ is a streamlined representation of sketches, adapted for machine learning applic
 </tbody>
 </table>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="sketchgraphs.data.sequence.pgvgraph_from_sequence">
+<code class="sig-prename descclassname">sketchgraphs.data.sequence.</code><code class="sig-name descname">pgvgraph_from_sequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seq</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.sequence.pgvgraph_from_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a pgv.AGraph from the sequence.</p>
+<p>Hyperedges are not supported in the resulting graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seq</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="sketchgraphs.data.sequence.NodeOp.html#sketchgraphs.data.sequence.NodeOp" title="sketchgraphs.data.sequence.NodeOp"><em>NodeOp</em></a><em>, </em><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp"><em>EdgeOp</em></a><em>]</em><em>]</em>) – A construction sequence representing a sketch.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pygraphviz AGraph corresponding to the given sequence.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pgv.AGraph</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt id="sketchgraphs.data.sequence.sketch_from_sequence">
 <code class="sig-prename descclassname">sketchgraphs.data.sequence.</code><code class="sig-name descname">sketch_from_sequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seq</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="sketchgraphs.data.sketch.Sketch.html#sketchgraphs.data.sketch.Sketch" title="sketchgraphs.data.sketch.Sketch">sketchgraphs.data.sketch.Sketch</a><a class="headerlink" href="#sketchgraphs.data.sequence.sketch_from_sequence" title="Permalink to this definition">¶</a></dt>

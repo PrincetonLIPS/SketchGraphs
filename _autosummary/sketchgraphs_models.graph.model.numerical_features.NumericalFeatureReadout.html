@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models.html">Sketchgraph models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">SketchGraphs models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Datasets</a></li>
 </ul>
 <ul class="current">
@@ -197,12 +197,12 @@ and computed embeddings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>initial_input</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Module" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.nn.Module</em></a>) – A module which creates the embedding for the first input slot based on the passed in data.
+<li><p><strong>initial_input</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.nn.Module</em></a>) – A module which creates the embedding for the first input slot based on the passed in data.
 It is called with all remaining arguments to the forward method.</p></li>
-<li><p><strong>feature_encoders</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Module" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.nn.Module</em></a>) – A module which encodes the features from the edge for feeding in to network.
+<li><p><strong>feature_encoders</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.nn.Module</em></a>) – A module which encodes the features from the edge for feeding in to network.
 It is called with an integer tensor of size <code class="xref any docutils literal notranslate"><span class="pre">[batch,</span> <span class="pre">num_features]</span></code>.</p></li>
-<li><p><strong>feature_decoders</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Module" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.nn.Module</em></a>) – A module which decodes sequence embeddings into an array of logits.</p></li>
-<li><p><strong>sequence_model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Module" title="(in PyTorch vmaster (1.5.0a0+78c9009 ))"><em>torch.nn.Module</em></a>) – The main computational module for this instance, transforms a sequence
+<li><p><strong>feature_decoders</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.nn.Module</em></a>) – A module which decodes sequence embeddings into an array of logits.</p></li>
+<li><p><strong>sequence_model</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.nn.Module</em></a>) – The main computational module for this instance, transforms a sequence
 of embedding into another sequence of embedding.</p></li>
 </ul>
 </dd>
