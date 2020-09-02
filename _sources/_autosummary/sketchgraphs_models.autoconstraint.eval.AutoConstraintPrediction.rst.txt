@@ -1,0 +1,9 @@
+sketchgraphs\_models.autoconstraint.eval.AutoConstraintPrediction
+=================================================================
+
+.. currentmodule:: sketchgraphs_models.autoconstraint.eval
+
+.. autoclass:: AutoConstraintPrediction
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__

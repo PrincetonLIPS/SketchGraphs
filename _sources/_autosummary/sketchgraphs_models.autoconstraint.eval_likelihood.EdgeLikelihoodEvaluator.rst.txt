@@ -1,0 +1,9 @@
+sketchgraphs\_models.autoconstraint.eval\_likelihood.EdgeLikelihoodEvaluator
+============================================================================
+
+.. currentmodule:: sketchgraphs_models.autoconstraint.eval_likelihood
+
+.. autoclass:: EdgeLikelihoodEvaluator
+    :members:
+    :special-members:
+    :exclude-members: __dict__,__weakref__,__repr__,__str__
