@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Onshape setup &mdash; SketchGraphs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">SketchGraphs models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Datasets</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/sketchgraphs.html">sketchgraphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/sketchgraphs_models.html">sketchgraphs_models</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SketchGraphs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Onshape setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/onshape_setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="onshape-setup">
+<h1>Onshape setup<a class="headerlink" href="#onshape-setup" title="Permalink to this headline">¶</a></h1>
+<p>We include a set of functions (<a class="reference internal" href="_autosummary/sketchgraphs.onshape.call.html#module-sketchgraphs.onshape.call" title="sketchgraphs.onshape.call"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.onshape.call</span></code></a>) for interacting with the CAD program <a class="reference external" href="https://www.onshape.com/">Onshape</a> in order to solve geometric constraints.
+The SketchGraphs <a class="reference external" href="https://github.com/PrincetonLIPS/SketchGraphs/blob/master/demos/sketchgraphs_demo.ipynb">demo notebook</a> demonstrates their main usage.</p>
+<p>Before calling these for the first time, a small bit of setup is required.</p>
+<div class="section" id="account-credentials">
+<h2>Account &amp; credentials<a class="headerlink" href="#account-credentials" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Visit <a class="reference external" href="https://www.onshape.com/">Onshape</a>  and create an account (it’s free).</p></li>
+<li><p>Create an API key at <a class="reference external" href="https://dev-portal.onshape.com/keys">https://dev-portal.onshape.com/keys</a>. Be sure to enable read and write permissions so that we may send and retrieve CAD sketches from Onshape.</p></li>
+<li><p>Save the file at <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs/onshape/creds/creds.json</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="create-document">
+<h2>Create document<a class="headerlink" href="#create-document" title="Permalink to this headline">¶</a></h2>
+<p>We’ll need a document to serve as the target for our sketches.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://cad.onshape.com/documents">https://cad.onshape.com/documents</a> and click Create-&gt;Document in the upper left.</p></li>
+<li><p>The document URL will be needed to perform API calls. For example, in the <a class="reference external" href="https://github.com/PrincetonLIPS/SketchGraphs/blob/master/demos/sketchgraphs_demo.ipynb">demo notebook</a>, we manually paste in the target URL.</p></li>
+<li><p>Now that we have a new document, we must set the version identifiers of our <code class="xref any docutils literal notranslate"><span class="pre">feature_template.json</span></code> accordingly. Run the following whenever working with a new document (set the variable <code class="xref any docutils literal notranslate"><span class="pre">url</span></code> accordingly):</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; url=https://cad.onshape.com/documents/6f6d14f8facf0bba02184e88/w/66a5db71489c81f4893101ed/e/120c56983451157d26a7102d
+&gt;&gt;&gt; python -m sketchgraphs.onshape.call --action update_template --url $url  --enable_logging
+</pre></div>
+</div>
+<p>You should see a “request succeeded” included in the log if the configuration is correct.</p>
+<p>Our Onshape setup is complete! Please reach out with any questions.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

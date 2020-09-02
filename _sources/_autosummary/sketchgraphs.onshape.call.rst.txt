@@ -20,6 +20,7 @@ sketchgraphs.onshape.call
    .. autofunction:: get_features
    .. autofunction:: get_info
    .. autofunction:: main
+   .. autofunction:: update_template
    
    
 

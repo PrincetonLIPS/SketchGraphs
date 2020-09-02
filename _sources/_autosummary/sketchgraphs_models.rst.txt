@@ -1,4 +1,4 @@
-sketchgraphs\_models
+﻿sketchgraphs\_models
 ====================
 
 .. automodule:: sketchgraphs_models

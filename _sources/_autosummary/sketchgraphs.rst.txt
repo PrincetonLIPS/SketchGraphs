@@ -1,4 +1,4 @@
-sketchgraphs
+﻿sketchgraphs
 ============
 
 .. automodule:: sketchgraphs

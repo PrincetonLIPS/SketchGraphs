@@ -1,7 +1,7 @@
 SketchGraphs models
 ==================
 
-This page describes the models implemented in sketchgraphs, as well as details their usage.
+This page describes the models implemented in SketchGraphs, as well as details their usage.
 The models are based on a Graph Neural Network architecture, modelling the sketch as a graph
 with vertices given by entities and edges given by their constraints.
 
