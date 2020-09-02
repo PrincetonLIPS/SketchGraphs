@@ -9,11 +9,11 @@ import numpy as np
 import torch
 import tqdm
 
-from gencad import data as datalib
-from gencad import util
+from sketchgraphs import data as datalib
+from sketchgraphs.data import flat_array
 
-from gencad.models import training
-from gencad.models.autoconstraint import dataset, model as auto_model, eval
+from sketchgraphs_models import training
+from sketchgraphs_models.autoconstraint import dataset, model as auto_model, eval
 
 
 def _edge_ops(ops):
@@ -119,7 +119,7 @@ def main():
     model = model.eval().to(device)
 
     print('Loading testing data')
-    seqs = util.load_dictionary_flat(np.load(args.dataset, mmap_mode='r'))['sequences']
+    seqs = flat_array.load_dictionary_flat(np.load(args.dataset, mmap_mode='r'))['sequences']
 
     likelihood_evaluation = EdgeLikelihoodEvaluator(model, node_feature_mapping, device)
 

@@ -10,7 +10,7 @@ import numpy as np
 # pylint: disable=invalid-name, too-many-arguments, too-many-return-statements, too-many-instance-attributes
 
 
-class EntityType(enum.Enum):
+class EntityType(enum.IntEnum):
     """Enumeration indicating the type of entity represented.
     """
     Point = 0
@@ -25,7 +25,7 @@ class EntityType(enum.Enum):
     Unknown = 9
 
 
-class SubnodeType(enum.Enum):
+class SubnodeType(enum.IntEnum):
     SN_Start = 101
     SN_End = 102
     SN_Center = 103
