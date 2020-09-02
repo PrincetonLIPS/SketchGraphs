@@ -58,6 +58,7 @@ For more details, please refer to the dedicated :doc:`models` page.
 .. toctree::
    models
    data
+   onshape_setup
 .. autosummary::
    :toctree: _autosummary
    :recursive:
