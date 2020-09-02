@@ -16,22 +16,27 @@ from ._entity import Arc, Circle, Line, Point
 def _get_linestyle(entity):
     return '--' if entity.isConstruction else '-'
 
-def sketch_point(ax, point: Point, color='black'):
+def sketch_point(ax, point: Point, color='black', show_subnodes=False):
     ax.scatter(point.x, point.y, c=color, marker='.')
 
-def sketch_line(ax, line: Line, color='black'):
+def sketch_line(ax, line: Line, color='black', show_subnodes=False):
     start_x, start_y = line.start_point
     end_x, end_y = line.end_point
-    ax.plot((start_x, end_x), (start_y, end_y), color, linestyle=_get_linestyle(line), linewidth=1)
+    if show_subnodes:
+        marker = '.'
+    else:
+        marker = None
+    ax.plot((start_x, end_x), (start_y, end_y), color, linestyle=_get_linestyle(line), linewidth=1, marker=marker)
 
-def sketch_circle(ax, circle: Circle, color='black'):
+def sketch_circle(ax, circle: Circle, color='black', show_subnodes=False):
     patch = matplotlib.patches.Circle(
         (circle.xCenter, circle.yCenter), circle.radius,
         fill=False, linestyle=_get_linestyle(circle), color=color)
-    ax.scatter(circle.xCenter, circle.yCenter, c=color, marker='.', zorder=20)
+    if show_subnodes:
+        ax.scatter(circle.xCenter, circle.yCenter, c=color, marker='.', zorder=20)
     ax.add_patch(patch)
 
-def sketch_arc(ax, arc: Arc, color='black'):
+def sketch_arc(ax, arc: Arc, color='black', show_subnodes=False):
     angle = math.atan2(arc.yDir, arc.xDir) * 180 / math.pi
     startParam = arc.startParam * 180 / math.pi
     endParam = arc.endParam * 180 / math.pi
@@ -45,9 +50,10 @@ def sketch_arc(ax, arc: Arc, color='black'):
             angle=angle, theta1=startParam, theta2=endParam,
             linestyle=_get_linestyle(arc), color=color))
 
-    ax.scatter(arc.xCenter, arc.yCenter, c=color, marker='.')
-    ax.scatter(*arc.start_point, c=color, marker='.', zorder=40)
-    ax.scatter(*arc.end_point, c=color, marker='.', zorder=40)
+    if show_subnodes:
+        ax.scatter(arc.xCenter, arc.yCenter, c=color, marker='.')
+        ax.scatter(*arc.start_point, c=color, marker='.', zorder=40)
+        ax.scatter(*arc.end_point, c=color, marker='.', zorder=40)
 
 
 _PLOT_BY_TYPE = {
@@ -58,7 +64,7 @@ _PLOT_BY_TYPE = {
 }
 
 
-def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_drawn=False):
+def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_drawn=False, show_subnodes=False):
     """Renders the given sketch using matplotlib.
 
     Parameters
@@ -73,6 +79,8 @@ def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_draw
         Indicates whether origin point should be drawn
     hand_drawn : bool
         Indicates whether to emulate a hand-drawn appearance
+    show_subnodes : bool
+        Indicates whether endpoints/centerpoints should be drawn
 
     Returns
     -------
@@ -111,7 +119,7 @@ def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_draw
         sketch_fn = _PLOT_BY_TYPE.get(type(ent))
         if sketch_fn is None:
             continue
-        sketch_fn(ax, ent)
+        sketch_fn(ax, ent, show_subnodes=show_subnodes)
 
     # Rescale axis limits
     ax.relim()

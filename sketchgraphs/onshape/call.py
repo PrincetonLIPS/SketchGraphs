@@ -9,6 +9,9 @@ import urllib.parse
 from . import Client
 
 
+TEMPLATE_PATH = 'sketchgraphs/onshape/feature_template.json'
+
+
 def _parse_resp(resp):
     """Parse the response of a retrieval call.
     """
@@ -41,6 +44,32 @@ def _parse_url(url):
     return docid, wid, eid
 
 
+def update_template(url, logging=False):
+    """Updates version identifiers in feature_template.json.
+
+    Parameters
+    ----------
+    url : str
+        URL of Onshape PartStudio
+    logging: bool
+        Whether to log API messages (default False)
+
+    Returns
+    -------
+    None
+    """
+    # Get PartStudio features (including version IDs)
+    features = get_features(url, logging)
+    # Get current feature template
+    with open(TEMPLATE_PATH, 'r') as fh:
+        template = json.load(fh)
+    for version_key in ['serializationVersion', 'sourceMicroversion', 'libraryVersion']:
+        template[version_key] = features[version_key]
+    # Save updated feature template
+    with open(TEMPLATE_PATH, 'w') as fh:
+        json.dump(template, fh, indent=4)
+
+
 def add_feature(url, sketch_dict, sketch_name=None, logging=False):
     """Adds a sketch to a part.
 
@@ -63,7 +92,7 @@ def add_feature(url, sketch_dict, sketch_name=None, logging=False):
     docid, wid, eid = _parse_url(url)
     client = _create_client(logging)
     # Get feature template
-    with open('sketchgraphs/onshape/feature_template.json', 'r') as fh:
+    with open(TEMPLATE_PATH, 'r') as fh:
         template = json.load(fh)
     # Add sketch's entities and constraints to the template
     template['feature']['message']['entities'] = sketch_dict['entities']
@@ -76,7 +105,7 @@ def add_feature(url, sketch_dict, sketch_name=None, logging=False):
 
 
 def get_features(url, logging=False):
-    """Retrieves features from a part
+    """Retrieves features from a part.
 
     Parameters
     ----------
@@ -101,7 +130,7 @@ def get_features(url, logging=False):
 
 
 def get_info(url, sketch_name=None, logging=False):
-    """Retrieves possibly updated states of entities in a part's sketches
+    """Retrieves possibly updated states of entities in a part's sketches.
 
     Parameters
     ----------
@@ -141,7 +170,7 @@ def main():
         help='URL of Onshape PartStudio',required=True)
     parser.add_argument('--action', 
         help='The API call to perform', required=True, 
-        choices=['add_feature', 'get_features', 'get_info'])
+        choices=['add_feature', 'get_features', 'get_info', 'update_template'])
     parser.add_argument('--payload_path', 
         help='Path to payload being sent to Onshape', default=None)
     parser.add_argument('--output_path', 
@@ -179,6 +208,10 @@ def main():
         # Retrieve possibly updated states of entities in a part's sketches
         sketch_info = get_info(args.url, args.sketch_name, args.enable_logging)
         _save_or_print_resp(sketch_info, output_path=args.output_path)
+    
+    elif args.action == 'update_template':
+        # Updates version identifiers in template
+        update_template(args.url, args.enable_logging)
 
 
 if __name__ == '__main__':

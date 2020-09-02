@@ -12,13 +12,15 @@ Each sketch is represented as a geometric constraint graph where edges denote de
 Video: https://youtu.be/ki784S3wjqw  
 Paper: https://arxiv.org/abs/2007.08506 
 
+See [demo notebook](demos/sketchgraphs_demo.ipynb) for a quick overview of the data representions in SketchGraphs as well as an example of solving constraints via Onshape's API.
+
 ## Data
 
 We provide our dataset in a number of forms, some of which may be more appropriate for your desired usage.
 The following data files are provided:
 
 - The raw json data as obtained from Onshape. This is provided as a set of 128 tar archives which are compressed
-  using zstandard. They total about 43GB of data. In general, we only recommend these for advanced usage, as
+  using [zstandard](https://facebook.github.io/zstd). They total about 43GB of data. In general, we only recommend these for advanced usage, as
   they are heavy and require extensive processing to manipulate. Users interested in working with the raw data
   may wish to inspect `sketchgraphs.pipeline.make_sketch_dataset` and `sketchgraphs.pipeline.make_sequence_dataset`
   to view our data processing scripts. The data is available for download [here](https://sketchgraphs.cs.princeton.edu/shards).
@@ -34,8 +36,8 @@ The following data files are provided:
   capturing a large portion of the data). Additionally, this dataset has been split into training, testing and
   validation splits for convenience. We train our models on this subset of the data. You can find download the splits
   here: [train](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_train.npy)
-  [test](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_test.npy)
   [validation](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_validation.npy)
+  [test](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_test.npy)
 
 For full documentation of the processing pipeline, see https://princetonlips.github.io/SketchGraphs.
 
@@ -46,7 +48,7 @@ The original creators of the CAD sketches hold the copyright. See [Onshape Terms
 In addition to the dataset, we also provide some baseline model implementations to tackle the tasks of generative
 modeling and autoconstrain. These models are based on Graph Neural Network approaches and model the sketch as
 a graph where vertices are given by the entities in the sketch, and edges by the constraints between those entities.
-For more details, please refer to https://princetonlips.github.io/SketchGraphs/models.html.
+For more details, please refer to https://princetonlips.github.io/SketchGraphs/models.
 
 
 ## Citation
