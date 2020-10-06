@@ -27,7 +27,7 @@ at::Tensor segment_logsumexp_backward_gpu(at::Tensor const& grad_output, at::Ten
     auto lengths_int = lengths.toType(c10::ScalarType::Int);
 
     // Pre-compute indexing structures
-    auto blocks_per_segment = lengths_int.add(threads_per_block - 1).div_(threads_per_block);
+    auto blocks_per_segment = lengths_int.add(threads_per_block - 1).floor_divide_(threads_per_block);
     auto source_idx_long = at::repeat_interleave(blocks_per_segment.toType(c10::ScalarType::Long));
     auto source_idx = source_idx_long.toType(c10::ScalarType::Int);
     auto block_lengths = at::full_like(source_idx, threads_per_block);
