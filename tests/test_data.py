@@ -48,12 +48,24 @@ def test_get_sequence_dof():
     assert dof_remaining == 5
 
 
+_UNSUPPORTED_CONSTRAINTS = (
+    ConstraintType.Circular_Pattern,
+    ConstraintType.Linear_Pattern,
+    ConstraintType.Midpoint,
+    ConstraintType.Mirror,
+)
+
 def test_sketch_from_sequence(sketches_json):
     for sketch_json in sketches_json:
-        sketch = Sketch.from_fs_json(sketch_json)
+        sketch = Sketch.from_fs_json(sketch_json, include_external_constraints=False)
         seq = sketch_to_sequence(sketch)
+
+        if any(s.label in _UNSUPPORTED_CONSTRAINTS for s in seq):
+            # Skip not supported constraints for now
+            continue
+
         sketch2 = sketch_from_sequence(seq)
-        seq2 = sketch_to_sequence(sketch)
+        seq2 = sketch_to_sequence(sketch2)
 
         assert len(seq) == len(seq2)
         for op1, op2 in zip(seq, seq2):

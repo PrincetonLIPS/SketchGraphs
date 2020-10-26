@@ -1,3 +1,5 @@
+"""Shared test fixtures in order to easily provide testing data to all tests."""
+
 import json
 import tarfile
 
@@ -22,4 +24,5 @@ def sketches_json():
 
 @pytest.fixture
 def sketches(sketches_json):
+    """Return a list of sample sketches."""
     return [Sketch.from_fs_json(j) for j in sketches_json]

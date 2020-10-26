@@ -43,12 +43,25 @@ class Sketch:
         }
 
     @staticmethod
-    def from_fs_json(sketch_dict):
-        """Parse primitives and constraints."""
+    def from_fs_json(sketch_dict, include_external_constraints=True):
+        """Parse primitives and constraints.
+
+        Parameters
+        ----------
+        include_external_constraints : bool, optional
+            If True, indicates that constraints referencing the first external node (representing)
+            the origin should be included, otherwise, exclude those from the graph.
+        """
         entities = (Entity.from_dict(ed) for ed in sketch_dict['entities'])
         entities_dict = OrderedDict((e.entityId, e) for e in entities)
 
         constraints = (Constraint.from_dict(cd) for cd in sketch_dict['constraints'])
+
+        if not include_external_constraints:
+            constraints = (
+                c for c in constraints
+                if not any(isinstance(p, ExternalReferenceParameter) for p in c.parameters))
+
         constraints_dict = OrderedDict((c.identifier, c) for c in constraints)
         return Sketch(entities_dict, constraints_dict)
 

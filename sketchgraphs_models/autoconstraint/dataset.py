@@ -7,6 +7,8 @@ from sketchgraphs.data import sequence as datalib
 from sketchgraphs.pipeline.graph_model.target import NODE_TYPES, EDGE_TYPES, EDGE_TYPES_PREDICTED, NODE_IDX_MAP, EDGE_IDX_MAP
 from sketchgraphs.pipeline import graph_model as graph_utils
 
+from sketchgraphs_models.graph.dataset import EntityFeatureMapping, EdgeFeatureMapping
+
 
 def _reindex_sparse_batch(sparse_batch, pack_batch_offsets):
     return graph_utils.SparseFeatureBatch(
@@ -114,8 +116,8 @@ class AutoconstraintDataset(torch.utils.data.Dataset):
         if not isinstance(seq[0], datalib.NodeOp):
             raise ValueError('First operation in sequence is not a NodeOp')
 
-        if seq[-1].label != 'Stop':
-            seq.append(datalib.NodeOp('stop', {}))
+        if seq[-1].label != datalib.EntityType.Stop:
+            seq.append(datalib.NodeOp(datalib.EntityType.Stop, {}))
 
         node_ops = [seq[0]]
         edge_ops = []
@@ -181,3 +183,8 @@ class AutoconstraintDataset(torch.utils.data.Dataset):
             'target_edge_label': target_edge_label,
             'partner_index': partner_index,
         }
+
+__all__ = [
+    'NODE_TYPES', 'EDGE_TYPES', 'EDGE_TYPES_PREDICTED', 'NODE_IDX_MAP', 'EDGE_IDX_MAP',
+    'EntityFeatureMapping', 'EdgeFeatureMapping', 'collate', 'AutoconstraintDataset'
+]
