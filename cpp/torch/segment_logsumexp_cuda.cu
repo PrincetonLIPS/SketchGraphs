@@ -46,8 +46,8 @@ std::tuple<at::Tensor, at::Tensor> segment_argmax_gpu(at::Tensor const &values,
 
     AT_DISPATCH_FLOATING_TYPES(values.scalar_type(), "segment_argmax_gpu", [&]() {
         segment_argmax_gpu_impl<scalar_t>(
-            values.data<scalar_t>(), offsets_start, offsets_end,
-            result_values.data<scalar_t>(), result_locations.data<std::int32_t>(),
+            values.data_ptr<scalar_t>(), offsets_start, offsets_end,
+            result_values.data_ptr<scalar_t>(), result_locations.data_ptr<std::int32_t>(),
             scopes.size(0));
     });
 
@@ -93,9 +93,9 @@ at::Tensor segment_logsumexp_gpu(at::Tensor const &values, at::Tensor const &sco
 
     AT_DISPATCH_FLOATING_TYPES(values.scalar_type(), "segment_logsumexp_gpu", [&]() {
         segment_logsumexp_gpu_impl<scalar_t>(
-            values.data<scalar_t>(),
+            values.data_ptr<scalar_t>(),
             scopes.packed_accessor<std::int64_t, 2, at::RestrictPtrTraits, std::uint32_t>(),
-            result.data<scalar_t>());
+            result.data_ptr<scalar_t>());
     });
 
     return result;

@@ -55,8 +55,8 @@ std::tuple<at::Tensor, at::Tensor> segment_max_pool1d_cuda(at::Tensor const& val
 
     AT_DISPATCH_FLOATING_TYPES(values.scalar_type(), "segment_max_pool1d_cuda", [&]() {
         segment_argmax_gpu_impl(
-            value_transpose.data<scalar_t>(), offsets_start, offsets_end,
-            result_values.data<scalar_t>(), result_locations.data<std::int32_t>(),
+            value_transpose.data_ptr<scalar_t>(), offsets_start, offsets_end,
+            result_values.data_ptr<scalar_t>(), result_locations.data_ptr<std::int32_t>(),
             scopes.size(0) * values.size(1));
     });
 
@@ -84,8 +84,8 @@ at::Tensor segment_avg_pool1d_cuda(at::Tensor const &values,
     AccessorT offsets_end{scopes_accessor, true, num_segments, num_rows};
 
     AT_DISPATCH_FLOATING_TYPES(values.scalar_type(), "segment_max_pool1d_cuda", [&]() {
-        auto value_ptr = value_transpose.data<scalar_t>();
-        auto out_ptr = result_values_transpose.data<scalar_t>();
+        auto value_ptr = value_transpose.data_ptr<scalar_t>();
+        auto out_ptr = result_values_transpose.data_ptr<scalar_t>();
 
         void *temp_storage = nullptr;
         size_t temp_storage_bytes = 0;

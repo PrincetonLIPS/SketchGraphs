@@ -47,7 +47,7 @@ at::Tensor &genric::repeat_interleave_gpu_out(const at::Tensor& repeats, at::Ten
 
     auto repeats_ = repeats.contiguous();
     auto cumsum = repeats.cumsum(0);
-    compute_cuda(repeats_.data<int64_t>(), cumsum.data<int64_t>(), out.data<int64_t>(),
+    compute_cuda(repeats_.data_ptr<int64_t>(), cumsum.data_ptr<int64_t>(), out.data_ptr<int64_t>(),
                  repeats.size(0));
     return out;
 }
@@ -56,6 +56,6 @@ at::Tensor &genric::repeat_interleave_gpu_out_scope(const at::Tensor& scope, at:
     TORCH_CHECK(out.is_contiguous(), "Output array must be contiguous");
 
     auto scope_ = scope.contiguous();
-    compute_cuda_scope(scope_.data<int64_t>(), out.data<int64_t>(), scope_.size(0));
+    compute_cuda_scope(scope_.data_ptr<int64_t>(), out.data_ptr<int64_t>(), scope_.size(0));
     return out;
 }

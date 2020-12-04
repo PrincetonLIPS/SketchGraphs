@@ -60,9 +60,9 @@ at::Tensor segment_logsumexp_backward_gpu(at::Tensor const& grad_output, at::Ten
 
     AT_DISPATCH_FLOATING_TYPES(grad_output.scalar_type(), "segment_logsumexp_backward_gpu", [&]() {
         segment_logsumexp_backward_kernel<<<num_blocks, threads_per_block, 0, stream>>>(
-            output.data<scalar_t>(), grad_output.data<scalar_t>(), input.contiguous().data<scalar_t>(),
-            logsumexp.contiguous().data<scalar_t>(), block_offsets.data<int>(),
-            source_idx.data<int>());
+            output.data_ptr<scalar_t>(), grad_output.data_ptr<scalar_t>(), input.contiguous().data_ptr<scalar_t>(),
+            logsumexp.contiguous().data_ptr<scalar_t>(), block_offsets.data_ptr<int>(),
+            source_idx.data_ptr<int>());
     });
 
     return output;
