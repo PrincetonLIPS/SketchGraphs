@@ -561,12 +561,16 @@ class Arc(Entity):
         endVec = np.array(ent_info['endPoint']) - np.array(ent_info['center'])
         startParam = math.atan2(startVec[1], startVec[0])
         endParam = math.atan2(endVec[1], endVec[0])
-        # TODO: make necessary adjustments for when clockwise is True
+        if clockwise:
+            # Convert to counterclockwise
+            tmp_start = startParam
+            startParam = endParam
+            endParam = tmp_start
 
         return Arc(ent_info['id'],
                    bool(ent_info.get('isConstruction', False)),
                    xCenter, yCenter, xDir, yDir,
-                   radius, clockwise, startParam, endParam)
+                   radius, False, startParam, endParam)
 
     def _point_at_angle_offset(self, angle_offset):
         angle = math.atan2(self.yDir, self.xDir)

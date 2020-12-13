@@ -254,7 +254,7 @@ def concentric(*ents):
     types, ents = get_sorted_types(ents)
 
     if types in [[Circle, Circle], [Arc, Arc], [Arc, Circle]]:
-        return coincident(ents[0].center_point, ents[1].start_point)
+        return coincident(ents[0].center_point, ents[1].center_point)
 
     else:
         return None
