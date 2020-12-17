@@ -166,7 +166,7 @@ class Onshape():
 
         return req_headers
 
-    def request(self, method, path, query={}, headers={}, body={}, base_url=None, timeout=None):
+    def request(self, method, path, query={}, headers={}, body={}, base_url=None, timeout=None, check_status=True):
         '''
         Issues a request to Onshape
 
@@ -178,6 +178,7 @@ class Onshape():
             - body (dict, default={}): Body for POST request
             - base_url (str, default=None): Host, including scheme and port (if different from creds file)
             - timeout (float, default=None): Timeout to use with requests.request().
+            - check_status (bool, default=True): Raise exception if response status code is unsuccessful.
 
         Returns:
             - requests.Response: Object containing the response from Onshape
@@ -221,5 +222,6 @@ class Onshape():
         else:
             if self._logging:
                 utils.log('request succeeded, details: ' + res.text)
-
+        if check_status:
+            res.raise_for_status()
         return res
