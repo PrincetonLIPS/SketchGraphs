@@ -311,7 +311,16 @@ class EntityFeatureMapping:
         else:
             offset = 1
 
-        for i, (param_name, centers) in enumerate(self._bin_centers.get(target, {}).items()):
+        _entity_label_from_target_type_dict = {
+            TargetType.NodeArc: datalib.EntityType.Arc,
+            TargetType.NodeCircle: datalib.EntityType.Circle,
+            TargetType.NodeLine: datalib.EntityType.Line,
+            TargetType.NodePoint: datalib.EntityType.Point
+        }
+
+        target_entity = _entity_label_from_target_type_dict[target]
+
+        for i, (param_name, centers) in enumerate(self._bin_centers.get(target_entity, {}).items()):
             features[param_name] = centers[index[i + offset]]
 
         return features
