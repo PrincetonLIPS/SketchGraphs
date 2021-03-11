@@ -208,6 +208,9 @@ _entity_label_to_target_type_dict = {
     datalib.EntityType.Point: TargetType.NodePoint
 }
 
+_entity_label_from_target_type_dict = {v: k for k, v in _entity_label_to_target_type_dict.items()}
+
+
 def _op_string_label_to_target_type(label):
     return _entity_label_to_target_type_dict.get(label, TargetType.NodeGeneric)
 
@@ -311,7 +314,9 @@ class EntityFeatureMapping:
         else:
             offset = 1
 
-        for i, (param_name, centers) in enumerate(self._bin_centers.get(target, {}).items()):
+        target_entity = _entity_label_from_target_type_dict[target]
+
+        for i, (param_name, centers) in enumerate(self._bin_centers.get(target_entity, {}).items()):
             features[param_name] = centers[index[i + offset]]
 
         return features
