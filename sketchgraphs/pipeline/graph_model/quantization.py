@@ -208,6 +208,9 @@ _entity_label_to_target_type_dict = {
     datalib.EntityType.Point: TargetType.NodePoint
 }
 
+_entity_label_from_target_type_dict = {v: k for k, v in _entity_label_to_target_type_dict.items()}
+
+
 def _op_string_label_to_target_type(label):
     return _entity_label_to_target_type_dict.get(label, TargetType.NodeGeneric)
 
@@ -310,13 +313,6 @@ class EntityFeatureMapping:
             offset = 2
         else:
             offset = 1
-
-        _entity_label_from_target_type_dict = {
-            TargetType.NodeArc: datalib.EntityType.Arc,
-            TargetType.NodeCircle: datalib.EntityType.Circle,
-            TargetType.NodeLine: datalib.EntityType.Line,
-            TargetType.NodePoint: datalib.EntityType.Point
-        }
 
         target_entity = _entity_label_from_target_type_dict[target]
 
