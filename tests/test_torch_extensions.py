@@ -4,7 +4,7 @@ import numpy as np
 
 from scipy.special import logsumexp
 
-from gencad.torch_extensions import _repeat_interleave, segment_ops
+from sketchgraphs_models.torch_extensions import _repeat_interleave, segment_ops
 
 
 def test_repeat_python():

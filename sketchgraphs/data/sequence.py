@@ -8,7 +8,6 @@ is a streamlined representation of sketches, adapted for machine learning applic
 import collections
 import typing
 import json
-import pygraphviz as pgv
 
 from ._entity import Entity, EntityType, SubnodeType, ENTITY_TYPE_TO_CLASS
 from ._constraint import Constraint, ConstraintType, ConstraintParameterType, LocalReferenceParameter
@@ -284,6 +283,8 @@ def pgvgraph_from_sequence(seq):
     pgv.AGraph
         A pygraphviz AGraph corresponding to the given sequence.
     """
+    import pygraphviz as pgv
+
     graph = pgv.AGraph(strict=False)
     idx = 0
     for op in seq:
