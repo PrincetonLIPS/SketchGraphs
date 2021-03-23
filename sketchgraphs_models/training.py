@@ -281,6 +281,7 @@ class TrainingHarness(abc.ABC):
                 self.log(f'Done with epoch #{epoch}. '
                          f'Took {datetime.timedelta(seconds=current_time - epoch_start_time)}\n')
                 self.run_holdout_eval(epoch, global_step)
+                self.model.train()
 
             batch_idx += 1
 
