@@ -23,11 +23,11 @@ class SegmentAvgPool1DLoop(torch.autograd.Function):
     def forward(ctx, values, scopes):
         ctx.save_for_backward(scopes)
         ctx.input_length = values.shape[0]
-        result = values.new_empty([scopes.shape[0], values.shape[1]])
+        result = values.new_empty((scopes.shape[0],) + values.shape[1:])
 
         for i in range(len(scopes)):
             x = values.narrow(0, scopes[i, 0], scopes[i, 1])
-            result[i] = torch.nn.functional.adaptive_avg_pool1d(x.t().unsqueeze(0), 1).squeeze(0).squeeze(1)
+            result[i] = x.mean(dim=0)
 
         return result
 
@@ -67,8 +67,19 @@ def segment_avg_pool1d_loop(values, scopes):
     return SegmentAvgPool1DLoop.apply(values, scopes)
 
 
+def segment_avg_pool1d_scatter(values, scopes):
+    import torch_scatter
+
+    lengths = scopes.select(1, 1)
+    offsets = lengths.new_zeros(len(lengths) + 1)
+    torch.cumsum(lengths, 0, out=offsets[1:])
+
+    return torch_scatter.segment_mean_csr(values, offsets)
+
+
 segment_avg_pool1d_native.__docstring__ = _avg_pool_docstring
 segment_avg_pool1d_loop.__docstring__ = _avg_pool_docstring
+segment_avg_pool1d_scatter.__docstring__ = _avg_pool_docstring
 
 
 def segment_avg_pool1d_backward(grad_output, scopes, input_length):
@@ -169,13 +180,18 @@ torch.Tensor
 segment_max_pool1d_native.__docstring__ = _segment_max_pool_docstring
 segment_max_pool1d_loop.__docstring__ = _segment_max_pool_docstring
 
+try:
+    import torch_scatter
 
-if _util.use_native_extension():
-    segment_max_pool1d = segment_max_pool1d_native
-    segment_avg_pool1d = segment_avg_pool1d_native
-else:
+    segment_avg_pool1d = segment_avg_pool1d_scatter
     segment_max_pool1d = segment_max_pool1d_loop
-    segment_avg_pool1d = segment_avg_pool1d_loop
+except ImportError:
+    if _util.use_native_extension():
+        segment_max_pool1d = segment_max_pool1d_native
+        segment_avg_pool1d = segment_avg_pool1d_native
+    else:
+        segment_max_pool1d = segment_max_pool1d_loop
+        segment_avg_pool1d = segment_avg_pool1d_loop
 
 
 __all__ = ['segment_max_pool1d', 'segment_avg_pool1d']

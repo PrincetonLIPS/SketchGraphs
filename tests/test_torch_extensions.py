@@ -4,7 +4,7 @@ import numpy as np
 
 from scipy.special import logsumexp
 
-from sketchgraphs_models.torch_extensions import _repeat_interleave, segment_ops
+from sketchgraphs_models.torch_extensions import _repeat_interleave, segment_ops, segment_pool
 
 
 def test_repeat_python():
@@ -13,19 +13,6 @@ def test_repeat_python():
 
     expected = np.repeat(x, times, axis=0)
     result = _repeat_interleave.repeat_interleave(torch.tensor(x), torch.tensor(times), 0)
-
-    assert np.allclose(result.numpy(), expected)
-
-
-def test_repeat_out_python():
-    x = np.random.randn(40).reshape(4, 10)
-    times = [2, 5, 0, 1]
-
-    expected = np.repeat(x, times, axis=0)
-
-    x = torch.tensor(x)
-    output = x.new_empty(expected.shape)
-    result = _repeat_interleave.repeat_interleave_out_native(x, torch.tensor(times), 0, output)
 
     assert np.allclose(result.numpy(), expected)
 
@@ -57,22 +44,22 @@ def test_segment_logsumexp_python_grad():
 
 
 @pytest.mark.parametrize("device", ["cpu", "cuda"])
-def test_segment_logsumexp_native(device):
+def test_segment_logsumexp_scatter(device):
     x = np.random.randn(40)
     lengths = [0, 5, 10, 6, 4, 15, 0]
     offsets = np.concatenate(([0], np.cumsum(lengths[:-1])))
 
     scopes = np.stack((offsets, lengths), axis=1).astype(np.int64)
 
-    expected = np.array([logsumexp(x[s[0]:s[0] + s[1]]) if s[1] != 0 else np.finfo(np.float64).min for s in scopes])
+    expected = np.array([logsumexp(x[s[0]:s[0] + s[1]]) if s[1] != 0 else -np.inf for s in scopes])
 
-    result = segment_ops.segment_logsumexp_native(torch.tensor(x, device=device), torch.tensor(scopes, device=device))
+    result = segment_ops.segment_logsumexp_scatter(torch.tensor(x, device=device), torch.tensor(scopes, device=device))
 
     assert np.allclose(result.cpu().numpy(), expected)
 
 
 @pytest.mark.parametrize("device", ["cpu", "cuda"])
-def test_segment_logsumexp_native_grad(device):
+def test_segment_logsumexp_scatter_grad(device):
     x = np.random.randn(40)
 
     lengths = [5, 10, 6, 4, 15]
@@ -81,18 +68,18 @@ def test_segment_logsumexp_native_grad(device):
     scopes = np.stack((offsets, lengths), axis=1).astype(np.int64)
 
     torch.autograd.gradcheck(
-        segment_ops.segment_logsumexp_native,
+        segment_ops.segment_logsumexp_scatter,
         (torch.tensor(x, requires_grad=True, device=device), torch.tensor(scopes, device=device)))
 
 
 @pytest.mark.parametrize("device", ["cpu", "cuda"])
-def test_segment_logsumexp_native_grad_full(device):
+def test_segment_logsumexp_scatter_grad_full(device):
     x = np.random.randn(20)
 
     scopes = torch.tensor([[0, 20]], dtype=torch.int64, device=device)
 
     torch.autograd.gradcheck(
-        segment_ops.segment_logsumexp_native,
+        segment_ops.segment_logsumexp_scatter,
         (torch.tensor(x, requires_grad=True, device=device), scopes))
 
 
@@ -109,7 +96,7 @@ def test_segment_argmax(device):
     scopes = torch.tensor(scopes, device=device)
 
     expected_values, expected_index = segment_ops.segment_argmax_python(x, scopes)
-    result_values, result_index = segment_ops.segment_argmax_native(x, scopes)
+    result_values, result_index = segment_ops.segment_argmax_scatter(x, scopes)
 
     result_values = result_values.cpu().numpy()
     expected_values = expected_values.cpu().numpy()
@@ -130,7 +117,43 @@ def test_segment_argmax_backward(device):
     scopes = np.stack((offsets, lengths), axis=1).astype(np.int64)
 
     torch.autograd.gradcheck(
-        segment_ops.segment_argmax_native,
+        segment_ops.segment_argmax_scatter,
         (torch.tensor(x, requires_grad=True, device=device),
          torch.tensor(scopes, device=device),
          False))
+
+
+@pytest.mark.parametrize("device", ["cpu", "cuda"])
+def test_segment_pool(device):
+    x = np.random.randn(40)
+
+    lengths = [5, 10, 6, 4, 15]
+    offsets = np.concatenate(([0], np.cumsum(lengths[:-1])))
+
+    scopes = np.stack((offsets, lengths), axis=1).astype(np.int64)
+
+    x = torch.tensor(x, device=device)
+    scopes = torch.tensor(scopes, device=device)
+
+    expected_values = segment_pool.segment_avg_pool1d_loop(x, scopes)
+    result_values = segment_pool.segment_avg_pool1d_scatter(x, scopes)
+
+    assert torch.allclose(expected_values, result_values)
+
+
+@pytest.mark.parametrize("device", ["cpu", "cuda"])
+def test_segment_pool_2d(device):
+    x = np.random.randn(40, 5)
+
+    lengths = [5, 10, 6, 4, 15]
+    offsets = np.concatenate(([0], np.cumsum(lengths[:-1])))
+
+    scopes = np.stack((offsets, lengths), axis=1).astype(np.int64)
+
+    x = torch.tensor(x, device=device)
+    scopes = torch.tensor(scopes, device=device)
+
+    expected_values = segment_pool.segment_avg_pool1d_loop(x, scopes)
+    result_values = segment_pool.segment_avg_pool1d_scatter(x, scopes)
+
+    assert torch.allclose(expected_values, result_values)

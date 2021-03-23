@@ -88,6 +88,41 @@ def segment_logsumexp_native(values, scopes):
     return SegmentLogsumexpNative.apply(values, scopes)
 
 
+class SegmentLogsumexpScatter(torch.autograd.Function):
+    @staticmethod
+    def forward(ctx, values, scopes):
+        import torch_scatter
+
+        lengths = scopes.select(1, 1)
+        offsets = lengths.new_zeros(len(lengths) + 1)
+        torch.cumsum(lengths, 0, out=offsets[1:])
+
+        value_segment_max, _ = torch_scatter.segment_max_csr(values, offsets)
+        value_segment_max_expanded = torch.repeat_interleave(value_segment_max, lengths)
+
+        values_exp = values.sub(value_segment_max_expanded).exp_()
+        values_sumexp = torch_scatter.segment_sum_csr(values_exp, offsets)
+
+        logsumexp = values_sumexp.log_().add_(value_segment_max)
+
+        ctx.save_for_backward(values, logsumexp, lengths)
+
+        return logsumexp
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        values, logsumexp, lengths = ctx.saved_tensors
+
+        lse_expand = torch.repeat_interleave(logsumexp, lengths)
+        grad_out_expand = torch.repeat_interleave(grad_output, lengths)
+
+        return values.sub(lse_expand).exp_().mul_(grad_out_expand), None
+
+
+def segment_logsumexp_scatter(values, scopes):
+    return SegmentLogsumexpScatter.apply(values, scopes)
+
+
 def segment_argmax_backward(grad_output, argmax, scopes, input_shape, sparse_grad=True):
     grad_idx = torch.add(argmax, scopes.select(1, 0)).unsqueeze(0)
     grad_input = torch.sparse_coo_tensor(grad_idx, grad_output, size=input_shape)
@@ -147,6 +182,20 @@ def segment_argmax_python(values, scopes, sparse_grad=True):
     return SegmentArgmaxPython.apply(values, scopes, sparse_grad)
 
 
+def segment_argmax_scatter(values, scopes, sparse_grad=True):
+    import torch_scatter
+
+    lengths = scopes.select(1, 1)
+    offsets = lengths.new_zeros(len(lengths) + 1)
+    torch.cumsum(lengths, 0, out=offsets[1:])
+
+    max_val, argmax = torch_scatter.segment_max_csr(values, offsets)
+    max_val = torch.where(lengths != 0, max_val, max_val.new_full((1,), fill_value=torch.finfo(max_val.dtype).min))
+    argmax = argmax.sub(offsets[:-1])
+
+    return max_val, argmax
+
+
 _segment_argmax_docstring = \
 """
 Compute the maximum value and location in each segment.
@@ -198,15 +247,21 @@ torch.Tensor
     A tensor representing the log-sum-exp value for each segment.
 """
 
+segment_logsumexp_scatter.__docstring__ = _segment_logsumexp_docstring
 segment_logsumexp_native.__docstring__ = _segment_logsumexp_docstring
 segment_logsumexp_python.__docstring__ = _segment_logsumexp_docstring
 
+try:
+    import torch_scatter
+    segment_logsumexp = segment_logsumexp_scatter
+    segment_argmax = segment_argmax_scatter
 
-if _util.use_native_extension():
-    segment_logsumexp = segment_logsumexp_native
-    segment_argmax = segment_argmax_native
-else:
-    segment_logsumexp = segment_logsumexp_python
-    segment_argmax = segment_argmax_python
+except ImportError:
+    if _util.use_native_extension():
+        segment_logsumexp = segment_logsumexp_native
+        segment_argmax = segment_argmax_native
+    else:
+        segment_logsumexp = segment_logsumexp_python
+        segment_argmax = segment_argmax_python
 
 __all__ = ['segment_logsumexp', 'segment_argmax']

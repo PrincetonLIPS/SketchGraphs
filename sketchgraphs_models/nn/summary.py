@@ -36,7 +36,7 @@ class ClassificationSummary:
         predictions : torch.Tensor
             an array of predicted labels. Must follow the same format as `labels`.
         """
-        indices = torch.add(labels.int(), self.num_outcomes, predictions.int()).long().to(device=self.recorded.device)
+        indices = torch.add(labels.int(), predictions.int(), alpha=self.num_outcomes).long().to(device=self.recorded.device)
         self.recorded = self.recorded.scatter_add_(
             0, indices, torch.ones_like(indices, dtype=torch.int32))
 
