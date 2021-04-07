@@ -14,6 +14,14 @@ Paper: https://arxiv.org/abs/2007.08506
 
 See [demo notebook](demos/sketchgraphs_demo.ipynb) for a quick overview of the data representions in SketchGraphs as well as an example of solving constraints via Onshape's API.
 
+## Installation 
+
+SketchGraphs can be installed using pip: 
+
+```bash
+>> pip install -e SketchGraphs 
+```
+
 ## Data
 
 We provide our dataset in a number of forms, some of which may be more appropriate for your desired usage.
