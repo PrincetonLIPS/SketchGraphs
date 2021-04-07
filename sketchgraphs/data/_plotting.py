@@ -72,7 +72,7 @@ class Noisifier:
         update_y(ent.y)
 
   def _get_chol(self, ls=0.05, amp=0.002):
-    self.scale = 3*np.sqrt((self.max_x-self.min_x)**2 + (self.max_y-self.min_y)**2)
+    self.scale = 10*np.sqrt((self.max_x-self.min_x)**2 + (self.max_y-self.min_y)**2)
     self.x = np.linspace(0, 1, self.resolution)
     K = matern32(self.x, ls, amp)
     self.cK = npla.cholesky(K)
