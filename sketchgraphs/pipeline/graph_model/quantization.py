@@ -4,7 +4,6 @@ import enum
 import collections
 
 import numpy as np
-import torch
 
 from sketchgraphs.data import sketch as datalib
 from . import _graph_info as graph_utils
@@ -74,14 +73,14 @@ class EdgeFeatureMapping:
             index.append(i)
             ops.append(e)
 
-        index = torch.tensor(index, dtype=torch.int64)
+        index = np.array(index, dtype=np.int64)
         features = self.numerical_features(ops, target)
         return graph_utils.SparseFeatureBatch(index, features)
 
     def numerical_features(self, ops, target):
         feature_desc = self._features_by_target.get(target, {})
         dim = len(feature_desc)
-        features = torch.empty((len(ops), dim), dtype=torch.int64)
+        features = np.empty((len(ops), dim), dtype=np.int64)
 
         for i, op in enumerate(ops):
             _numerical_features(features[i], op.parameters, feature_desc)
@@ -265,7 +264,7 @@ class EntityFeatureMapping:
 
         The operations in the `ops` array must all match the given target type.
         """
-        features = torch.empty((len(ops), self._feature_length(target)), dtype=torch.int64)
+        features = np.empty((len(ops), self._feature_length(target)), dtype=np.int64)
 
         # use a numpy array as the numpy accessor is much faster from python
         # this gives a 20% boost in performance for data loading
@@ -292,7 +291,7 @@ class EntityFeatureMapping:
             index.append(i)
             ops.append(e)
 
-        index = torch.tensor(index, dtype=torch.int64)
+        index = np.array(index, dtype=np.int64)
         features = self.numerical_features(ops, target)
 
         return graph_utils.SparseFeatureBatch(index, features)
