@@ -129,6 +129,11 @@ class SparseFeatureBatch:
         self.value.share_memory_()
         return self
 
+    def apply(self, fn):
+        """Creates a new `SparseFeatureBatch` with the given fields transformed according to the given function.
+        """
+        return type(self)(fn(self.index), fn(self.value))
+
 
 @dataclasses.dataclass
 class GraphInfo:
