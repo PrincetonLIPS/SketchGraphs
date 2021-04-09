@@ -1,5 +1,5 @@
 SketchGraphs models
-==================
+===================
 
 This page describes the models implemented in SketchGraphs, as well as details their usage.
 The models are based on a Graph Neural Network architecture, modelling the sketch as a graph
@@ -32,7 +32,7 @@ We will also provide pre-trained models (coming soon!).
 
 
 Torch scatter
------------------
+-------------
 
 In order to enjoy the best training performance, we strongly recommend you install the `torch-scatter <https://github.com/rusty1s/pytorch_scatter>`_
 package with the correct CUDA version for training on GPU. If you do not have access,
