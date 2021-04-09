@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.graph.model.numerical_features &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -153,6 +155,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -170,7 +174,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.graph.model.numerical_features.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -212,25 +216,25 @@ numerical features associated with edges and nodes.</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.numerical_features.edge_decoder_initial_input">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.numerical_features.</code><code class="sig-name descname">edge_decoder_initial_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.edge_decoder_initial_input" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.numerical_features.</span></code><code class="sig-name descname"><span class="pre">edge_decoder_initial_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embedding_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.edge_decoder_initial_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial input function for edge readouts.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.numerical_features.entity_decoder_initial_input">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.numerical_features.</code><code class="sig-name descname">entity_decoder_initial_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.entity_decoder_initial_input" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.numerical_features.</span></code><code class="sig-name descname"><span class="pre">entity_decoder_initial_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embedding_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.entity_decoder_initial_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial input function for entity readouts.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.numerical_features.make_embedding_and_readout">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.numerical_features.</code><code class="sig-name descname">make_embedding_and_readout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_size</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em>, <em class="sig-param"><span class="n">initial_input_factory</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.make_embedding_and_readout" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.numerical_features.</span></code><code class="sig-name descname"><span class="pre">make_embedding_and_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embedding_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_input_factory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.numerical_features.make_embedding_and_readout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates feature embedding and readout networks for the given features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>embedding_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Dimension of the embeddings to use.</p></li>
-<li><p><strong>feature_dimensions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Dictionary whose values are lists of integers corresponding to the number of outcomes
+<li><p><strong>embedding_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Dimension of the embeddings to use.</p></li>
+<li><p><strong>feature_dimensions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary whose values are lists of integers corresponding to the number of outcomes
 for each feature.</p></li>
 <li><p><strong>initial_input_factory</strong> (<em>int -&gt; torch.nn.Module</em>) – A function which returns a module responsible for transforming the inputs of the readout
 into initial embeddings for the internal sequence model.</p></li>
@@ -253,37 +257,29 @@ into initial embeddings for the internal sequence model.</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.model.numerical_features.NumericalFeatureDecoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.model.message_passing.GraphPostEmbedding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

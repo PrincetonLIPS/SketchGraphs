@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.nn &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -147,6 +149,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -160,7 +164,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.nn.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -191,14 +195,14 @@
 <td><p>Custom configurable message-passing network.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="sketchgraphs_models.nn.Sequential.html#sketchgraphs_models.nn.Sequential" title="sketchgraphs_models.nn.Sequential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sequential</span></code></a>(*args)</p></td>
-<td><p>Similar to <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html#torch.nn.Sequential" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch.nn.Sequential</span></code></a>, except can pass through modules which take multiple input arguments, and return tuples.</p></td>
+<td><p>Similar to <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html#torch.nn.Sequential" title="(in PyTorch v1.8.0a0+56b43f4)"><code class="xref any docutils literal notranslate"><span class="pre">torch.nn.Sequential</span></code></a>, except can pass through modules which take multiple input arguments, and return tuples.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs_models.nn.aggregate_by_incidence">
-<code class="sig-prename descclassname">sketchgraphs_models.nn.</code><code class="sig-name descname">aggregate_by_incidence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">incidence</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">transform_edge_messages</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">transform_edge_messages_args</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.aggregate_by_incidence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.</span></code><code class="sig-name descname"><span class="pre">aggregate_by_incidence</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">incidence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_edge_messages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_edge_messages_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.aggregate_by_incidence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Aggregates values according to an incidence matrix.</p>
 <p>Effectively computes the following operation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">incidence</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">incidence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -209,11 +213,11 @@ Optimization opportunity: write using actual cuSparse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>values</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor of rank at least 2</p></li>
-<li><p><strong>incidence</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – a <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">k]</span></code> tensor</p></li>
+<li><p><strong>values</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – A tensor of rank at least 2</p></li>
+<li><p><strong>incidence</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – a <code class="xref any docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">k]</span></code> tensor</p></li>
 <li><p><strong>transform_edge_messages</strong> (<em>function</em><em>, </em><em>optional</em>) – an arbitrary function which transforms edge messages.</p></li>
 <li><p><strong>transform_edge_messages_args</strong> (<em>any</em>) – Arbitrary set of arguments that are passed to the <code class="xref any docutils literal notranslate"><span class="pre">transform_edge_messages</span></code> function.</p></li>
-<li><p><strong>output_size</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – if not <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>, the size of the output tensor. Otherwise, we assume the output tensor
+<li><p><strong>output_size</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – if not <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>, the size of the output tensor. Otherwise, we assume the output tensor
 is the same size as <code class="xref any docutils literal notranslate"><span class="pre">values</span></code>.</p></li>
 </ul>
 </dd>
@@ -221,14 +225,14 @@ is the same size as <code class="xref any docutils literal notranslate"><span cl
 <dd class="field-even"><p>The output tensor, of the same rank as values.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.nn.autograd_range">
-<code class="sig-prename descclassname">sketchgraphs_models.nn.</code><code class="sig-name descname">autograd_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.autograd_range" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.</span></code><code class="sig-name descname"><span class="pre">autograd_range</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.autograd_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an autograd range for pytorch autograd profiling</p>
 </dd></dl>
 
@@ -260,37 +264,29 @@ is the same size as <code class="xref any docutils literal notranslate"><span cl
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.nn.ConcatenateLinear.html" class="btn btn-neutral float-right" title="sketchgraphs_models.nn.ConcatenateLinear" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.graph.train.harness.GraphModelHarness.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.train.harness.GraphModelHarness" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.nn.ConcatenateLinear.html" class="btn btn-neutral float-right" title="sketchgraphs_models.nn.ConcatenateLinear" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.graph.train.harness.GraphModelHarness.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.train.harness.GraphModelHarness" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.nn.functional &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -147,6 +149,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -162,7 +166,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.nn.functional.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -182,14 +186,14 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs_models.nn.functional.segmented_cross_entropy">
-<code class="sig-prename descclassname">sketchgraphs_models.nn.functional.</code><code class="sig-name descname">segmented_cross_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logits</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">scopes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.functional.segmented_cross_entropy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.functional.</span></code><code class="sig-name descname"><span class="pre">segmented_cross_entropy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a><a class="headerlink" href="#sketchgraphs_models.nn.functional.segmented_cross_entropy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Segmented cross-entropy loss.</p>
 <p>Computes the cross-entropy loss from unscaled <code class="xref any docutils literal notranslate"><span class="pre">logits</span></code> for a segmented problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – unscaled logits by segment</p></li>
-<li><p><strong>target</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code>, representing the index of the true label
+<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – unscaled logits by segment</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code>, representing the index of the true label
 for each segment.</p></li>
 <li><p><strong>scopes</strong> (<em>tonch.Tensor</em>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code>, representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
 </ul>
@@ -199,50 +203,50 @@ for each segment.</p></li>
 at each segment.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.nn.functional.segmented_multinomial">
-<code class="sig-prename descclassname">sketchgraphs_models.nn.functional.</code><code class="sig-name descname">segmented_multinomial</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logits</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.functional.segmented_multinomial" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.functional.</span></code><code class="sig-name descname"><span class="pre">segmented_multinomial</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.functional.segmented_multinomial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Segmented multinomial sample.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – unscaled logits by segment</p></li>
-<li><p><strong>scopes</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
-<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – PRNG for sampling</p></li>
+<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – unscaled logits by segment</p></li>
+<li><p><strong>scopes</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – PRNG for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code> representing the sampled values.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.nn.functional.segmented_multinomial_extended">
-<code class="sig-prename descclassname">sketchgraphs_models.nn.functional.</code><code class="sig-name descname">segmented_multinomial_extended</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logits</span></em>, <em class="sig-param"><span class="n">scopes</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">also_return_probs</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.functional.segmented_multinomial_extended" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.functional.</span></code><code class="sig-name descname"><span class="pre">segmented_multinomial_extended</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">also_return_probs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.functional.segmented_multinomial_extended" title="Permalink to this definition">¶</a></dt>
 <dd><p>Segmented multinomial sample with implicit element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – logits for explicit outcomes by segment</p></li>
-<li><p><strong>scopes</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
-<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – PRNG for sampling</p></li>
-<li><p><strong>also_return_probs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, returns tuple including log-likelihood of the sample.</p></li>
+<li><p><strong>logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – logits for explicit outcomes by segment</p></li>
+<li><p><strong>scopes</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[n_segments,</span> <span class="pre">2]</span></code> representing the segments as <code class="xref any docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">length)</span></code>.</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – PRNG for sampling</p></li>
+<li><p><strong>also_return_probs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, returns tuple including log-likelihood of the sample.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A tensor of length <code class="xref any docutils literal notranslate"><span class="pre">n_segments</span></code> representing the sampled values.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -254,37 +258,29 @@ at each segment.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.nn.summary.html" class="btn btn-neutral float-right" title="sketchgraphs_models.nn.summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.nn.distributed.SingleDeviceDistributedParallel.html" class="btn btn-neutral float-left" title="sketchgraphs_models.nn.distributed.SingleDeviceDistributedParallel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.nn.summary.html" class="btn btn-neutral float-right" title="sketchgraphs_models.nn.summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.nn.distributed.SingleDeviceDistributedParallel.html" class="btn btn-neutral float-left" title="sketchgraphs_models.nn.distributed.SingleDeviceDistributedParallel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

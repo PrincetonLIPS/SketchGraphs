@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.nn.summary.ClassificationSummary &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -150,6 +152,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -167,7 +171,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.nn.summary.ClassificationSummary.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -185,16 +189,16 @@
 <h1>sketchgraphs_models.nn.summary.ClassificationSummary<a class="headerlink" href="#sketchgraphs-models-nn-summary-classificationsummary" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary">
-<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs_models.nn.summary.</code><code class="sig-name descname">ClassificationSummary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_outcomes</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">device</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.summary.</span></code><code class="sig-name descname"><span class="pre">ClassificationSummary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_outcomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple class to keep track of summaries of a classification problem.</p>
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_outcomes</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">device</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_outcomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes a new summary class with the given number of outcomes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_outcomes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – the number of possible outcomes of the classification problem.</p></li>
+<li><p><strong>num_outcomes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – the number of possible outcomes of the classification problem.</p></li>
 <li><p><strong>device</strong> (<em>torch.device</em><em>, </em><em>optional</em>) – device on which to place the recorded statistics.</p></li>
 </ul>
 </dd>
@@ -203,50 +207,50 @@
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.accuracy">
-<code class="sig-name descname">accuracy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.accuracy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">accuracy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.accuracy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the accuracy of the recorded problem.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.cohen_kappa">
-<code class="sig-name descname">cohen_kappa</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.cohen_kappa" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">cohen_kappa</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.cohen_kappa" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Cohen kappa measure of agreement.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.confusion_matrix">
-<code class="sig-name descname">confusion_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.confusion_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a> representing the confusion matrix.</p>
+<code class="sig-name descname"><span class="pre">confusion_matrix</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.confusion_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><code class="xref any docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a> representing the confusion matrix.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.marginal_labels">
-<code class="sig-name descname">marginal_labels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.marginal_labels" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">marginal_labels</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.marginal_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the empirical marginal distribution of the true labels.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.marginal_predicted">
-<code class="sig-name descname">marginal_predicted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.marginal_predicted" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">marginal_predicted</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.marginal_predicted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the empirical marginal distribution of the predicted labels.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.prediction_matrix">
-<em class="property">property </em><code class="sig-name descname">prediction_matrix</code><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.prediction_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><code class="xref any docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a> representing the prediction matrix.</p>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">prediction_matrix</span></code><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.prediction_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><code class="xref any docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a> representing the prediction matrix.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.record_statistics">
-<code class="sig-name descname">record_statistics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">labels</span></em>, <em class="sig-param"><span class="n">predictions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.record_statistics" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">record_statistics</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.record_statistics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Records statistics for a batch of predictions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>labels</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – an array of true labels in integer format. Each label must correspond to an
+<li><p><strong>labels</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – an array of true labels in integer format. Each label must correspond to an
 integer in 0 to num_outcomes - 1 inclusive.</p></li>
-<li><p><strong>predictions</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – an array of predicted labels. Must follow the same format as <code class="xref any docutils literal notranslate"><span class="pre">labels</span></code>.</p></li>
+<li><p><strong>predictions</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – an array of predicted labels. Must follow the same format as <code class="xref any docutils literal notranslate"><span class="pre">labels</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -254,20 +258,20 @@ integer in 0 to num_outcomes - 1 inclusive.</p></li>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.reset_statistics">
-<code class="sig-name descname">reset_statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.reset_statistics" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">reset_statistics</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.reset_statistics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets statistics recorded in this accumulator.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.summary.ClassificationSummary.write_tensorboard">
-<code class="sig-name descname">write_tensorboard</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">writer</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">global_step</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.write_tensorboard" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">write_tensorboard</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.summary.ClassificationSummary.write_tensorboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the accuracy and kappa metrics to a tensorboard writer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> (<em>torch.utils.tensorboard.SummaryWriter</em>) – The writer to which the metrics will be written</p></li>
-<li><p><strong>prefix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – Optional prefix for the name under which the metrics will be written</p></li>
-<li><p><strong>global_step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><em>optional</em>) – Global step at which the metric is recorded</p></li>
+<li><p><strong>prefix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – Optional prefix for the name under which the metrics will be written</p></li>
+<li><p><strong>global_step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Global step at which the metric is recorded</p></li>
 <li><p><strong>**kwargs</strong> – Further arguments to <code class="xref any docutils literal notranslate"><span class="pre">torch.utils.tensorboard.SummaryWriter.add_scalar</span></code>.</p></li>
 </ul>
 </dd>
@@ -283,37 +287,29 @@ integer in 0 to num_outcomes - 1 inclusive.</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.torch_extensions.html" class="btn btn-neutral float-right" title="sketchgraphs_models.torch_extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.nn.summary.html" class="btn btn-neutral float-left" title="sketchgraphs_models.nn.summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.torch_extensions.html" class="btn btn-neutral float-right" title="sketchgraphs_models.torch_extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.nn.summary.html" class="btn btn-neutral float-left" title="sketchgraphs_models.nn.summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

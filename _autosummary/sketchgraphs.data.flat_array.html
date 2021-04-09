@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs.data.flat_array &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -145,6 +147,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -160,7 +164,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs.data.flat_array.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -195,11 +199,11 @@ constant-time access to elements in the dataset.</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.human_bytes">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">human_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_bytes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.human_bytes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">human_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.human_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formats a byte count as a human-readable byte (using KB, MB, GB units).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>num_bytes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – An integer representing the number of bytes</p>
+<dd class="field-odd"><p><strong>num_bytes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – An integer representing the number of bytes</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
@@ -213,29 +217,29 @@ constant-time access to elements in the dataset.</p>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.load_dictionary_flat">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">load_dictionary_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.load_dictionary_flat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">load_dictionary_flat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.load_dictionary_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a flat dictionary from the given data buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – ndarray of bytes representing the underlying data for the flat dictionary, or a string
+<dd class="field-odd"><p><strong>data</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – ndarray of bytes representing the underlying data for the flat dictionary, or a string
 representing the filename from which to load the dictionary.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionary containing elements serialized in the data buffer.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.load_flat_array">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">load_flat_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.load_flat_array" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">load_flat_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.load_flat_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a flat array from the given path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path</strong> (<em>file-like object</em><em>, </em><em>string</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)"><em>pathlib.Path</em></a>) – The file to read. Must be compatible with <code class="xref any docutils literal notranslate"><span class="pre">np.load</span></code>.</p>
+<dd class="field-odd"><p><strong>path</strong> (<em>file-like object</em><em>, </em><em>string</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a>) – The file to read. Must be compatible with <code class="xref any docutils literal notranslate"><span class="pre">np.load</span></code>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A FlatSerializedArray containing the data.</p>
@@ -248,7 +252,7 @@ representing the filename from which to load the dictionary.</p>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.merge_raw_list">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">merge_raw_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offset_arrays</span></em>, <em class="sig-param"><span class="n">data_arrays</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.merge_raw_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">merge_raw_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset_arrays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_arrays</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.merge_raw_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges a list of raw flat lists (as produced by <a class="reference internal" href="#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a>) into one single raw flat list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -269,7 +273,7 @@ representing the filename from which to load the dictionary.</p>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.pack_dictionary_flat">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">pack_dictionary_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict_</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_dictionary_flat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">pack_dictionary_flat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_dictionary_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves a dictionary into a flat structure which is compatible
 with the structure used for <a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a>.</p>
 <p>This structure is a light extension of the <a class="reference internal" href="sketchgraphs.data.flat_array.FlatSerializedArray.html#sketchgraphs.data.flat_array.FlatSerializedArray" title="sketchgraphs.data.flat_array.FlatSerializedArray"><code class="xref any py py-class docutils literal notranslate"><span class="pre">FlatSerializedArray</span></code></a>, and is able to encode
@@ -277,7 +281,7 @@ the array inline so that the memory used by the array can be laid-out directly.
 This is mainly used to serialize a set of related arrays.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – An arbitrary dictionary containing the elements to be serialized.</p>
+<dd class="field-odd"><p><strong>dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – An arbitrary dictionary containing the elements to be serialized.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An array of bytes representing the the serialized data.</p>
@@ -290,7 +294,7 @@ This is mainly used to serialize a set of related arrays.</p>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.pack_list_flat">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">pack_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">offsets</span></em>, <em class="sig-param"><span class="n">data_bytes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_list_flat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">pack_list_flat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.pack_list_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Packs the given offsets and corresponding data array into a flat array format.</p>
 <p>This function simply adds some metadata headers in order to create a contiguous
 packed format. See also <a class="reference internal" href="#sketchgraphs.data.flat_array.raw_list_flat" title="sketchgraphs.data.flat_array.raw_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">raw_list_flat</span></code></a> to obtain the raw <code class="docutils literal notranslate"><span class="pre">offsets</span></code> and <code class="docutils literal notranslate"><span class="pre">data_bytes</span></code>,
@@ -313,7 +317,7 @@ or <a class="reference internal" href="#sketchgraphs.data.flat_array.save_list_f
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.raw_list_flat">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">raw_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nthreads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.raw_list_flat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">raw_list_flat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.raw_list_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serializes the provided list into an array of bytes and offsets.</p>
 <p>Note that this function only provides the raw offsets and serialized bytes.
 It is advised to use <a class="reference internal" href="#sketchgraphs.data.flat_array.save_list_flat" title="sketchgraphs.data.flat_array.save_list_flat"><code class="xref any py py-func docutils literal notranslate"><span class="pre">save_list_flat</span></code></a> or similar to encode other associated metadata.</p>
@@ -321,7 +325,7 @@ It is advised to use <a class="reference internal" href="#sketchgraphs.data.flat
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>iterable</em>) – An iterable containing the data to be serialized</p></li>
-<li><p><strong>nthreads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><em>optional</em>) – If not None, the number of threads to be used for performing the serialization in parallel</p></li>
+<li><p><strong>nthreads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – If not None, the number of threads to be used for performing the serialization in parallel</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -336,13 +340,13 @@ It is advised to use <a class="reference internal" href="#sketchgraphs.data.flat
 
 <dl class="py function">
 <dt id="sketchgraphs.data.flat_array.save_list_flat">
-<code class="sig-prename descclassname">sketchgraphs.data.flat_array.</code><code class="sig-name descname">save_list_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nthreads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.save_list_flat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.flat_array.</span></code><code class="sig-name descname"><span class="pre">save_list_flat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.flat_array.save_list_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves a list of python objects into a flat bytes format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – a list of python objects to serialize</p></li>
-<li><p><strong>nthreads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><em>optional</em>) – If not <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>, the number of processes to use.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – a list of python objects to serialize</p></li>
+<li><p><strong>nthreads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – If not <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>, the number of processes to use.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -361,37 +365,29 @@ It is advised to use <a class="reference internal" href="#sketchgraphs.data.flat
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs.data.flat_array.FlatSerializedArray.html" class="btn btn-neutral float-right" title="sketchgraphs.data.flat_array.FlatSerializedArray" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs.data.dof.html" class="btn btn-neutral float-left" title="sketchgraphs.data.dof" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs.data.flat_array.FlatSerializedArray.html" class="btn btn-neutral float-right" title="sketchgraphs.data.flat_array.FlatSerializedArray" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs.data.dof.html" class="btn btn-neutral float-left" title="sketchgraphs.data.dof" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

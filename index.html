@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Welcome to SketchGraphs’ documentation! &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -50,7 +52,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="#" class="icon icon-home"> SketchGraphs
           
 
           
@@ -129,6 +131,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -140,7 +144,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -168,7 +172,7 @@ The following data files are provided:</p>
 <li><p>The raw json data as obtained from Onshape. This is provided as a set of 128 tar archives which are compressed
 using <a class="reference external" href="https://facebook.github.io/zstd/">zstandard</a>. They total about 43GB of data. In general, we only recommend these for advanced usage, as
 they are heavy and require extensive processing to manipulate. Users interested in working with the raw data
-may wish to inspect <a class="reference internal" href="_autosummary/sketchgraphs.pipeline.make_sketch_dataset.html#module-sketchgraphs.pipeline.make_sketch_dataset" title="sketchgraphs.pipeline.make_sketch_dataset"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sketch_dataset</span></code></a> and <a class="reference internal" href="_autosummary/sketchgraphs.pipeline.make_sequence_dataset.html#module-sketchgraphs.pipeline.make_sequence_dataset" title="sketchgraphs.pipeline.make_sequence_dataset"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sequence_dataset</span></code></a>
+may wish to inspect <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sketch_dataset</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">sketchgraphs.pipeline.make_sequence_dataset</span></code>
 to view our data processing scripts. The data is available for download <a class="reference external" href="https://sketchgraphs.cs.princeton.edu/shards/">here</a>.</p></li>
 <li><p>A dataset of construction sequences. This is provided as a single file, stored in a custom binary format.
 This format is much more concise (as it eliminates many of the unique identifiers used in the raw JSON format),
@@ -196,7 +200,7 @@ For more details, please refer to the dedicated <a class="reference internal" hr
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="models.html">SketchGraphs models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="models.html#quickstart">Quickstart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#native-extensions">Native extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#torch-scatter">Torch scatter</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Datasets</a><ul>
@@ -242,35 +246,28 @@ For more details, please refer to the dedicated <a class="reference internal" hr
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="models.html" class="btn btn-neutral float-right" title="SketchGraphs models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+        <a href="models.html" class="btn btn-neutral float-right" title="SketchGraphs models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

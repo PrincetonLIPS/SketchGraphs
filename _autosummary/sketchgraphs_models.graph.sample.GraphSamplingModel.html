@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.graph.sample.GraphSamplingModel &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -149,6 +151,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -166,7 +170,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.graph.sample.GraphSamplingModel.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -184,22 +188,22 @@
 <h1>sketchgraphs_models.graph.sample.GraphSamplingModel<a class="headerlink" href="#sketchgraphs-models-graph-sample-graphsamplingmodel" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel">
-<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs_models.graph.sample.</code><code class="sig-name descname">GraphSamplingModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_core</span></em>, <em class="sig-param"><span class="n">entity_label</span></em>, <em class="sig-param"><span class="n">entity_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_post_embedding</span></em>, <em class="sig-param"><span class="n">edge_label</span></em>, <em class="sig-param"><span class="n">edge_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_partner</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.sample.</span></code><code class="sig-name descname"><span class="pre">GraphSamplingModel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_core</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_feature_readout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_post_embedding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_feature_readout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_partner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_dimensions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_core</span></em>, <em class="sig-param"><span class="n">entity_label</span></em>, <em class="sig-param"><span class="n">entity_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_post_embedding</span></em>, <em class="sig-param"><span class="n">edge_label</span></em>, <em class="sig-param"><span class="n">edge_feature_readout</span></em>, <em class="sig-param"><span class="n">edge_partner</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_core</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_feature_readout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_post_embedding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_feature_readout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_partner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_dimensions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.from_numerical_model">
-<em class="property">static </em><code class="sig-name descname">from_numerical_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html#sketchgraphs_models.graph.model.GraphModel" title="sketchgraphs_models.graph.model.GraphModel">sketchgraphs_models.graph.model.GraphModel</a></span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.from_numerical_model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_numerical_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html#sketchgraphs_models.graph.model.GraphModel" title="sketchgraphs_models.graph.model.GraphModel"><span class="pre">sketchgraphs_models.graph.model.GraphModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_dimensions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.from_numerical_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new sampling model from the given numerical model.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_label">
-<code class="sig-name descname">sample_edge_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">targets</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sample_edge_label</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples edge labels.</p>
 <p>This function samples edge label types for given edges between the last node in the graph
 and the specified target node.</p>
@@ -207,22 +211,22 @@ and the specified target node.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – the graph (or batch of graphs) for which to obtain edge labels</p></li>
-<li><p><strong>targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor indicating the indices of the edges</p></li>
-<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+<li><p><strong>targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – A tensor indicating the indices of the edges</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing the sampled edge labels.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_target">
-<code class="sig-name descname">sample_edge_target</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_target" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sample_edge_target</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_edge_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples edge targets.</p>
 <p>This function samples potential edges between the last node and a given target.
 The sampled target may potentially be one past the end of the nodes, indicating
@@ -231,57 +235,57 @@ that no new edges should be created.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – the graph (or batch of graphs) for which to obtain node labels.</p></li>
-<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing the sampled edge target for each graph in the batch.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_entity_features">
-<code class="sig-name descname">sample_entity_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">target_type</span></em>, <em class="sig-param"><span class="n">features</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_entity_features" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sample_entity_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_entity_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples entity features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – The graph (or batch of graphs) for which to obtain node features</p></li>
 <li><p><strong>target_type</strong> (<a class="reference internal" href="sketchgraphs.pipeline.graph_model.target.TargetType.html#sketchgraphs.pipeline.graph_model.target.TargetType" title="sketchgraphs.pipeline.graph_model.target.TargetType"><em>TargetType</em></a>) – The target type / label of the entity for which to sample features</p></li>
-<li><p><strong>features</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – An integer tensor corresponding to the entity features</p></li>
-<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
+<li><p><strong>features</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – An integer tensor corresponding to the entity features</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing the sampled node features</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.graph.sample.GraphSamplingModel.sample_node_label">
-<code class="sig-name descname">sample_node_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">generator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_node_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sample_node_label</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.sample.GraphSamplingModel.sample_node_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples node labels.</p>
 <p>This function samples a node label for the last node in each graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>GraphInfo</em>) – The graph (or batch of graph for which to obtain node labels).</p></li>
-<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling.</p></li>
+<li><p><strong>generator</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Generator</em></a><em>, </em><em>optional</em>) – Optional PRNG to use for sampling.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer tensor containing a sampled node label for each graph in the batch.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -295,37 +299,29 @@ that no new edges should be created.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.graph.train.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.train" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.graph.sample.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.graph.train.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.train" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.graph.sample.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

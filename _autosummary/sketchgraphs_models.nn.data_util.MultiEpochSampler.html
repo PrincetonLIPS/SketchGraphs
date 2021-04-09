@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.nn.data_util.MultiEpochSampler &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -150,6 +152,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -167,7 +171,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.nn.data_util.MultiEpochSampler.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -185,7 +189,7 @@
 <h1>sketchgraphs_models.nn.data_util.MultiEpochSampler<a class="headerlink" href="#sketchgraphs-models-nn-data-util-multiepochsampler" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="sketchgraphs_models.nn.data_util.MultiEpochSampler">
-<em class="property">class </em><code class="sig-prename descclassname">sketchgraphs_models.nn.data_util.</code><code class="sig-name descname">MultiEpochSampler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_sampler</span></em>, <em class="sig-param"><span class="n">num_epochs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.nn.data_util.</span></code><code class="sig-name descname"><span class="pre">MultiEpochSampler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_sampler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A sampler wrapper which creates multiple epochs of indices
 from one sampler.</p>
 <p>Due to the way torch dataloaders function, they reset all workers
@@ -195,13 +199,13 @@ cost of starting workers.</p>
 samples several epochs from the wrapped sampler.</p>
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.data_util.MultiEpochSampler.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_sampler</span></em>, <em class="sig-param"><span class="n">num_epochs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_sampler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes a new instance of <a class="reference internal" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler" title="sketchgraphs_models.nn.data_util.MultiEpochSampler"><code class="xref any py py-class docutils literal notranslate"><span class="pre">MultiEpochSampler</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>batch_sampler</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.Sampler" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.utils.data.Sampler</em></a>) – A batch sampler to wrap</p></li>
-<li><p><strong>num_epochs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The number of epochs for this sampler.</p></li>
+<li><p><strong>batch_sampler</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.Sampler" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.utils.data.Sampler</em></a>) – A batch sampler to wrap</p></li>
+<li><p><strong>num_epochs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of epochs for this sampler.</p></li>
 </ul>
 </dd>
 </dl>
@@ -209,7 +213,7 @@ samples several epochs from the wrapped sampler.</p>
 
 <dl class="py method">
 <dt id="sketchgraphs_models.nn.data_util.MultiEpochSampler.batches_per_epoch">
-<em class="property">property </em><code class="sig-name descname">batches_per_epoch</code><a class="headerlink" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler.batches_per_epoch" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">batches_per_epoch</span></code><a class="headerlink" href="#sketchgraphs_models.nn.data_util.MultiEpochSampler.batches_per_epoch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the number of batches per one single epoch of the original sampler.</p>
 </dd></dl>
 
@@ -222,37 +226,29 @@ samples several epochs from the wrapped sampler.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.nn.distributed.html" class="btn btn-neutral float-right" title="sketchgraphs_models.nn.distributed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.nn.data_util.html" class="btn btn-neutral float-left" title="sketchgraphs_models.nn.data_util" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.nn.distributed.html" class="btn btn-neutral float-right" title="sketchgraphs_models.nn.distributed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.nn.data_util.html" class="btn btn-neutral float-left" title="sketchgraphs_models.nn.data_util" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

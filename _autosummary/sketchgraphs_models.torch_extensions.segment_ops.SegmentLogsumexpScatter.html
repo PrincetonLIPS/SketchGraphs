@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop &mdash; SketchGraphs  documentation</title>
+  <title>sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter &mdash; SketchGraphs  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop" href="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop.html" />
-    <link rel="prev" title="sketchgraphs_models.torch_extensions.segment_pool" href="sketchgraphs_models.torch_extensions.segment_pool.html" /> 
+    <link rel="next" title="sketchgraphs_models.torch_extensions.segment_pool" href="sketchgraphs_models.torch_extensions.segment_pool.html" />
+    <link rel="prev" title="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpPython" href="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpPython.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,12 +98,13 @@
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.nn.html">sketchgraphs_models.nn</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.index.html">sketchgraphs_models.torch_extensions.index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_ops.html">sketchgraphs_models.torch_extensions.segment_ops</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.html">sketchgraphs_models.torch_extensions.segment_pool</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop.html">sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_ops.html">sketchgraphs_models.torch_extensions.segment_ops</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_ops.SegmentArgmaxPython.html">sketchgraphs_models.torch_extensions.segment_ops.SegmentArgmaxPython</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpPython.html">sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpPython</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sketchgraphs_models.torch_extensions.segment_pool.html">sketchgraphs_models.torch_extensions.segment_pool</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sketchgraphs_models.training.html">sketchgraphs_models.training</a></li>
@@ -161,15 +162,15 @@
         
           <li><a href="sketchgraphs_models.torch_extensions.html">sketchgraphs_models.torch_extensions</a> &raquo;</li>
         
-          <li><a href="sketchgraphs_models.torch_extensions.segment_pool.html">sketchgraphs_models.torch_extensions.segment_pool</a> &raquo;</li>
+          <li><a href="sketchgraphs_models.torch_extensions.segment_ops.html">sketchgraphs_models.torch_extensions.segment_ops</a> &raquo;</li>
         
-      <li>sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop</li>
+      <li>sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/_autosummary/sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,32 +183,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sketchgraphs-models-torch-extensions-segment-pool-segmentavgpool1dloop">
-<h1>sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop<a class="headerlink" href="#sketchgraphs-models-torch-extensions-segment-pool-segmentavgpool1dloop" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="sketchgraphs-models-torch-extensions-segment-ops-segmentlogsumexpscatter">
+<h1>sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter<a class="headerlink" href="#sketchgraphs-models-torch-extensions-segment-ops-segmentlogsumexpscatter" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.torch_extensions.segment_pool.</span></code><code class="sig-name descname"><span class="pre">SegmentAvgPool1DLoop</span></code><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop" title="Permalink to this definition">¶</a></dt>
+<dt id="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.torch_extensions.segment_ops.</span></code><code class="sig-name descname"><span class="pre">SegmentLogsumexpScatter</span></code><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
-<dt id="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.backward">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.backward" title="Permalink to this definition">¶</a></dt>
+<dt id="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.backward">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.backward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines a formula for differentiating the operation.</p>
 <p>This function is to be overridden by all subclasses.</p>
 <p>It must accept a context <code class="xref py py-attr docutils literal notranslate"><span class="pre">ctx</span></code> as the first argument, followed by
-as many outputs did <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> return, and it should return as many
-tensors, as there were inputs to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a>. Each argument is the
+as many outputs did <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward" title="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> return, and it should return as many
+tensors, as there were inputs to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward" title="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a>. Each argument is the
 gradient w.r.t the given output, and each returned value should be the
 gradient w.r.t. the corresponding input.</p>
 <p>The context can be used to retrieve tensors saved during the forward
 pass. It also has an attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">ctx.needs_input_grad</span></code> as a tuple
 of booleans representing whether each input needs gradient. E.g.,
-<a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.backward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> will have <code class="docutils literal notranslate"><span class="pre">ctx.needs_input_grad[0]</span> <span class="pre">=</span> <span class="pre">True</span></code> if the
-first input to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> needs gradient computated w.r.t. the
+<a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.backward" title="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> will have <code class="docutils literal notranslate"><span class="pre">ctx.needs_input_grad[0]</span> <span class="pre">=</span> <span class="pre">True</span></code> if the
+first input to <a class="reference internal" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward" title="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> needs gradient computated w.r.t. the
 output.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_pool.SegmentAvgPool1DLoop.forward" title="Permalink to this definition">¶</a></dt>
+<dt id="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpScatter.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs the operation.</p>
 <p>This function is to be overridden by all subclasses.</p>
 <p>It must accept a context ctx as the first argument, followed by any
@@ -226,8 +227,8 @@ during the backward pass.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop.html" class="btn btn-neutral float-right" title="sketchgraphs_models.torch_extensions.segment_pool.SegmentMaxPool1DLoop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="sketchgraphs_models.torch_extensions.segment_pool.html" class="btn btn-neutral float-left" title="sketchgraphs_models.torch_extensions.segment_pool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sketchgraphs_models.torch_extensions.segment_pool.html" class="btn btn-neutral float-right" title="sketchgraphs_models.torch_extensions.segment_pool" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpPython.html" class="btn btn-neutral float-left" title="sketchgraphs_models.torch_extensions.segment_ops.SegmentLogsumexpPython" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

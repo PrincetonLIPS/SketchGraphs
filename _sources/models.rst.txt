@@ -31,17 +31,10 @@ Similarly, the autoconstrain model may be trained by running:
 We will also provide pre-trained models (coming soon!).
 
 
-Native extensions
+Torch scatter
 -----------------
 
-In order to enjoy the best training performance, we strongly recommend you compile the native extensions for
-the models. They are provided as a `pytorch extension <https://pytorch.org/tutorials/advanced/cpp_extension.html>`_,
-and you will require access to a C++ compiler as well as the CUDA toolkit and compiler. If you do not have access,
+In order to enjoy the best training performance, we strongly recommend you install the `torch-scatter <https://github.com/rusty1s/pytorch_scatter>`_
+package with the correct CUDA version for training on GPU. If you do not have access,
 the models will automatically fall back to a plain python / pytorch implementation (however, there will be a
-performance penalty due to a substantial amount of looping). The extensions may be compiled by running the following
-command from the root directory:
-
-.. code-block:: bash
-
-    python setup.py build_ext --inplace
-
+performance penalty due to a substantial amount of looping).

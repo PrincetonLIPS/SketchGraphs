@@ -10,10 +10,9 @@ sketchgraphs\_models.torch\_extensions.segment\_ops
    .. autosummary::
       :toctree:
    
-      SegmentArgmaxNative
       SegmentArgmaxPython
-      SegmentLogsumexpNative
       SegmentLogsumexpPython
+      SegmentLogsumexpScatter
    
    
   
@@ -29,12 +28,12 @@ sketchgraphs\_models.torch\_extensions.segment\_ops
    .. autofunction:: segment_argmax
    .. autofunction:: segment_argmax_backward
    .. autofunction:: segment_argmax_loop
-   .. autofunction:: segment_argmax_native
    .. autofunction:: segment_argmax_python
+   .. autofunction:: segment_argmax_scatter
    .. autofunction:: segment_logsumexp
    .. autofunction:: segment_logsumexp_backward_python
-   .. autofunction:: segment_logsumexp_native
    .. autofunction:: segment_logsumexp_python
+   .. autofunction:: segment_logsumexp_scatter
    .. autofunction:: segment_op_python
    
    

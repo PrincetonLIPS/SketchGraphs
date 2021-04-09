@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs.data.constraint_checks &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -142,6 +144,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -157,7 +161,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs.data.constraint_checks.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -180,7 +184,7 @@ of a solver, and cannot solve for the desired constraints.</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.check_edge_satisfied">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">check_edge_satisfied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seq</span></em>, <em class="sig-param"><span class="n">op</span><span class="p">:</span> <span class="n"><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp">sketchgraphs.data.sequence.EdgeOp</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.check_edge_satisfied" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">check_edge_satisfied</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp"><span class="pre">sketchgraphs.data.sequence.EdgeOp</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.check_edge_satisfied" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines whether the given EdgeOp instance is geometrically satisfied in the graph represented by <code class="xref any docutils literal notranslate"><span class="pre">seq</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -190,13 +194,13 @@ of a solver, and cannot solve for the desired constraints.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> if the current edge constraint is satisified, otherwise <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a>.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> if the current edge constraint is satisified, otherwise <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – If the current constraint is not supported (e.g. its type is not supported),
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – If the current constraint is not supported (e.g. its type is not supported),
     or it refers to an external entity, which is not supported.</p>
 </dd>
 </dl>
@@ -204,28 +208,28 @@ of a solver, and cannot solve for the desired constraints.</p>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.coincident">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">coincident</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">entities</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.coincident" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">coincident</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">entities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.coincident" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.concentric">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">concentric</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.concentric" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">concentric</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.concentric" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.equal">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.equal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">equal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.equal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.get_entity_by_idx">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">get_entity_by_idx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seq</span></em>, <em class="sig-param"><span class="n">idx</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></span></em><span class="sig-paren">)</span> &#x2192; sketchgraphs.data._entity.Entity<a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_entity_by_idx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">get_entity_by_idx</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">sketchgraphs.data._entity.Entity</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_entity_by_idx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the entity or sub-entity corresponding to idx.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>seq</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="sketchgraphs.data.sequence.NodeOp.html#sketchgraphs.data.sequence.NodeOp" title="sketchgraphs.data.sequence.NodeOp"><em>NodeOp</em></a><em>, </em><a class="reference internal" href="sketchgraphs.data.sequence.EdgeOp.html#sketchgraphs.data.sequence.EdgeOp" title="sketchgraphs.data.sequence.EdgeOp"><em>EdgeOp</em></a><em>]</em><em>]</em>) – A list of node and edge operations representing the construction sequence.</p></li>
-<li><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – An integer representing the index of the desired entity.</p></li>
+<li><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – An integer representing the index of the desired entity.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -239,7 +243,7 @@ of a solver, and cannot solve for the desired constraints.</p>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.get_sorted_types">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">get_sorted_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entities</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_sorted_types" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">get_sorted_types</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.get_sorted_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtains the types and sorts the entities based on their type order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -258,32 +262,32 @@ but sorted in the order given by types.</p></li>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.horizontal">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">horizontal</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.horizontal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">horizontal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.horizontal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.midpoint">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">midpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.midpoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">midpoint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.midpoint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.parallel">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">parallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.parallel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">parallel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.parallel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.perpendicular">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">perpendicular</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.perpendicular" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">perpendicular</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.perpendicular" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.tangent">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">tangent</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.tangent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">tangent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.tangent" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs.data.constraint_checks.vertical">
-<code class="sig-prename descclassname">sketchgraphs.data.constraint_checks.</code><code class="sig-name descname">vertical</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.vertical" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs.data.constraint_checks.</span></code><code class="sig-name descname"><span class="pre">vertical</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs.data.constraint_checks.vertical" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -293,37 +297,29 @@ but sorted in the order given by types.</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs.data.dof.html" class="btn btn-neutral float-right" title="sketchgraphs.data.dof" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs.data.html" class="btn btn-neutral float-left" title="sketchgraphs.data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs.data.dof.html" class="btn btn-neutral float-right" title="sketchgraphs.data.dof" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs.data.html" class="btn btn-neutral float-left" title="sketchgraphs.data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

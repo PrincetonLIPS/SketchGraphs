@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sketchgraphs_models.graph.model.losses &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="../index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -153,6 +155,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -170,7 +174,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/sketchgraphs_models.graph.model.losses.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -190,12 +194,12 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_average_losses">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_average_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">losses</span></em>, <em class="sig-param"><span class="n">graph_counts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_average_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">compute_average_losses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">losses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_counts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_average_losses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes average losses from sum losses.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>losses</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Dictionary containing components for each loss</p></li>
+<li><p><strong>losses</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary containing components for each loss</p></li>
 <li><p><strong>graph_counts</strong> (<em>Mapping</em>) – Mapping from target types to integers representing the number of aggregated examples
 for each target type.</p></li>
 </ul>
@@ -204,14 +208,14 @@ for each target type.</p></li>
 <dd class="field-even"><p>A dictionary containing the average loss values</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_edge_losses">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_edge_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_partner_offsets</span></em>, <em class="sig-param"><span class="n">edge_label_logits</span></em>, <em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">edge_label</span></em>, <em class="sig-param"><span class="n">edge_partner</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_edge_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">compute_edge_losses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_partner_offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_label_logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partner_logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_partner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_edge_losses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes losses associated with edge prediction problems.</p>
 <p>This function computes the two losses associated with the edge problem:
 - <a class="reference internal" href="sketchgraphs_models.graph.model.GraphModel.html#sketchgraphs_models.graph.model.GraphModel.edge_label" title="sketchgraphs_models.graph.model.GraphModel.edge_label"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">edge_label</span></code></a>: this loss represents the loss for predicting the label of the edge
@@ -220,14 +224,14 @@ for each target type.</p></li>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_feature_loss">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_feature_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature_logits</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">feature_targets</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></span></em>, <em class="sig-param"><span class="n">feature_dimensions</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>Any<span class="p">, </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_feature_loss" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">compute_feature_loss</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_logits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_targets</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_dimensions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_feature_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes losses on the given features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>feature_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – 2-d tensor of feature logits</p></li>
-<li><p><strong>feature_targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – 1-d integer tensor of true feature labels</p></li>
-<li><p><strong>feature_dimensions</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>]</em>) – A list of integers representing the dimension of each feature.</p></li>
+<li><p><strong>feature_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – 2-d tensor of feature logits</p></li>
+<li><p><strong>feature_targets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – 1-d integer tensor of true feature labels</p></li>
+<li><p><strong>feature_dimensions</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>]</em>) – A list of integers representing the dimension of each feature.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -244,7 +248,7 @@ for each target type.</p></li>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_losses">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">readout</span></em>, <em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">feature_dimensions</span></em>, <em class="sig-param"><span class="n">weights</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">compute_losses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_losses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes losses for each component of the model, given the model output.</p>
 <p>Note that this function computes losses using a sum reduction.
 To obtain equivalent average losses, see <a class="reference internal" href="#sketchgraphs_models.graph.model.losses.compute_average_losses" title="sketchgraphs_models.graph.model.losses.compute_average_losses"><code class="xref any py py-func docutils literal notranslate"><span class="pre">compute_average_losses</span></code></a>.</p>
@@ -252,10 +256,10 @@ To obtain equivalent average losses, see <a class="reference internal" href="#sk
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>readout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary containing the model output</p></li>
-<li><p><strong>batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary containing the input data</p></li>
-<li><p><strong>feature_dimensions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary of list of ints describing the dimension of each feature for each target.</p></li>
-<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, </em><em>optional</em>) – If not None, a mapping from TargetType to floats which describes the weighting of each prediction
+<li><p><strong>readout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – A dictionary containing the model output</p></li>
+<li><p><strong>batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – A dictionary containing the input data</p></li>
+<li><p><strong>feature_dimensions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – A dictionary of list of ints describing the dimension of each feature for each target.</p></li>
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – If not None, a mapping from TargetType to floats which describes the weighting of each prediction
 endpoint. TargetTypes which are not included are assumed to be weighted at 1.</p></li>
 </ul>
 </dd>
@@ -273,29 +277,29 @@ endpoint. TargetTypes which are not included are assumed to be weighted at 1.</p
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_node_losses">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_node_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_offsets</span></em>, <em class="sig-param"><span class="n">entity_logits</span></em>, <em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">node_label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_node_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">compute_node_losses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partner_logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_node_losses" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.compute_subnode_losses">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">compute_subnode_losses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subnode_offsets</span></em>, <em class="sig-param"><span class="n">partner_logits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_subnode_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">compute_subnode_losses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subnode_offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partner_logits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.compute_subnode_losses" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.merge_losses_and_accuracy">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">merge_losses_and_accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">losses</span></em>, <em class="sig-param"><span class="n">accuracy</span></em>, <em class="sig-param"><span class="n">updates</span></em>, <em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.merge_losses_and_accuracy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">merge_losses_and_accuracy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">losses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accuracy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.merge_losses_and_accuracy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.segment_stop_accuracy">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">segment_stop_accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">segment_offsets</span></em>, <em class="sig-param"><span class="n">target_idx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.segment_stop_accuracy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">segment_stop_accuracy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partner_logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment_offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.segment_stop_accuracy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the accuracy for stop prediction for partner logits.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
-<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
-<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
+<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
+<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
+<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
 Otherwise, this is assumed to be the last (implicit) entry in each segment.</p></li>
 </ul>
 </dd>
@@ -303,14 +307,14 @@ Otherwise, this is assumed to be the last (implicit) entry in each segment.</p><
 <dd class="field-even"><p>A boolean tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the accuracy at each segment.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="sketchgraphs_models.graph.model.losses.segment_stop_loss">
-<code class="sig-prename descclassname">sketchgraphs_models.graph.model.losses.</code><code class="sig-name descname">segment_stop_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">partner_logits</span></em>, <em class="sig-param"><span class="n">segment_offsets</span></em>, <em class="sig-param"><span class="n">target_idx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.segment_stop_loss" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">sketchgraphs_models.graph.model.losses.</span></code><code class="sig-name descname"><span class="pre">segment_stop_loss</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partner_logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment_offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sketchgraphs_models.graph.model.losses.segment_stop_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the loss for stop prediction for partner logits.</p>
 <p>This function effectively corresponds to a cross-entropy softmax
 operation on each segment, where the cross-entropy is augmented
@@ -319,9 +323,9 @@ we assume that it is the last (implicit) entry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
-<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
-<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))"><em>torch.Tensor</em></a><em>, </em><em>optional</em>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
+<li><p><strong>partner_logits</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – The un-normalized logits for the segments.</p></li>
+<li><p><strong>segment_offsets</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a>) – A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments</span> <span class="pre">+</span> <span class="pre">1]</span></code> indicating the segment offsets.</p></li>
+<li><p><strong>target_idx</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)"><em>torch.Tensor</em></a><em>, </em><em>optional</em>) – If not None, a tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the target offset to predict in each segment.
 Otherwise, this is assumed to be the last (implicit) entry in each segment.</p></li>
 </ul>
 </dd>
@@ -329,7 +333,7 @@ Otherwise, this is assumed to be the last (implicit) entry in each segment.</p><
 <dd class="field-even"><p>A tensor of shape <code class="xref any docutils literal notranslate"><span class="pre">[num_segments]</span></code> representing the cross-entropy loss at each segment.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.6.0a0+4392e52 ))">torch.Tensor</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.8.0a0+56b43f4)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -341,37 +345,29 @@ Otherwise, this is assumed to be the last (implicit) entry in each segment.</p><
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sketchgraphs_models.graph.model.message_passing.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.model.message_passing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sketchgraphs_models.graph.model.GraphModel.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.model.GraphModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sketchgraphs_models.graph.model.message_passing.html" class="btn btn-neutral float-right" title="sketchgraphs_models.graph.model.message_passing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sketchgraphs_models.graph.model.GraphModel.html" class="btn btn-neutral float-left" title="sketchgraphs_models.graph.model.GraphModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

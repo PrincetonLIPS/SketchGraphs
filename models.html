@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>SketchGraphs models &mdash; SketchGraphs  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SketchGraphs
+            <a href="index.html" class="icon icon-home"> SketchGraphs
           
 
           
@@ -85,7 +87,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SketchGraphs models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#native-extensions">Native extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#torch-scatter">Torch scatter</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Datasets</a></li>
@@ -134,6 +136,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -145,7 +149,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -182,17 +186,12 @@ the generative model may be trained by running:</p>
 </div>
 <p>We will also provide pre-trained models (coming soon!).</p>
 </div>
-<div class="section" id="native-extensions">
-<h2>Native extensions<a class="headerlink" href="#native-extensions" title="Permalink to this headline">¶</a></h2>
-<p>In order to enjoy the best training performance, we strongly recommend you compile the native extensions for
-the models. They are provided as a <a class="reference external" href="https://pytorch.org/tutorials/advanced/cpp_extension.html">pytorch extension</a>,
-and you will require access to a C++ compiler as well as the CUDA toolkit and compiler. If you do not have access,
+<div class="section" id="torch-scatter">
+<h2>Torch scatter<a class="headerlink" href="#torch-scatter" title="Permalink to this headline">¶</a></h2>
+<p>In order to enjoy the best training performance, we strongly recommend you install the <a class="reference external" href="https://github.com/rusty1s/pytorch_scatter">torch-scatter</a>
+package with the correct CUDA version for training on GPU. If you do not have access,
 the models will automatically fall back to a plain python / pytorch implementation (however, there will be a
-performance penalty due to a substantial amount of looping). The extensions may be compiled by running the following
-command from the root directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build_ext --inplace
-</pre></div>
-</div>
+performance penalty due to a substantial amount of looping).</p>
 </div>
 </div>
 
@@ -201,37 +200,29 @@ command from the root directory:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="data.html" class="btn btn-neutral float-right" title="Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SketchGraphs’ documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="data.html" class="btn btn-neutral float-right" title="Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SketchGraphs’ documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams
+        &#169; Copyright 2020, Ari Seff, Yaniv Ovadia, Wenda Zhou, Ryan P. Adams.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

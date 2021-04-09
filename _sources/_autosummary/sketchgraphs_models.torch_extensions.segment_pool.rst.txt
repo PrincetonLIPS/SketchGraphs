@@ -11,9 +11,7 @@ sketchgraphs\_models.torch\_extensions.segment\_pool
       :toctree:
    
       SegmentAvgPool1DLoop
-      SegmentAvgPool1DNative
       SegmentMaxPool1DLoop
-      SegmentMaxPool1DNative
    
    
   
@@ -29,11 +27,9 @@ sketchgraphs\_models.torch\_extensions.segment\_pool
    .. autofunction:: segment_avg_pool1d
    .. autofunction:: segment_avg_pool1d_backward
    .. autofunction:: segment_avg_pool1d_loop
-   .. autofunction:: segment_avg_pool1d_native
+   .. autofunction:: segment_avg_pool1d_scatter
    .. autofunction:: segment_max_pool1d
    .. autofunction:: segment_max_pool1d_backward
-   .. autofunction:: segment_max_pool1d_loop
-   .. autofunction:: segment_max_pool1d_native
    
    
 
