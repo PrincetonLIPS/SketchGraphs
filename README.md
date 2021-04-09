@@ -22,6 +22,10 @@ SketchGraphs can be installed using pip:
 >> pip install -e SketchGraphs 
 ```
 
+This will provide you with the necessary dependencies to load and explore the data.
+However, to train the models, you will need to additionally install [pytorch](https://pytorch.org/)
+and [torch-scatter](https://github.com/rusty1s/pytorch_scatter).
+
 ## Data
 
 We provide our dataset in a number of forms, some of which may be more appropriate for your desired usage.
