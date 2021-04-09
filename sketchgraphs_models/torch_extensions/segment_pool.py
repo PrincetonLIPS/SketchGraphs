@@ -1,21 +1,6 @@
 import torch
-import os
 
-from . import _util
 from ._repeat_interleave import repeat_interleave
-
-
-class SegmentAvgPool1DNative(torch.autograd.Function):
-    @staticmethod
-    def forward(ctx, values, scopes):
-        ctx.save_for_backward(scopes)
-        ctx.input_length = values.shape[0]
-        return _util.torch_extensions.segment_avg_pool1d(values, scopes)
-
-    @staticmethod
-    def backward(ctx, grad_output):
-        scopes, = ctx.saved_tensors
-        return segment_avg_pool1d_backward(grad_output, scopes, ctx.input_length), None
 
 
 class SegmentAvgPool1DLoop(torch.autograd.Function):
@@ -59,10 +44,6 @@ torch.Tensor
 """
 
 
-def segment_avg_pool1d_native(values, scopes):
-    return SegmentAvgPool1DNative.apply(values, scopes)
-
-
 def segment_avg_pool1d_loop(values, scopes):
     return SegmentAvgPool1DLoop.apply(values, scopes)
 
@@ -77,7 +58,6 @@ def segment_avg_pool1d_scatter(values, scopes):
     return torch_scatter.segment_mean_csr(values, offsets)
 
 
-segment_avg_pool1d_native.__docstring__ = _avg_pool_docstring
 segment_avg_pool1d_loop.__docstring__ = _avg_pool_docstring
 segment_avg_pool1d_scatter.__docstring__ = _avg_pool_docstring
 
@@ -131,67 +111,33 @@ class SegmentMaxPool1DLoop(torch.autograd.Function):
         return segment_max_pool1d_backward(grad_output, scopes, result_idx, ctx.input_length), None, None
 
 
-class SegmentMaxPool1DNative(torch.autograd.Function):
-    @staticmethod
-    def forward(ctx, values, scopes, return_indices=False):
-        result, result_idx = _util.torch_extensions.segment_max_pool1d_with_indices(values, scopes)
-        ctx.mark_non_differentiable(result_idx)
-        ctx.save_for_backward(scopes, result_idx)
-        ctx.input_length = values.shape[0]
+def segment_max_pool1d(values: torch.Tensor, scopes: torch.Tensor, return_indices=False) -> torch.Tensor:
+    """
+    Computes the maximum value in each segment.
 
-        if return_indices:
-            return result, result_idx
-        else:
-            return result
+    Parameters
+    ----------
+    values : torch.Tensor
+        A 1-dimensional tensor.
+    scopes : torch.Tensor
+        a 2-dimensional integer tensor representing segments.
+        Each row of scopes represents a segment, which starts at ``scopes[i, 0]``,
+        and has length ``scopes[i, 1]``.
 
-    @staticmethod
-    def backward(ctx, grad_output, *args):
-        scopes, result_idx = ctx.saved_tensors
-        return segment_max_pool1d_backward(grad_output, scopes, result_idx, ctx.input_length), None, None
-
-
-def segment_max_pool1d_loop(values, scopes, return_indices=False):
+    Returns
+    -------
+    torch.Tensor
+        A tensor representing the maximum value for each segment.
+    """
     return SegmentMaxPool1DLoop.apply(values, scopes, return_indices)
 
-
-def segment_max_pool1d_native(values, scopes, return_indices=False):
-    return SegmentMaxPool1DNative.apply(values, scopes, return_indices)
-
-
-_segment_max_pool_docstring = \
-"""
-Computes the maximum value in each segment.
-
-Parameters
-----------
-values : torch.Tensor
-    A 1-dimensional tensor.
-scopes : torch.Tensor
-    a 2-dimensional integer tensor representing segments.
-    Each row of scopes represents a segment, which starts at ``scopes[i, 0]``,
-    and has length ``scopes[i, 1]``.
-
-Returns
--------
-torch.Tensor
-    A tensor representing the maximum value for each segment.
-"""
-
-segment_max_pool1d_native.__docstring__ = _segment_max_pool_docstring
-segment_max_pool1d_loop.__docstring__ = _segment_max_pool_docstring
 
 try:
     import torch_scatter
 
     segment_avg_pool1d = segment_avg_pool1d_scatter
-    segment_max_pool1d = segment_max_pool1d_loop
 except ImportError:
-    if _util.use_native_extension():
-        segment_max_pool1d = segment_max_pool1d_native
-        segment_avg_pool1d = segment_avg_pool1d_native
-    else:
-        segment_max_pool1d = segment_max_pool1d_loop
-        segment_avg_pool1d = segment_avg_pool1d_loop
+    segment_avg_pool1d = segment_avg_pool1d_loop
 
 
 __all__ = ['segment_max_pool1d', 'segment_avg_pool1d']

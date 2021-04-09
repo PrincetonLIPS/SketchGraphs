@@ -1,6 +1,4 @@
 import torch
-from . import _util
-
 
 def _ensure_repeats(repeats_or_scopes: torch.Tensor):
     if repeats_or_scopes.dim() == 2:
@@ -9,7 +7,7 @@ def _ensure_repeats(repeats_or_scopes: torch.Tensor):
         return repeats_or_scopes
 
 
-def repeat_interleave_out_python(values, repeats_or_scope, dim, out):
+def repeat_interleave_out(values, repeats_or_scope, dim, out):
     index = torch.repeat_interleave(_ensure_repeats(repeats_or_scope))
 
     if dim is None:
@@ -17,12 +15,6 @@ def repeat_interleave_out_python(values, repeats_or_scope, dim, out):
         dim = 0
 
     return torch.index_select(values, dim, index, out=out)
-
-
-def repeat_interleave_out_native(values, repeats, dim, out):
-    if _util.torch_extensions is None:
-        raise NotImplementedError("Native extensions are not present!")
-    return _util.torch_extensions.repeat_interleave_out(out, values, repeats, dim)
 
 
 def repeat_interleave(values, repeats_or_scope, dim=None, out=None, out_length=None):
@@ -53,14 +45,4 @@ def repeat_interleave(values, repeats_or_scope, dim=None, out=None, out_length=N
     """
     if out is not None:
         return repeat_interleave_out(values, repeats_or_scope, dim, out)
-    elif (out_length is not None) and _util.use_native_extension():
-        return _util.torch_extensions.repeat_interleave_out_shape(values, repeats_or_scope, out_length, dim)
-    else:
-        repeats_or_scope = _ensure_repeats(repeats_or_scope)
-        return torch.repeat_interleave(values, repeats_or_scope, dim)
-
-
-if _util.use_native_extension():
-    repeat_interleave_out = repeat_interleave_out_native
-else:
-    repeat_interleave_out = repeat_interleave_out_python
+    return torch.repeat_interleave(values, repeats_or_scope, dim)
