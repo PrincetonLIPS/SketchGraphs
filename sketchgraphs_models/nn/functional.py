@@ -1,11 +1,10 @@
 """ Utility functions for computing specific nn functions. """
 
 import torch
-from sketchgraphs_models.torch_extensions import segment_logsumexp, segment_avg_pool1d, segment_max_pool1d
-from sketchgraphs_models.torch_extensions.segment_ops import segment_argmax
+from sketchgraphs_models.torch_extensions import segment_logsumexp
 
 
-def segmented_cross_entropy(logits, target, scopes):
+def segmented_cross_entropy(logits: torch.Tensor, target: torch.Tensor, scopes: torch.Tensor) -> torch.Tensor:
     """Segmented cross-entropy loss.
 
     Computes the cross-entropy loss from unscaled `logits` for a segmented problem.

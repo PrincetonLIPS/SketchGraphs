@@ -1,6 +1,5 @@
 import torch
 from functools import partial
-from . import _util
 from ._repeat_interleave import repeat_interleave
 
 
@@ -66,28 +65,6 @@ def segment_logsumexp_backward_python(grad_output, values, logsumexp, lengths):
     return derivative_repeat.mul_(grad_output_repeat)
 
 
-class SegmentLogsumexpNative(torch.autograd.Function):
-    @staticmethod
-    def forward(ctx, values, scopes):
-        if not _util.torch_extensions:
-            raise ValueError("Native torch extensions not found! Please use pure python version.")
-
-        result = _util.torch_extensions.segment_logsumexp(values, scopes)
-        ctx.save_for_backward(values, result, scopes)
-        return result
-
-    @staticmethod
-    def backward(ctx, grad_output):
-        values, logsumexp, scopes = ctx.saved_tensors
-        lengths = scopes.select(1, 1)
-
-        return _util.torch_extensions.segment_logsumexp_backward(grad_output, values, logsumexp, lengths), None
-
-
-def segment_logsumexp_native(values, scopes):
-    return SegmentLogsumexpNative.apply(values, scopes)
-
-
 class SegmentLogsumexpScatter(torch.autograd.Function):
     @staticmethod
     def forward(ctx, values, scopes):
@@ -133,28 +110,6 @@ def segment_argmax_backward(grad_output, argmax, scopes, input_shape, sparse_gra
     return grad_input
 
 
-class SegmentArgmaxNative(torch.autograd.Function):
-    @staticmethod
-    def forward(ctx, values, scopes, sparse_grad=True):
-        if not _util.torch_extensions:
-            raise ValueError("Native torch extensions not found! Please use pure python version.")
-
-        ctx.input_shape = values.shape
-        ctx.sparse_grad = sparse_grad
-
-        max_values, argmax = _util.torch_extensions.segment_argmax(values, scopes)
-        ctx.save_for_backward(argmax, scopes)
-        ctx.mark_non_differentiable(argmax)
-
-        return max_values, argmax
-
-    @staticmethod
-    def backward(ctx, grad_output, grad_output_index):
-        argmax, scopes = ctx.saved_tensors
-        grad_values = segment_argmax_backward(grad_output, argmax, scopes, ctx.input_shape, ctx.sparse_grad)
-        return grad_values, None, None
-
-
 class SegmentArgmaxPython(torch.autograd.Function):
     @staticmethod
     def forward(ctx, values, scopes, sparse_grad=True):
@@ -172,10 +127,6 @@ class SegmentArgmaxPython(torch.autograd.Function):
         argmax, scopes = ctx.saved_tensors
         grad_values = segment_argmax_backward(grad_output, argmax, scopes, ctx.input_shape, ctx.sparse_grad)
         return grad_values, None, None
-
-
-def segment_argmax_native(values, scopes, sparse_grad=True):
-    return SegmentArgmaxNative.apply(values, scopes, sparse_grad)
 
 
 def segment_argmax_python(values, scopes, sparse_grad=True):
@@ -223,7 +174,7 @@ torch.Tensor
     An integer tensor representing the location of the maximum in ecah segment.
 """
 
-segment_argmax_native.__docstring__ = _segment_argmax_docstring
+segment_argmax_scatter.__docstring__ = _segment_argmax_docstring
 segment_argmax_python.__docstring__ = _segment_argmax_docstring
 
 _segment_logsumexp_docstring = \
@@ -248,7 +199,6 @@ torch.Tensor
 """
 
 segment_logsumexp_scatter.__docstring__ = _segment_logsumexp_docstring
-segment_logsumexp_native.__docstring__ = _segment_logsumexp_docstring
 segment_logsumexp_python.__docstring__ = _segment_logsumexp_docstring
 
 try:
@@ -257,11 +207,7 @@ try:
     segment_argmax = segment_argmax_scatter
 
 except ImportError:
-    if _util.use_native_extension():
-        segment_logsumexp = segment_logsumexp_native
-        segment_argmax = segment_argmax_native
-    else:
-        segment_logsumexp = segment_logsumexp_python
-        segment_argmax = segment_argmax_python
+    segment_logsumexp = segment_logsumexp_python
+    segment_argmax = segment_argmax_python
 
 __all__ = ['segment_logsumexp', 'segment_argmax']
