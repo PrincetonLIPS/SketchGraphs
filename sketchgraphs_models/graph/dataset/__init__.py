@@ -8,13 +8,14 @@ import enum
 import functools
 import itertools
 import json
+from typing import Dict
 
 import numpy as np
 import torch
 
 from sketchgraphs.data import sketch as data_sketch, sequence as data_sequence
 
-from sketchgraphs.pipeline.graph_model import GraphInfo
+from sketchgraphs.pipeline.graph_model import GraphInfo, SparseFeatureBatch
 from sketchgraphs.pipeline.graph_model.quantization import EdgeFeatureMapping, EntityFeatureMapping, QuantizationMap
 from sketchgraphs.pipeline.graph_model.target import TargetType, NODE_IDX_MAP, EDGE_IDX_MAP, NODE_IDX_MAP_REVERSE, EDGE_IDX_MAP_REVERSE
 
@@ -80,15 +81,18 @@ def _is_subnode_edge(op):
 def _is_stop(node_op):
     return node_op.label == data_sketch.EntityType.Stop.name
 
-def _util_dict_get(dict_, key):
-    return dict_.get(key, 0)
-
 
 def _edge_to_tuple(edge_op: data_sequence.EdgeOp):
     if len(edge_op.references) == 1:
         return (edge_op.references[0], edge_op.references[0])
     else:
         return (edge_op.references[0], edge_op.references[1])
+
+
+def _sparse_feature_to_torch(sparse_features: Dict[TargetType, SparseFeatureBatch]) -> Dict[TargetType, SparseFeatureBatch]:
+    return {
+        k: v.apply(torch.as_tensor) for k, v in sparse_features.items()
+    }
 
 
 def graph_info_from_sequence(seq, entity_feature_mapping: EntityFeatureMapping, edge_feature_mapping: EdgeFeatureMapping):
@@ -130,12 +134,12 @@ def graph_info_from_sequence(seq, entity_feature_mapping: EntityFeatureMapping, 
     edge_features = edge_labels.repeat(2)
 
     if edge_feature_mapping is not None:
-        sparse_edge_features = edge_feature_mapping.all_sparse_features(edge_ops)
+        sparse_edge_features = _sparse_feature_to_torch(edge_feature_mapping.all_sparse_features(edge_ops))
     else:
         sparse_edge_features = None
 
     if entity_feature_mapping is not None:
-        sparse_node_features = entity_feature_mapping.all_sparse_features(node_ops)
+        sparse_node_features = _sparse_feature_to_torch(entity_feature_mapping.all_sparse_features(node_ops))
     else:
         sparse_node_features = None
 
@@ -144,30 +148,30 @@ def graph_info_from_sequence(seq, entity_feature_mapping: EntityFeatureMapping, 
         sparse_node_features, sparse_edge_features)
 
 
-def _numerical_edge_targets(targets, edge_feature_mapping):
+def _numerical_edge_targets(targets, edge_feature_mapping: EdgeFeatureMapping):
     if edge_feature_mapping is None:
         return None
 
     result = collections.OrderedDict()
 
     for target_type in TargetType.numerical_edge_types():
-        result[target_type] = edge_feature_mapping.numerical_features(targets[target_type], target_type)
+        result[target_type] = torch.as_tensor(edge_feature_mapping.numerical_features(targets[target_type], target_type))
 
     return result
 
-def _numerical_node_targets(targets, node_feature_mapping):
+def _numerical_node_targets(targets, node_feature_mapping: EntityFeatureMapping):
     if node_feature_mapping is None:
         return None
 
     result = collections.OrderedDict()
 
     for target_type in TargetType.numerical_node_types():
-        result[target_type] = node_feature_mapping.numerical_features(targets[target_type], target_type)
+        result[target_type] = torch.as_tensor(node_feature_mapping.numerical_features(targets[target_type], target_type))
 
     return result
 
 
-def _set_graph_schema(graph, entity_feature_mapping, edge_feature_mapping):
+def _set_graph_schema(graph, entity_feature_mapping: EntityFeatureMapping, edge_feature_mapping: EdgeFeatureMapping):
     if graph.node_features is None:
         graph.node_features = graph.incidence.new_empty([0])
 
@@ -175,10 +179,10 @@ def _set_graph_schema(graph, entity_feature_mapping, edge_feature_mapping):
         graph.edge_features = graph.incidence.new_empty([0])
 
     if graph.sparse_node_features is None and entity_feature_mapping is not None:
-        graph.sparse_node_features = entity_feature_mapping.all_sparse_features([])
+        graph.sparse_node_features = _sparse_feature_to_torch(entity_feature_mapping.all_sparse_features([]))
 
     if graph.sparse_edge_features is None and edge_feature_mapping is not None:
-        graph.sparse_edge_features = edge_feature_mapping.all_sparse_features([])
+        graph.sparse_edge_features = _sparse_feature_to_torch(edge_feature_mapping.all_sparse_features([]))
 
 
 def collate(batch, entity_feature_mapping: EntityFeatureMapping = None, edge_feature_mapping: EdgeFeatureMapping = None):

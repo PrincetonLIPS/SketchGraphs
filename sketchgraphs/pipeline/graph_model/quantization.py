@@ -77,7 +77,7 @@ class EdgeFeatureMapping:
         features = self.numerical_features(ops, target)
         return graph_utils.SparseFeatureBatch(index, features)
 
-    def numerical_features(self, ops, target):
+    def numerical_features(self, ops, target) -> np.ndarray:
         feature_desc = self._features_by_target.get(target, {})
         dim = len(feature_desc)
         features = np.empty((len(ops), dim), dtype=np.int64)
@@ -259,19 +259,15 @@ class EntityFeatureMapping:
         for i, (param_name, edges) in enumerate(param_bin_edges.items()):
             feature[i + offset] = int(np.searchsorted(edges, params[param_name]))
 
-    def numerical_features(self, ops, target):
+    def numerical_features(self, ops, target) -> np.ndarray:
         """Produces a dense array of numerical features.
 
         The operations in the `ops` array must all match the given target type.
         """
         features = np.empty((len(ops), self._feature_length(target)), dtype=np.int64)
 
-        # use a numpy array as the numpy accessor is much faster from python
-        # this gives a 20% boost in performance for data loading
-        features_np = features.numpy()
-
         for i, op in enumerate(ops):
-            self._numerical_features(features_np[i], op.parameters, target)
+            self._numerical_features(features[i], op.parameters, target)
 
         return features
 
