@@ -140,4 +140,4 @@ except ImportError:
     segment_avg_pool1d = segment_avg_pool1d_loop
 
 
-__all__ = ['segment_max_pool1d', 'segment_avg_pool1d']
+__all__ =  ['segment_avg_pool1d']

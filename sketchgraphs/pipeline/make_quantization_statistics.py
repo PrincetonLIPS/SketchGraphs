@@ -12,6 +12,7 @@ import gzip
 import itertools
 import multiprocessing
 import pickle
+import os
 
 import numpy as np
 import tqdm
@@ -156,8 +157,12 @@ def main():
 
     args = parser.parse_args()
 
-    edge_results = process_edges(args.input, args.num_threads)
-    node_results = process_nodes(args.input, args.node_num_centers, args.num_threads)
+    num_threads = args.num_threads
+    if num_threads is None:
+        num_threads = len(os.sched_getaffinity(0))
+
+    edge_results = process_edges(args.input, num_threads)
+    node_results = process_nodes(args.input, args.node_num_centers, num_threads)
 
     print('Saving results in {0}'.format(args.output))
     with gzip.open(args.output, 'wb', compresslevel=9) as f:

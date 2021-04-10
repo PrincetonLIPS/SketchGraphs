@@ -1,7 +1,8 @@
 """ Utility functions for computing specific nn functions. """
 
 import torch
-from sketchgraphs_models.torch_extensions import segment_logsumexp
+from sketchgraphs_models.torch_extensions import segment_logsumexp, segment_avg_pool1d
+from sketchgraphs_models.torch_extensions.segment_ops import segment_argmax
 
 
 def segmented_cross_entropy(logits: torch.Tensor, target: torch.Tensor, scopes: torch.Tensor) -> torch.Tensor:

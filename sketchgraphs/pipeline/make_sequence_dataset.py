@@ -12,6 +12,7 @@ import enum
 import itertools
 import multiprocessing
 import traceback
+import os
 
 import numpy as np
 import tqdm
@@ -277,18 +278,23 @@ def main():
         '--min_sequence_length', type=int, default=0,
         help='Minimum number of sequence operations (entity + constraints) in sketch.')
     parser.add_argument(
-        '--num_threads', type=int, default=0, help='Number of multiprocessing workers.')
+        '--num_threads', type=int, default=None, help='Number of multiprocessing workers.')
     parser.add_argument(
         '--base_filter', choices=list(BASE_FILTER_FACTORIES.keys()), default='default')
 
     parser.add_argument(
-        '--total_sketches', type=int, default=16079456)
+        '--total_sketches', type=int, default=14930928)
 
     args = parser.parse_args()
 
     filter_factory = BASE_FILTER_FACTORIES[args.base_filter]
     filter_config = filter_factory(args.min_entities, args.max_size, args.min_sequence_length)
-    result = process(args.input, args.num_threads, filter_config, total_sketches=args.total_sketches)
+
+    num_threads = args.num_threads
+    if num_threads is None:
+        num_threads = len(os.sched_getaffinity(0))
+
+    result = process(args.input, num_threads, filter_config, total_sketches=args.total_sketches)
 
     print('Saving result at {0}'.format(args.output))
     np.save(args.output, result, allow_pickle=False)
