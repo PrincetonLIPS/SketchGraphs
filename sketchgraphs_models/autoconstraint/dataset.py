@@ -1,5 +1,7 @@
 """Dataset for auto-constraint model."""
 
+from typing import Optional
+
 import numpy as np
 import torch
 
@@ -7,7 +9,7 @@ from sketchgraphs.data import sequence as datalib
 from sketchgraphs.pipeline.graph_model.target import NODE_TYPES, EDGE_TYPES, EDGE_TYPES_PREDICTED, NODE_IDX_MAP, EDGE_IDX_MAP
 from sketchgraphs.pipeline import graph_model as graph_utils
 
-from sketchgraphs_models.graph.dataset import EntityFeatureMapping, EdgeFeatureMapping
+from sketchgraphs_models.graph.dataset import EntityFeatureMapping, EdgeFeatureMapping, _sparse_feature_to_torch
 
 
 def _reindex_sparse_batch(sparse_batch, pack_batch_offsets):
@@ -75,7 +77,7 @@ def collate(batch):
 
 
 
-def process_node_and_edge_ops(node_ops, edge_ops_in_graph, num_nodes_in_graph, node_feature_mappings):
+def process_node_and_edge_ops(node_ops, edge_ops_in_graph, num_nodes_in_graph, node_feature_mappings: Optional[EntityFeatureMapping]):
     all_node_labels = torch.tensor([NODE_IDX_MAP[op.label] for op in node_ops], dtype=torch.int64)
     edge_labels = torch.tensor([EDGE_IDX_MAP[op.label] for op in edge_ops_in_graph], dtype=torch.int64)
 
@@ -89,7 +91,7 @@ def process_node_and_edge_ops(node_ops, edge_ops_in_graph, num_nodes_in_graph, n
     edge_features = edge_labels.repeat(2)
 
     if node_feature_mappings is not None:
-        sparse_node_features = node_feature_mappings.all_sparse_features(node_ops)
+        sparse_node_features = _sparse_feature_to_torch(node_feature_mappings.all_sparse_features(node_ops))
     else:
         sparse_node_features = None
 
