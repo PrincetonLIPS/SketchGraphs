@@ -93,7 +93,7 @@ class Noisifier:
   def get_arc(self, center_x, center_y, radius, start, end):
     start = np.pi * start / 180
     end = np.pi * end / 180
-    length = radius * (end-start)
+    length = np.abs(radius * (end-start))
     max_idx = int(np.floor((length / self.scale) * self.resolution))
 
     y = self.scale * self.cK[:max_idx,:max_idx] @ npr.randn(max_idx)
