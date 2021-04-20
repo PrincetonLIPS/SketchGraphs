@@ -11,6 +11,8 @@ import pickle
 import typing
 import queue
 
+from typing import Generator, Iterable, List, Optional, Tuple, Sequence, Union
+
 import numpy as np
 import torch
 from torch import multiprocessing
@@ -23,6 +25,7 @@ from sketchgraphs.pipeline.graph_model import quantization
 
 from sketchgraphs_models import training
 from sketchgraphs_models.autoconstraint import dataset, model as auto_model
+from sketchgraphs_models.graph.dataset import _sparse_feature_to_torch
 
 
 class InferenceRequest(typing.NamedTuple):
@@ -133,7 +136,9 @@ def mask_from_satisfied(node_ops):
 
 
 class ConstraintGenerator:
-    def __init__(self, node_ops, max_edges=100, seed=2, node_features=None, mask=None):
+    edge_ops: List[datalib.EdgeOp]
+
+    def __init__(self, node_ops: typing.Sequence[datalib.NodeOp], max_edges=100, seed=2, node_features=None, mask=None):
         assert len(node_ops) >= 2
         self.node_ops = node_ops
         self.edge_ops = []
@@ -168,15 +173,15 @@ class ConstraintGenerator:
             return
 
         current_node = self.node_ops[self.current_op]
-        if not current_node.label.startswith('SN'):
+        if not isinstance(current_node.label, datalib.SubnodeType):
             # Not currently looking at subnode, just skip
             return
 
         for i in reversed(range(self.current_op)):
-            if self.node_ops[i].label.startswith('SN'):
+            if isinstance(self.node_ops[i].label, datalib.SubnodeType):
                 continue
 
-            self.edge_ops.append(datalib.EdgeOp('SUBNODE', i, self.current_op))
+            self.edge_ops.append(datalib.EdgeOp(datalib.ConstraintType.Subnode, (i, self.current_op)))
             break
         else:
             raise RuntimeError('Could not find node corresponding to subnode')
@@ -203,13 +208,12 @@ class ConstraintGenerator:
         label = int(torch.multinomial(probs, 1, generator=self.rng))
         self.edge_ops.append(datalib.EdgeOp(
             dataset.EDGE_TYPES_PREDICTED[label],
-            self.partner_index,
-            self.current_op))
+            (self.partner_index, self.current_op)))
         self.partner_index = None
 
         return len(self.edge_ops) == self.max_edges
 
-    def next_partner(self, partner_logits):
+    def next_partner(self, partner_logits: torch.Tensor):
         if self.partner_index is not None:
             raise ValueError('Invalid construction step, label inference pending.')
 
@@ -271,7 +275,8 @@ class PriorityItem:
 
 def _node_features(node_ops, node_feature_mappings):
     all_node_labels = torch.tensor([dataset.NODE_IDX_MAP[op.label] for op in node_ops], dtype=torch.int64)
-    sparse_node_features = node_feature_mappings.all_sparse_features(node_ops)
+    sparse_node_features = _sparse_feature_to_torch(node_feature_mappings.all_sparse_features(node_ops))
+
     return {
         'node_features': all_node_labels.share_memory_(),
         'sparse_node_features': {
@@ -280,10 +285,10 @@ def _node_features(node_ops, node_feature_mappings):
     }
 
 
-def _make_generator_from_nodes(args, max_edges, seed, node_feature_mappings, mask_function):
+def _make_generator_from_nodes(args: Tuple[int, Sequence[datalib.NodeOp]], max_edges, seed, node_feature_mappings, mask_function) -> Tuple[int, Optional[ConstraintGenerator]]:
     seq_idx, node_ops = args
 
-    if node_ops[-1].label == 'Stop':
+    if node_ops[-1].label == datalib.EntityType.Stop:
         node_ops = node_ops[:-1]
     if len(node_ops) < 2:
         return seq_idx, None
@@ -299,6 +304,8 @@ def _make_generator_from_nodes(args, max_edges, seed, node_feature_mappings, mas
 
 
 class AutoConstraintPrediction:
+    model: auto_model.AutoconstraintModel
+
     def __init__(self, model, node_feature_mappings, batch_size=32, seed=2, device=None, max_edges=100, mask_function=None):
         self.model = model
         self.node_feature_mappings = node_feature_mappings
@@ -308,7 +315,7 @@ class AutoConstraintPrediction:
         self.max_edges = max_edges
         self.mask_function = mask_function
 
-    def _node_features(self, node_ops):
+    def _node_features(self, node_ops: Sequence[datalib.NodeOp]):
         all_node_labels = torch.tensor([dataset.NODE_IDX_MAP[op.label] for op in node_ops], dtype=torch.int64)
         sparse_node_features = self.node_feature_mappings.all_sparse_features(node_ops)
         return {
@@ -317,7 +324,7 @@ class AutoConstraintPrediction:
         }
 
 
-    def _readout_batch(self, current_batch, compute_all_label_logits=False):
+    def _readout_batch(self, current_batch: Sequence[Tuple[int, ConstraintGenerator]], compute_all_label_logits=False):
         requests = [g.current_request for _, g in current_batch]
         request_features = [feature_from_request(r) for r in requests]
         batch = dataset.collate(request_features)
@@ -327,13 +334,13 @@ class AutoConstraintPrediction:
         with torch.no_grad():
             readout = self.model(batch_device, compute_all_label_logits)
 
-        edge_partner_logits = readout['edge_partner_logits'].detach().cpu()
-        edge_label_logits = readout['edge_label_logits'].detach().cpu()
+        edge_partner_logits: torch.Tensor = readout['edge_partner_logits'].detach().cpu()
+        edge_label_logits: torch.Tensor = readout['edge_label_logits'].detach().cpu()
 
         return batch, edge_label_logits, edge_partner_logits
 
 
-    def _process_batch_factorized(self, current_batch):
+    def _process_batch_factorized(self, current_batch: Sequence[Tuple[int, ConstraintGenerator]]) -> List[int]:
         batch, edge_label_logits, edge_partner_logits = self._readout_batch(current_batch)
 
         graph = batch['graph']
@@ -369,7 +376,7 @@ class AutoConstraintPrediction:
         return generators_to_finalize
 
 
-    def _process_batch_joint(self, current_batch):
+    def _process_batch_joint(self, current_batch: Sequence[Tuple[int, ConstraintGenerator]]) -> List[int]:
         batch, edge_label_logits, edge_partner_logits = self._readout_batch(
             current_batch, compute_all_label_logits=True)
 
@@ -390,7 +397,7 @@ class AutoConstraintPrediction:
 
         return generators_to_finalize
 
-    def predict(self, node_seqs, use_joint=False, num_workers=0):
+    def predict(self, node_seqs: Iterable[Sequence[datalib.NodeOp]], use_joint=False, num_workers=0) -> Generator[List[datalib.EdgeOp], None, None]:
         _make_generator = functools.partial(
             _make_generator_from_nodes,
             max_edges=self.max_edges,
@@ -398,7 +405,7 @@ class AutoConstraintPrediction:
             node_feature_mappings=self.node_feature_mappings,
             mask_function=self.mask_function)
 
-        if num_workers is not 0:
+        if num_workers != 0:
             pool = multiprocessing.Pool(num_workers)
             cg_seqs = pool.imap(_make_generator, enumerate(node_seqs), chunksize=4)
         else:
@@ -406,7 +413,7 @@ class AutoConstraintPrediction:
 
         iter_cg_seqs = iter(cg_seqs)
         node_seqs_done = False
-        current_batch = []
+        current_batch: List[Tuple[int, ConstraintGenerator]] = []
         output_buffer = queue.PriorityQueue()
         next_output_index = 0
 
@@ -424,10 +431,15 @@ class AutoConstraintPrediction:
 
                 current_batch.append((seq_idx, cg))
 
-            if use_joint:
-                generators_to_finalize = self._process_batch_joint(current_batch)
-            else:
-                generators_to_finalize = self._process_batch_factorized(current_batch)
+            try:
+                if use_joint:
+                    generators_to_finalize = self._process_batch_joint(current_batch)
+                else:
+                    generators_to_finalize = self._process_batch_factorized(current_batch)
+            except RuntimeError:
+                print('Error while processing batch of sequences, indexes are: {}'.format([i for i, _ in current_batch]))
+                raise
+
             generators_to_finalize.sort()
 
             for i in reversed(generators_to_finalize):
@@ -457,7 +469,7 @@ def feature_from_request(request: InferenceRequest):
     edge_labels = torch.tensor([dataset.EDGE_IDX_MAP[op.label] for op in request.edge_ops], dtype=torch.int64)
 
     if len(request.edge_ops) > 0:
-        incidence = torch.tensor([(op.current, op.partner) for op in request.edge_ops],
+        incidence = torch.tensor([(op.references[0], op.references[-1]) for op in request.edge_ops],
                                  dtype=torch.int64).T.contiguous()
         incidence = torch.cat((incidence, torch.flip(incidence, [0])), dim=1)
     else:
@@ -525,6 +537,7 @@ def main():
     parser.add_argument('--max_predictions', type=int, default=None)
     parser.add_argument('--use_joint', action='store_true')
     parser.add_argument('--mask', default=None, choices=list(MASK_FUNCTIONS.keys()))
+    parser.add_argument('--num_workers', type=int, default=4)
 
     args = parser.parse_args()
 
@@ -535,7 +548,7 @@ def main():
     model = model.eval().to(device)
 
     print('Loading testing data')
-    seqs = flat_array.load_dictionary_flat(np.load(args.dataset, mmap_mode='r'))['sequences']
+    seqs: Sequence[List[Union[datalib.NodeOp, datalib.EdgeOp]]] = flat_array.load_dictionary_flat(np.load(args.dataset, mmap_mode='r'))['sequences']
 
     prediction = AutoConstraintPrediction(
         model, node_feature_mapping,
@@ -550,14 +563,19 @@ def main():
         (seqs[i] for i in range(length)), 2)
 
     input_node_ops = ([op for op in seq if isinstance(op, datalib.NodeOp)] for seq in input_seq_prediction)
-    prediction_output = prediction.predict(input_node_ops, use_joint=args.use_joint, num_workers=4)
+    prediction_output = prediction.predict(input_node_ops, use_joint=args.use_joint, num_workers=args.num_workers)
 
 
-    precision = np.empty(length, dtype=np.float)
-    recall = np.empty(length, dtype=np.float)
+    precision = np.empty(length, dtype=np.float64)
+    recall = np.empty(length, dtype=np.float64)
     ops = []
 
-    for i, (predicted_edge_ops, original_ops) in enumerate(tqdm.tqdm(zip(prediction_output, input_seq_verification), total=length)):
+    prediction_and_truth = zip(prediction_output, input_seq_verification)
+    prediction_and_truth = tqdm.tqdm(prediction_and_truth, total=length, smoothing=0.01)
+
+    predicted_edge_ops: List[datalib.EdgeOp]
+
+    for i, (predicted_edge_ops, original_ops) in enumerate(prediction_and_truth):
         node_ops, edge_ops = split_ops(original_ops)
         ops.append({
             'node_ops': node_ops,
@@ -565,9 +583,9 @@ def main():
             'predicted_edge_ops': predicted_edge_ops,
         })
 
-        predicted_edge_ops = set((e.label, e.partner, e.current)
+        predicted_edge_ops = set((e.label, e.references[0], e.references[-1])
                                   for e in predicted_edge_ops if e.label != sketch.ConstraintType.Subnode)
-        edge_ops = set((e.label, e.partner, e.current)
+        edge_ops = set((e.label, e.references[0], e.references[-1])
                         for e in edge_ops if e.label != sketch.ConstraintType.Subnode)
 
         num_correct_edge_ops = len(edge_ops & predicted_edge_ops)

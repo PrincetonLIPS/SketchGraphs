@@ -20,7 +20,7 @@ class NodeOp(typing.NamedTuple):
 
     An entity is specified by a label, along with a dictionary of parameters.
     """
-    label: EntityType
+    label: typing.Union[EntityType, SubnodeType]
     parameters: dict = {}
 
 
