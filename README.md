@@ -46,7 +46,7 @@ The following data files are provided:
   binary format. This dataset is similar to the sequence dataset, but simplified by filtering out sketches
   that are too large or too small, and only includes a simplified set of entities and constraints (while still
   capturing a large portion of the data). Additionally, this dataset has been split into training, testing and
-  validation splits for convenience. We train our models on this subset of the data. You can find download the splits
+  validation splits for convenience. We train our models on this subset of the data. You can download the splits
   here: [train](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_train.npy)
   [validation](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_validation.npy)
   [test](https://sketchgraphs.cs.princeton.edu/sequence/sg_t16_test.npy)
@@ -66,8 +66,8 @@ For more details, please refer to https://princetonlips.github.io/SketchGraphs/m
 ## Citation
 If you use this dataset in your research, please cite:
 ```
-@incollection{SketchGraphs,
-  title={SketchGraphs: A Large-Scale Dataset for Modeling Relational Geometry in Computer-Aided Design},
+@inproceedings{SketchGraphs,
+  title={Sketch{G}raphs: A Large-Scale Dataset for Modeling Relational Geometry in Computer-Aided Design},
   author={Seff, Ari and Ovadia, Yaniv and Zhou, Wenda and Adams, Ryan P.},
   booktitle={ICML 2020 Workshop on Object-Oriented Learning},
   year={2020}
