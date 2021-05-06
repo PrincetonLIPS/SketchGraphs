@@ -40,9 +40,6 @@ def main():
                         help='Number of training epochs.')
     parser.add_argument('--num_workers', type=int, default=0,
                         help='Number of dataloader workers.')
-
-    parser.add_argument('--disable_entity_features', action='store_true',
-                        help='Disable using and predicting entity features')
     parser.add_argument('--disable_edge_features', action='store_true',
                         help='Disable using and predicting edge features')
 
@@ -50,6 +47,7 @@ def main():
 
     args = vars(parser.parse_args())
     args['dataset_test'] = None
+    args['disable_entity_features'] = True
 
     print('Loading dataset')
     dataloader, _, batches_per_epoch, _, _ = initialize_datasets(args)

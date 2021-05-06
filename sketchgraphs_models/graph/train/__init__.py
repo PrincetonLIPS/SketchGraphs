@@ -49,7 +49,7 @@ def _lr_schedule(epoch, warmup_epochs=5, decay_epochs=None):
 def make_model_with_arguments(feature_dimensions, args):
     return graph_model.make_graph_model(
         args['hidden_size'], feature_dimensions,
-        readout_entity_features=args.get('enable_entity_features', False),
+        readout_entity_features=not args.get('disable_entity_features', False) or args.get('force_entity_categorical_features', False),
         readout_edge_features=not args.get('disable_edge_features', False),
         readin_entity_features=False if args.get('disable_readin_entity', False) else None,
         readin_edge_features=False if args.get('disable_readin_edge', False) else None)
@@ -186,8 +186,6 @@ def get_argsparser():
     parser.add_argument('--seed', type=int, default=7)
     parser.add_argument('--world_size', type=int, default=1, help='Number of GPUs to use.')
     parser.add_argument('--profile', action='store_true', help='Whether to produce autograd profiles')
-    parser.add_argument('--enable_entity_features', action='store_true',
-                        help='Enable using and predicting numerical entity features (experimental - different from paper)')
     parser.add_argument('--disable_edge_features', action='store_true',
                         help='Disable using and predicting edge features')
 
@@ -195,6 +193,7 @@ def get_argsparser():
                         help='Disable reading in entity features')
     parser.add_argument('--disable_readin_edge', action='store_true',
                         help='Disable reading in edge features')
+    parser.add_argument('--force_entity_categorical_features', action='store_true')
 
     return parser
 
@@ -255,8 +254,12 @@ def main():
     """Default main function."""
     parser = get_argsparser()
     args = parser.parse_args()
+    args = vars(args)
 
-    if args.world_size > 1:
-        distributed_utils.train_boostrap_distributed(vars(args), run)
+    # Force entity feature prediction off (experimental - not in paper)
+    args['disable_entity_features'] = True
+
+    if args['world_size'] > 1:
+        distributed_utils.train_boostrap_distributed(args, run)
     else:
-        run(vars(args))
+        run(args)
