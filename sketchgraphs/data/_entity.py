@@ -338,7 +338,10 @@ class Line(Entity):
         endPoint = np.array(ent_info['endPoint'])
         vec = endPoint - startPoint
         length = np.linalg.norm(vec)
-        dirX, dirY = vec / length
+        if length == 0:
+            dirX, dirY = 1, 0
+        else:
+            dirX, dirY = vec / length
         pntX = (startPoint[0] + endPoint[0]) / 2
         pntY = (startPoint[1] + endPoint[1]) / 2
         startParam = -1 * length / 2
@@ -590,6 +593,16 @@ class Arc(Entity):
     def end_point(self):
         """Returns tuple representing coordinates of arc end point."""
         return self._point_at_angle_offset(self.endParam)
+
+    @property
+    def mid_point(self):
+        """Returns tuple representing coordinates of arc midpoint."""
+        start_param = self.startParam % (2*np.pi)
+        end_param = self.endParam % (2*np.pi)
+        if start_param > end_param:
+            end_param += 2*np.pi
+        mid_param = np.mean([start_param, end_param])
+        return self._point_at_angle_offset(mid_param)
 
     @property
     def center_point(self):

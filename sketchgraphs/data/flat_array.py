@@ -70,7 +70,12 @@ def save_list_flat(data, nthreads=None):
         return pack_list_flat(offsets, np.frombuffer(temp.getbuffer(), dtype=np.byte))
 
 
-def _save_single(object_):
+def _save_single(object_) -> bytes:
+    """Saves a single object to its binary representation.
+
+    The binary representation is formed by compressing the pickle'd representation
+    of the object.
+    """
     return lz4.frame.compress(pickle.dumps(object_, protocol=4), store_size=False, compression_level=9)
 
 
@@ -295,6 +300,24 @@ class FlatSerializedArray:
         if idx < 0 or idx >= len(self):
             raise IndexError('index out of range')
 
+        object_bytes = self.get_raw_bytes(idx)
+        return self.decode_raw_bytes(object_bytes)
+
+    def get_raw_bytes(self, idx: int) -> bytes:
+        """Obtain the raw compressed bytes for the object at the given index.
+
+        Parameters
+        ----------
+        idx : int
+            The index at which to obtain the data.
+
+        Returns
+        -------
+        bytes
+            A bytes sequence representing the raw (compressed) object bytes.
+            The user is expected to decode the data using pickle after decompressing
+            the obtained data. See also `decode_raw_bytes`.
+        """
         try:
             object_bytes = self._pickle_data[self._offsets[idx]:self._offsets[idx + 1]]
         except IndexError as exc:
@@ -304,7 +327,12 @@ class FlatSerializedArray:
         if torch is not None and isinstance(object_bytes, torch.Tensor):
             object_bytes = object_bytes.numpy()
 
+        return object_bytes
+
+    @staticmethod
+    def decode_raw_bytes(object_bytes: bytes):
         return pickle.loads(lz4.frame.decompress(object_bytes))
+
 
     def share_memory_(self):
         """Moves the underlying to a `torch` shared memory location.

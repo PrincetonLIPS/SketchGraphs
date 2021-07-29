@@ -275,7 +275,7 @@ def _node_features(node_ops, node_feature_mappings):
     return {
         'node_features': all_node_labels.share_memory_(),
         'sparse_node_features': {
-            k: v.share_memory_() for k, v in sparse_node_features.items()
+            k: torch.from_numpy(v).share_memory_() for k, v in sparse_node_features.items()
         }
     }
 
@@ -553,8 +553,8 @@ def main():
     prediction_output = prediction.predict(input_node_ops, use_joint=args.use_joint, num_workers=4)
 
 
-    precision = np.empty(length, dtype=np.float)
-    recall = np.empty(length, dtype=np.float)
+    precision = np.empty(length, dtype=np.float64)
+    recall = np.empty(length, dtype=np.float64)
     ops = []
 
     for i, (predicted_edge_ops, original_ops) in enumerate(tqdm.tqdm(zip(prediction_output, input_seq_verification), total=length)):

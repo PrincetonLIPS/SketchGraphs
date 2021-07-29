@@ -9,6 +9,7 @@ in order to ensure that learning is performed on adequate data.
 import argparse
 import collections
 import enum
+import functools
 import itertools
 import multiprocessing
 import traceback
@@ -37,7 +38,7 @@ class FilterReason(enum.Enum):
     Empty = 7
 
 
-def filter_sketch(sketch: Sketch, config):
+def filter_sketch(sketch: Sketch, config: dict) -> FilterReason:
     if base_filter_sketch(sketch):
         return FilterReason.Empty
 
@@ -120,7 +121,7 @@ def _sketch_iterable_from_json_dataset(config):
     )
 
 
-def _worker(config, processed_sequences, filter_config):
+def _worker(config, processed_sequences, filter_function):
     worker_idx = config['worker_idx']
     chunk_size = config['chunk_size']
 
@@ -136,7 +137,7 @@ def _worker(config, processed_sequences, filter_config):
     num_filtered_in_chunk = 0
 
     for sketch_id, sketch in sketches:
-        filter_reason = filter_sketch(sketch, filter_config)
+        filter_reason = filter_function(sketch)
 
         if filter_reason != FilterReason.Accepted:
             filtered_reasons[filter_reason] += 1
@@ -185,11 +186,11 @@ def _worker(config, processed_sequences, filter_config):
     })
 
 
-def process(dataset_path, threads, filter_config, total_sketches=None):
+def process(dataset_path, threads, filter_function, total_sketches=None):
     sequence_queue = multiprocessing.Queue()
     workers = []
 
-    chunk_size = 8192
+    chunk_size = 128
 
     common_config = {
         'dataset_path': dataset_path,
@@ -206,7 +207,7 @@ def process(dataset_path, threads, filter_config, total_sketches=None):
         workers.append(
             multiprocessing.Process(
                 target=_worker,
-                args=(config, sequence_queue, filter_config)))
+                args=(config, sequence_queue, filter_function)))
 
     for worker in workers:
         worker.start()
@@ -294,7 +295,9 @@ def main():
     if num_threads is None:
         num_threads = len(os.sched_getaffinity(0))
 
-    result = process(args.input, num_threads, filter_config, total_sketches=args.total_sketches)
+    filter_function = functools.partial(filter_sketch, config=filter_config)
+
+    result = process(args.input, num_threads, filter_function, total_sketches=args.total_sketches)
 
     print('Saving result at {0}'.format(args.output))
     np.save(args.output, result, allow_pickle=False)

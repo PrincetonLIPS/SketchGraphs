@@ -62,7 +62,7 @@ def _get_constraint_parameters(constraint: Constraint):
     return parameters
 
 
-def sketch_to_sequence(sketch, ignore_invalid_constraints=True) -> typing.List[typing.Union[NodeOp, EdgeOp]]:
+def sketch_to_sequence(sketch: Sketch, ignore_invalid_constraints=True) -> typing.List[typing.Union[NodeOp, EdgeOp]]:
     """Creates a sequence representation in terms of `NodeOp` and `EdgeOp` from the given sketch.
 
     All the entities in the sketch are converted, along with the respective constraints.
