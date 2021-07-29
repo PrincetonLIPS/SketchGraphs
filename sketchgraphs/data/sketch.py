@@ -2,6 +2,7 @@
 """
 
 from collections import OrderedDict
+from typing import Dict
 
 # pylint: disable=invalid-name, too-many-arguments, too-many-return-statements, too-many-instance-attributes, wildcard-import, unused-wildcard-import
 
@@ -10,7 +11,8 @@ from . import _entity
 from . import _constraint
 from . import _plotting
 
-from ._entity import *
+from ._entity import EntityType, SubnodeType, Entity, GenericEntity, Point, Line, Circle, Arc, Spline, Ellipse, ENTITY_TYPE_TO_CLASS
+
 from ._constraint import *
 from ._plotting import render_sketch, render_graph
 
@@ -23,6 +25,9 @@ class Sketch:
     and faithful manner. In particular, it can round-trip the relevant parts of the JSON representation
     of Onshape's feature-script.
     """
+    entities: Dict[str, Entity]
+    constraints: Dict[str, Constraint]
+
     def __init__(self, entities=None, constraints=None):
         if entities is None:
             entities = OrderedDict()
@@ -77,4 +82,6 @@ class Sketch:
         return 'Sketch(n_entities={0}, n_constraints={1})'.format(len(self.entities), len(self.constraints))
 
 
-__all__ = ['Sketch'] + _entity.__all__ + _constraint.__all__ + _plotting.__all__
+__all__ = [
+    'Sketch', 'EntityType', 'SubnodeType', 'Entity', 'GenericEntity', 'Point', 'Line',
+    'Circle', 'Arc', 'Spline', 'Ellipse', 'ENTITY_TYPE_TO_CLASS'] + _constraint.__all__ + _plotting.__all__

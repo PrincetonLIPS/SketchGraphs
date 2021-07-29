@@ -186,9 +186,6 @@ def get_argsparser():
     parser.add_argument('--seed', type=int, default=7)
     parser.add_argument('--world_size', type=int, default=1, help='Number of GPUs to use.')
     parser.add_argument('--profile', action='store_true', help='Whether to produce autograd profiles')
-
-    parser.add_argument('--disable_entity_features', action='store_true',
-                        help='Disable using and predicting entity features')
     parser.add_argument('--disable_edge_features', action='store_true',
                         help='Disable using and predicting edge features')
 
@@ -257,8 +254,12 @@ def main():
     """Default main function."""
     parser = get_argsparser()
     args = parser.parse_args()
+    args = vars(args)
 
-    if args.world_size > 1:
-        distributed_utils.train_boostrap_distributed(vars(args), run)
+    # Force entity feature prediction off (experimental - not in paper)
+    args['disable_entity_features'] = True
+
+    if args['world_size'] > 1:
+        distributed_utils.train_boostrap_distributed(args, run)
     else:
-        run(vars(args))
+        run(args)

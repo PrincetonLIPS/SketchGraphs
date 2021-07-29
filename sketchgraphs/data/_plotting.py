@@ -5,6 +5,7 @@ This module implements local plotting functionality in order to render Onshape s
 """
 
 import math
+from contextlib import nullcontext
 
 import matplotlib as mpl
 import matplotlib.patches
@@ -64,7 +65,8 @@ _PLOT_BY_TYPE = {
 }
 
 
-def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_drawn=False, show_subnodes=False):
+def render_sketch(sketch, ax=None, show_axes=False, show_origin=False,
+                  hand_drawn=False, show_subnodes=False, show_points=True):
     """Renders the given sketch using matplotlib.
 
     Parameters
@@ -81,57 +83,58 @@ def render_sketch(sketch, ax=None, show_axes=False, show_origin=False, hand_draw
         Indicates whether to emulate a hand-drawn appearance
     show_subnodes : bool
         Indicates whether endpoints/centerpoints should be drawn
+    show_points : bool
+        Indicates whether Point entities should be drawn
 
     Returns
     -------
     matplotlib.Figure
         If `ax` is not provided, the newly created figure. Otherwise, `None`.
     """
-    if hand_drawn:
-        saved_rc = mpl.rcParams.copy()
-        plt.xkcd(scale=1, length=100, randomness=3)
+    with plt.xkcd(
+        scale=1, length=100, randomness=3) if hand_drawn else nullcontext():
 
-    if ax is None:
-        fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
-    else:
-        fig = None
+        if ax is None:
+            fig = plt.figure()
+            ax = fig.add_subplot(111, aspect='equal')
+        else:
+            fig = None
 
-    # Eliminate upper and right axes
-    ax.spines['right'].set_color('none')
-    ax.spines['top'].set_color('none')
+        # Eliminate upper and right axes
+        ax.spines['right'].set_color('none')
+        ax.spines['top'].set_color('none')
 
-    if not show_axes:
-        ax.set_yticklabels([])
-        ax.set_xticklabels([])
-        _ = [line.set_marker('None') for line in ax.get_xticklines()]
-        _ = [line.set_marker('None') for line in ax.get_yticklines()]
+        if not show_axes:
+            ax.set_yticklabels([])
+            ax.set_xticklabels([])
+            _ = [line.set_marker('None') for line in ax.get_xticklines()]
+            _ = [line.set_marker('None') for line in ax.get_yticklines()]
 
-        # Eliminate lower and left axes
-        ax.spines['left'].set_color('none')
-        ax.spines['bottom'].set_color('none')
+            # Eliminate lower and left axes
+            ax.spines['left'].set_color('none')
+            ax.spines['bottom'].set_color('none')
 
-    if show_origin:
-        point_size = mpl.rcParams['lines.markersize'] * 1
-        ax.scatter(0, 0, s=point_size, c='black')
+        if show_origin:
+            point_size = mpl.rcParams['lines.markersize'] * 1
+            ax.scatter(0, 0, s=point_size, c='black')
 
-    for ent in sketch.entities.values():
-        sketch_fn = _PLOT_BY_TYPE.get(type(ent))
-        if sketch_fn is None:
-            continue
-        sketch_fn(ax, ent, show_subnodes=show_subnodes)
+        for ent in sketch.entities.values():
+            sketch_fn = _PLOT_BY_TYPE.get(type(ent))
+            if isinstance(ent, Point):
+                if not show_points:
+                    continue
+            if sketch_fn is None:
+                continue
+            sketch_fn(ax, ent, show_subnodes=show_subnodes)
 
-    # Rescale axis limits
-    ax.relim()
-    ax.autoscale_view()
+        # Rescale axis limits
+        ax.relim()
+        ax.autoscale_view()
 
-    if hand_drawn:
-        mpl.rcParams.update(saved_rc)
-
-    return fig
+        return fig
 
 
-def render_graph(graph, filename):
+def render_graph(graph, filename, show_node_idxs=False):
     """Renders the given pgv.AGraph to an image file.
 
     Parameters
@@ -140,11 +143,17 @@ def render_graph(graph, filename):
         The graph to render
     filename : string
         Where to save the image file
+    show_node_idxs: bool
+        If true, append node indexes to their labels
+
 
     Returns
     -------
     None
     """
+    if show_node_idxs:
+        for idx, node in enumerate(graph.nodes()):
+            node.attr['label'] += ' (' + str(idx) + ')'
     graph.layout('dot')
     graph.draw(filename)
 

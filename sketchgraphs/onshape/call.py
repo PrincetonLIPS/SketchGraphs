@@ -164,13 +164,54 @@ def get_info(url, sketch_name=None, logging=False):
             raise ValueError("No sketch found with given name.")
     return sketch_info
 
+
+def get_states(url, logging=False):
+    """Retrieves states of sketches in a part.
+
+    If there are no issues with a sketch, the feature state is `OK`. If there
+    are issues, e.g., unsolved constraints, the state is `WARNING`. All sketches
+    in the queried PartStudio must have unique names.
+
+    Parameters
+    ----------
+    url : str
+        URL of Onshape PartStudio
+    logging : bool
+        Whether to log API messages (default False)
+
+    Returns
+    -------
+    sketch_states : dict
+        A dictionary containing sketch names as keys and associated states as
+        values
+    """
+    # Get features for the given part url
+    features = get_features(url, logging=logging)
+    # Gather all feature states
+    feat_states = {f['key']:f['value']['message']['featureStatus']
+        for f in features['featureStates']}
+    # Gather sketch states
+    sketch_states = {}
+    for feat in features['features']:
+        if feat['typeName'] != 'BTMSketch':
+            continue
+        sk_name = feat['message']['name']
+        sk_id = feat['message']['featureId']
+        # Check if name already encountered
+        if sk_name in sketch_states:
+            raise ValueError("Each sketch must have a unique name.")
+        sketch_states[sk_name] = feat_states[sk_id]
+    return sketch_states
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--url', 
         help='URL of Onshape PartStudio',required=True)
     parser.add_argument('--action', 
         help='The API call to perform', required=True, 
-        choices=['add_feature', 'get_features', 'get_info', 'update_template'])
+        choices=['add_feature', 'get_features', 'get_info', 'get_states',
+                 'update_template'])
     parser.add_argument('--payload_path', 
         help='Path to payload being sent to Onshape', default=None)
     parser.add_argument('--output_path', 
@@ -208,6 +249,11 @@ def main():
         # Retrieve possibly updated states of entities in a part's sketches
         sketch_info = get_info(args.url, args.sketch_name, args.enable_logging)
         _save_or_print_resp(sketch_info, output_path=args.output_path)
+
+    elif args.action == 'get_states':
+        # Retrieve states of sketches in a part
+        sketch_states = get_states(args.url, args.enable_logging)
+        _save_or_print_resp(sketch_states, output_path=args.output_path)
     
     elif args.action == 'update_template':
         # Updates version identifiers in template
