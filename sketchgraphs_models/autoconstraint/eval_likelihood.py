@@ -35,7 +35,7 @@ def ops_to_batch(ops, node_feature_mappings):
             # First external node does not induce edge stop token
             continue
 
-        if op.label == 'SUBNODE':
+        if op.label == datalib.ConstraintType.Subnode:
             continue
 
         ops_in_graph = ops[:i]
@@ -49,7 +49,7 @@ def ops_to_batch(ops, node_feature_mappings):
             partner_index = -1
             target_edge_label = -1
         else:
-            partner_index = op.partner
+            partner_index = op.references[-1]
             target_edge_label = dataset.EDGE_IDX_MAP[op.label]
 
         features['partner_index'] = partner_index
